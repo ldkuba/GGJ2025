@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt1hlhee2lvcm"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_d3dnt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ltpki"]
+radius = 0.2
+height = 1.0
+
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_d3dnt")
+sensitivity = Vector2(0.3, 0.3)
+camera = NodePath("Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ltpki")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.314325, -0.000229836)
