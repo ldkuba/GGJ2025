@@ -39,20 +39,21 @@ func _ready() -> void:
 	debugCube = MeshInstance3D.new()
 	debugCube.mesh = SphereMesh.new()
 	debugCube.scale = Vector3(0.2, 0.2, 0.2)
-	get_tree().root.add_child(debugCube)
+	# get_tree().root.add_child(debugCube)
 
 func _get_camera_transform(portal: PortalDoor, other_portal: PortalDoor, player_camera: Camera3D) -> Transform3D:
 	var playerCamToPortal: Transform3D =  portal.global_transform.affine_inverse() * player_camera.global_transform
-	debugCube.global_transform = other_portal.global_transform * playerCamToPortal
-
-	var transform = other_portal.global_transform * playerCamToPortal
-	return transform.rotated(Vector3(0, 1, 0), PI)
-
+	# debugCube.global_transform = other_portal.global_transform * playerCamToPortal
+	var transform = other_portal.global_transform * playerCamToPortal.rotated(Vector3(0, 1, 0), PI)
+	return transform
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Set transform of portal1 camera
-	portal1.camera.global_transform = _get_camera_transform(portal1, portal2, player.camera)
+	portal1.camera.global_transform = _get_camera_transform(portal2, portal1, player.camera)
+	portal1.viewport.size = get_viewport().get_visible_rect().size
 
 	# Set transform of portal2 camera
-	portal2.camera.global_transform = _get_camera_transform(portal2, portal1, player.camera)
+	portal2.camera.global_transform = _get_camera_transform(portal1, portal2, player.camera)
+	portal2.viewport.size = get_viewport().get_visible_rect().size
 	# print("Player camera position: ", player.camera.global_position)
+
