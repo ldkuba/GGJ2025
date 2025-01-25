@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj66vxt78od73"]
+[gd_scene load_steps=8 format=3 uid="uid://cj66vxt78od73"]
 
 [ext_resource type="PackedScene" uid="uid://cgedwkdtpxat4" path="res://scenes/Level.tscn" id="1_53m68"]
 [ext_resource type="PackedScene" uid="uid://b5uy3nk4630n2" path="res://scenes/player.tscn" id="2_dmtqd"]
 [ext_resource type="PackedScene" uid="uid://tqmkeaqo0e4j" path="res://scenes/monster.tscn" id="3_46wtl"]
+[ext_resource type="PackedScene" uid="uid://hkrutug6uvr2" path="res://scenes/portal.tscn" id="4_nnc3e"]
+[ext_resource type="PackedScene" uid="uid://ddh27eydja0nk" path="res://scenes/portal_door.tscn" id="5_b3o87"]
 
 [sub_resource type="Environment" id="Environment_ldhbu"]
 background_mode = 1
@@ -34,3 +36,16 @@ navigation_mesh = SubResource("NavigationMesh_crp7t")
 
 [node name="Monster" parent="Node3D" instance=ExtResource("3_46wtl")]
 transform = Transform3D(-0.999939, 0, -0.0109954, 0, 1, 0, 0.0109954, 0, -0.999939, -26.2294, 0.539743, -4.361)
+
+[node name="Portal" parent="." node_paths=PackedStringArray("portal1", "portal2") instance=ExtResource("4_nnc3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6338, 0, 2.86297)
+portal1 = NodePath("PortalDoor")
+portal2 = NodePath("PortalDoor2")
+
+[node name="PortalDoor" parent="Portal" instance=ExtResource("5_b3o87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3172, 0, 0)
+border_color = Color(0.557252, 0.603805, 0.224158, 1)
+
+[node name="PortalDoor2" parent="Portal" instance=ExtResource("5_b3o87")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.46011, 0, 0)
+border_color = Color(0.938942, 0.505342, 0.687093, 1)
