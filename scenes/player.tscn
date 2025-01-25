@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt1hlhee2lvcm"]
+[gd_scene load_steps=9 format=3 uid="uid://b5uy3nk4630n2"]
 
-[ext_resource type="Script" path="res://scripts/character.gd" id="1_d3dnt"]
-[ext_resource type="Texture2D" uid="uid://bdouw03itchf1" path="res://assets/map.jpg" id="2_m43mp"]
-[ext_resource type="Script" path="res://scripts/map.gd" id="3_d0qn1"]
-[ext_resource type="Texture2D" uid="uid://csrhqbqdg1mpp" path="res://assets/arrow2.png" id="3_mu425"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_pp0i7"]
+[ext_resource type="Texture2D" uid="uid://bdouw03itchf1" path="res://assets/map.jpg" id="2_d4ypn"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="3_y8bsy"]
+[ext_resource type="Texture2D" uid="uid://csrhqbqdg1mpp" path="res://assets/arrow2.png" id="4_2mowp"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ltpki"]
-radius = 0.2
-height = 1.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ett2v"]
+radius = 0.3
+height = 1.8
 
 [sub_resource type="Animation" id="Animation_ra3vm"]
 length = 0.001
@@ -155,33 +155,37 @@ _data = {
 "toggle_map": SubResource("Animation_dh8nd")
 }
 
-[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera")]
 collision_layer = 3
-script = ExtResource("1_d3dnt")
-sensitivity = Vector2(0.3, 0.3)
-camera = NodePath("Camera3D")
+script = ExtResource("1_pp0i7")
+head = NodePath("Head")
+camera = NodePath("Head/CameraContainer/Camera3D")
+mouse_sensitivity = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_ltpki")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_ett2v")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.314325, -0.000229836)
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="Map" type="Sprite3D" parent="Camera3D" node_paths=PackedStringArray("animation_player", "overlay", "player")]
+[node name="CameraContainer" type="Node3D" parent="Head"]
+
+[node name="Camera3D" type="Camera3D" parent="Head/CameraContainer"]
+
+[node name="Map" type="Sprite3D" parent="Head/CameraContainer/Camera3D" node_paths=PackedStringArray("animation_player", "overlay")]
 transform = Transform3D(-3.61999e-07, 0, 0.1, 0, 0.1, 0, -0.1, 0, -3.61999e-07, -0.276292, -0.418612, 0.000975103)
-texture = ExtResource("2_m43mp")
-script = ExtResource("3_d0qn1")
+texture = ExtResource("2_d4ypn")
+script = ExtResource("3_y8bsy")
 animation_player = NodePath("AnimationPlayer")
 overlay = NodePath("Overlay")
-player = NodePath("../..")
 level_dimensions = Vector2(10, 10)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Map"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/CameraContainer/Camera3D/Map"]
 libraries = {
 "": SubResource("AnimationLibrary_3ajfn")
 }
 
-[node name="Overlay" type="Sprite3D" parent="Camera3D/Map"]
+[node name="Overlay" type="Sprite3D" parent="Head/CameraContainer/Camera3D/Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
-texture = ExtResource("3_mu425")
+texture = ExtResource("4_2mowp")

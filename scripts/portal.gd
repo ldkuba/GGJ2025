@@ -10,7 +10,7 @@ var debugCube: MeshInstance3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_tree().root.find_child("Character", true, false) as Player
+	player = get_tree().root.find_child("Player", true, false) as Player
 	if player == null:
 		printerr("Character node not found")
 		return

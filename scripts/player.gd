@@ -1,11 +1,10 @@
-class_name Glayer
+class_name Player
 extends CharacterBody3D
-
-
 ## Resolution and FPS independent camera controller made by YoSoyFreeman.
 
 ## Head node.
 @export var head : Node3D
+@export var camera: Camera3D
 
 @export_category("Settings")
 @export_group("Camera")
