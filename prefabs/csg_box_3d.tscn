@@ -1,6 +1,15 @@
-[gd_scene format=3 uid="uid://bcxnxj0n6ovjr"]
+[gd_scene load_steps=3 format=3 uid="uid://bcxnxj0n6ovjr"]
+
+[ext_resource type="Texture2D" uid="uid://dkah4v4fwnuig" path="res://assets/Bathhouse wall 2.png" id="1_kdgy7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ecsr"]
+albedo_texture = ExtResource("1_kdgy7")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="CSGBox3D" type="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -1)
+material_override = SubResource("StandardMaterial3D_0ecsr")
 snap = 0.25
 size = Vector3(2, 4, 2)

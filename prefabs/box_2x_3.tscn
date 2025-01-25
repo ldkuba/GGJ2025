@@ -1,6 +1,16 @@
-[gd_scene format=3 uid="uid://cbtbjh8bs1nw1"]
+[gd_scene load_steps=3 format=3 uid="uid://cbtbjh8bs1nw1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hxe6f"]
+load_path = "res://.godot/imported/Bathhouse wall 1-1.png-1a400065c19b7b7f5109aaf40b93b8c9.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfand"]
+albedo_texture = SubResource("CompressedTexture2D_hxe6f")
+uv1_scale = Vector3(0.255, 0.255, 0.255)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="BOX_2x3" type="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, -1)
+material_override = SubResource("StandardMaterial3D_gfand")
 snap = 0.25
 size = Vector3(3, 4, 2)
