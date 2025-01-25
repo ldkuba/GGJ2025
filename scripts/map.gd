@@ -3,6 +3,8 @@ extends Sprite3D
 @export var animation_player: AnimationPlayer
 @export var overlay: Sprite3D
 @export var player: Node3D
+@export var level_dimensions: Vector2
+@export var level_offset: Vector2
 var map_visible := false
 
 # Called when the node enters the scene tree for the first time.
@@ -21,5 +23,5 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if map_visible and player and overlay:
-		# Update overlay rotation to match player's Y rotation
 		overlay.rotation.z = player.rotation.y
+	
