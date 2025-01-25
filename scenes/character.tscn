@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt1hlhee2lvcm"]
+[gd_scene load_steps=9 format=3 uid="uid://bt1hlhee2lvcm"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_d3dnt"]
 [ext_resource type="Texture2D" uid="uid://bdouw03itchf1" path="res://assets/map.jpg" id="2_m43mp"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="3_d0qn1"]
+[ext_resource type="Texture2D" uid="uid://csrhqbqdg1mpp" path="res://assets/arrow2.png" id="3_mu425"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ltpki"]
 radius = 0.2
@@ -166,11 +168,20 @@ shape = SubResource("CapsuleShape3D_ltpki")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.314325, -0.000229836)
 
-[node name="Map" type="Sprite3D" parent="Camera3D"]
+[node name="Map" type="Sprite3D" parent="Camera3D" node_paths=PackedStringArray("animation_player", "overlay", "player")]
 transform = Transform3D(-3.61999e-07, 0, 0.1, 0, 0.1, 0, -0.1, 0, -3.61999e-07, -0.276292, -0.418612, 0.000975103)
 texture = ExtResource("2_m43mp")
+script = ExtResource("3_d0qn1")
+animation_player = NodePath("AnimationPlayer")
+overlay = NodePath("Overlay")
+player = NodePath("../..")
+level_dimensions = Vector2(10, 10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Map"]
 libraries = {
 "": SubResource("AnimationLibrary_3ajfn")
 }
+
+[node name="Overlay" type="Sprite3D" parent="Camera3D/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+texture = ExtResource("3_mu425")
