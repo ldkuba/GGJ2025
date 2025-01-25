@@ -4,8 +4,6 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-@onready var animation_player: AnimationPlayer = $Camera3D/Map/AnimationPlayer
-var map_visible := false
 
 var mouse_input: Vector2 = Vector2.ZERO
 @export var sensitivity: Vector2 = Vector2(0.1, 0.1)
@@ -22,13 +20,6 @@ func _input(event: InputEvent) -> void:
 		pass
 	elif event is InputEventMouseMotion:
 		mouse_input = event.relative
-	elif event.is_action_pressed("toggle_map"): # should this be here or in a sperate script?
-		map_visible = not map_visible
-		print("map visible: ", map_visible)
-		if map_visible:
-			animation_player.play("toggle_map")
-		else:
-			animation_player.play_backwards("toggle_map")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
