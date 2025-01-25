@@ -55,9 +55,6 @@ shape = SubResource("ConcavePolygonShape3D_eqnxj")
 [node name="Character" parent="." instance=ExtResource("1_hiqcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.40463, 0.952777, 5.1088)
 
-[node name="Monster" parent="." instance=ExtResource("2_5h4xw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.88016)
-
 [node name="CSGBox3D" type="CSGBox3D" parent="." groups=["navigation_mesh_source_group"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 use_collision = true
@@ -83,3 +80,6 @@ size = Vector3(9.40808, 2.82129, 2.44104)
 transform = Transform3D(0.574005, 0, 0.818852, 0, 1, 0, -0.818852, 0, 0.574005, 1.86053, 0.910645, 0.735491)
 operation = 2
 size = Vector3(9.40808, 2.82129, 2.44104)
+
+[node name="Monster" parent="." instance=ExtResource("2_5h4xw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41171, 0.5, 0.32209)

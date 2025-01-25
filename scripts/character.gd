@@ -15,10 +15,8 @@ var mouse_input: Vector2 = Vector2.ZERO
 func _init() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _process(delta: float) -> void:
-	pass
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
 		pass

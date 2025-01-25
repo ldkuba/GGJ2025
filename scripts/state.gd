@@ -4,7 +4,7 @@ extends Node
 
 @onready var monster: Monster = owner as Monster
 
-
+@warning_ignore("unused_parameter")
 func enter(msg: Dictionary = {}) -> void:
 	pass
 
@@ -12,10 +12,10 @@ func enter(msg: Dictionary = {}) -> void:
 func exit() -> void:
 	pass
 
-
+@warning_ignore("unused_parameter")
 func update(delta: float) -> void:
 	pass
 
-
+@warning_ignore("unused_parameter")
 func fixed_update(delta: float) -> void:
 	pass
