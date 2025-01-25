@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://vxmymrpdrp3n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxhwp"]
+albedo_color = Color(0.682955, 0.783533, 0.996614, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58s2b"]
+albedo_color = Color(1, 0.683362, 0.7299, 1)
+
+[node name="Bubbledimension" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_lxhwp")
+size = Vector3(6, 1, 18)
+
+[node name="Ceiling" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_lxhwp")
+size = Vector3(6, 1, 18)
+
+[node name="WallLeft" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, 0)
+material_override = SubResource("StandardMaterial3D_58s2b")
+size = Vector3(1, 4, 18)
+
+[node name="WallRight" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 0)
+material_override = SubResource("StandardMaterial3D_58s2b")
+size = Vector3(1, 4, 18)
+
+[node name="WallTop" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8.5)
+material_override = SubResource("StandardMaterial3D_58s2b")
+size = Vector3(4, 4, 1)
+
+[node name="WallBottom" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8.5)
+material_override = SubResource("StandardMaterial3D_58s2b")
+size = Vector3(4, 4, 1)

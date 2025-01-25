@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://co4dpb6bn1dlg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gffds"]
+albedo_color = Color(0.682353, 0.784314, 0.996078, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pddiw"]
+albedo_color = Color(1, 0.682353, 0.729412, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmtur"]
+albedo_color = Color(1, 0.682353, 0.729412, 1)
+
+[node name="Bubbledimension" type="Node3D"]
+
+[node name="Floor" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_gffds")
+radius = 8.0
+height = 1.0
+sides = 64
+
+[node name="Ceiling" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_gffds")
+radius = 8.0
+height = 1.0
+sides = 64
+
+[node name="Wall" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+material_override = SubResource("StandardMaterial3D_pddiw")
+radius = 8.0
+height = 4.0
+sides = 64
+
+[node name="Wall2" type="CSGCylinder3D" parent="Wall"]
+material_override = SubResource("StandardMaterial3D_jmtur")
+operation = 2
+radius = 7.0
+height = 4.0
+sides = 64
