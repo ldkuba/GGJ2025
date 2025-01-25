@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhk2wloa17xlt"]
+
+[node name="LBOX_3x4_invert" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 10.5)
+size = Vector3(4, 4, 1)
+
+[node name="LBOX_3x5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -2.5)
+size = Vector3(1, 4, 4)
