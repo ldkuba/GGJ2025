@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddh27eydja0nk"]
+
+[ext_resource type="Script" path="res://scripts/portal_door.gd" id="1_dx800"]
+[ext_resource type="Shader" path="res://shaders/portal_door.gdshader" id="2_g7hgc"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ud13i"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vudy7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5kyu"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_g7hgc")
+shader_parameter/albedo_texture = SubResource("ViewportTexture_vudy7")
+
+[sub_resource type="BoxMesh" id="BoxMesh_5htel"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="PortalDoor" type="Node3D" node_paths=PackedStringArray("mesh", "camera", "viewport")]
+script = ExtResource("1_dx800")
+mesh = NodePath("PortalMesh")
+camera = NodePath("SubViewport/Camera")
+viewport = NodePath("SubViewport")
+
+[node name="PortalMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 1, 0)
+layers = 0
+cast_shadow = 0
+mesh = SubResource("QuadMesh_ud13i")
+surface_material_override/0 = SubResource("ShaderMaterial_y5kyu")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(512, 1024)
+
+[node name="Camera" type="Camera3D" parent="SubViewport"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Camera"]
+mesh = SubResource("BoxMesh_5htel")

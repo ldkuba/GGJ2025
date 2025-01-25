@@ -1,7 +1,6 @@
 class_name Player
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 @onready var animation_player: AnimationPlayer = $Camera3D/Map/AnimationPlayer
@@ -19,7 +18,11 @@ func _init() -> void:
 func _input(event: InputEvent) -> void:
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
-		pass
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	elif event is InputEventKey:
+		if event.keycode == KEY_ESCAPE:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	elif event is InputEventMouseMotion:
 		mouse_input = event.relative
 	elif event.is_action_pressed("toggle_map"): # should this be here or in a sperate script?
