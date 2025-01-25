@@ -14,8 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dkah4v4fwnuig" path="res://assets/Bathhouse wall 2.png" id="12_1tc5d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fux2u"]
+albedo_color = Color(0.518132, 0.0655929, 0, 1)
 albedo_texture = ExtResource("1_agcbg")
-uv1_scale = Vector3(30, 30, 30)
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dv7h3"]
 albedo_texture = ExtResource("2_f1egd")
@@ -216,115 +217,140 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1594, 0, -19.0731)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 4.5)
 material_override = SubResource("StandardMaterial3D_fux2u")
 snap = 1.0
+use_collision = true
 size = Vector3(38, 1, 29)
 
 [node name="BorderLeft" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 2, 4)
 material_override = SubResource("StandardMaterial3D_dv7h3")
+use_collision = true
 size = Vector3(1, 4, 30)
 
 [node name="BorderRight" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 2, 4)
 material_override = SubResource("StandardMaterial3D_ynj0v")
+use_collision = true
 size = Vector3(1, 4, 30)
 
 [node name="BorderTop" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10.5)
 material_override = SubResource("StandardMaterial3D_pwo84")
+use_collision = true
 size = Vector3(36.5, 4, 1)
 
 [node name="BorderBottom" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 18.5)
 material_override = SubResource("StandardMaterial3D_xvn8c")
+use_collision = true
 size = Vector3(36, 4, 1)
 
 [node name="IBOX_1x1" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, 3)
 material_override = SubResource("StandardMaterial3D_wx8nm")
+use_collision = true
 size = Vector3(2, 4, 4)
 material = null
 
 [node name="IBOX_1x6" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.5, 2, -2.5)
 material_override = SubResource("StandardMaterial3D_ani17")
+use_collision = true
 size = Vector3(1, 4, 9)
 material = null
 
 [node name="IBOX_1x7" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.5, 2, -3.5)
 material_override = SubResource("StandardMaterial3D_gms15")
+use_collision = true
 size = Vector3(1, 4, 5)
 material = null
 
 [node name="IBOX_1x8" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, 2, -5.5)
 material_override = SubResource("StandardMaterial3D_lmj7i")
+use_collision = true
 size = Vector3(1, 4, 4)
 material = null
 
 [node name="IBOX_1x9" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.5, 2, -8)
 material_override = SubResource("StandardMaterial3D_qphev")
+use_collision = true
 size = Vector3(1, 4, 4)
 material = null
 
 [node name="BOX_2x3" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17, 2, 11.5)
+use_collision = true
 
 [node name="CSGBox3D" parent="." instance=ExtResource("5_75sjb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 2, 17)
+use_collision = true
 
 [node name="CSGBox3D17" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.5, 2, 6)
+use_collision = true
 
 [node name="IBOX_1x10" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 2, 14.5)
 material_override = SubResource("StandardMaterial3D_7kn58")
+use_collision = true
 size = Vector3(1, 4, 4)
 material = null
 
 [node name="LBOX_2x3" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -13, 2, 14.5)
+use_collision = true
 
 [node name="CSGBox3D18" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 13.5)
+use_collision = true
 
 [node name="CSGBox3D19" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 17.5)
+use_collision = true
 
 [node name="IBOX_1x2" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, 14.5)
 material_override = SubResource("StandardMaterial3D_togg8")
+use_collision = true
 material = null
 
 [node name="LBOX_3x5_invert" parent="." instance=ExtResource("7_ygcrl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 2, 10)
+use_collision = true
 
 [node name="LBOX_3x6" parent="." instance=ExtResource("8_evk2x")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.5, 2, 10)
 snap = 0.25
+use_collision = true
 
 [node name="LBOX_3x7" parent="." instance=ExtResource("8_evk2x")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.5, 2, 8)
 snap = 0.25
+use_collision = true
 
 [node name="LBOX_2x4" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 17.5)
+use_collision = true
 
 [node name="IBOX_1x3" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2, 9.5)
 material_override = SubResource("StandardMaterial3D_grvgo")
+use_collision = true
 material = null
 
 [node name="IBOX_1x4" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, 9.5)
 material_override = SubResource("StandardMaterial3D_xa6w5")
+use_collision = true
 material = null
 
 [node name="IBOX_1x11" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 2, 6.5)
 material_override = SubResource("StandardMaterial3D_0mhrx")
 snap = 0.125
+use_collision = true
 size = Vector3(1, 4, 8)
 material = null
 
@@ -332,193 +358,241 @@ material = null
 transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, -4.37114e-08, 8.74228e-08, -4.37114e-08, -1, -0.5, 2, 14)
 material_override = SubResource("StandardMaterial3D_ki0gg")
 snap = 0.125
+use_collision = true
 size = Vector3(1, 4, 8)
 material = null
 
 [node name="BOX_2x4" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 17.5)
+use_collision = true
 size = Vector3(5, 4, 1)
 
 [node name="IBOX_1x5" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, 14.5)
 material_override = SubResource("StandardMaterial3D_g6s07")
+use_collision = true
 material = null
 
 [node name="IBOX_1x13" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2, 16.5)
 material_override = SubResource("StandardMaterial3D_3vqh6")
+use_collision = true
 material = null
 
 [node name="IBOX_1x14" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 2, 13.5)
 material_override = SubResource("StandardMaterial3D_c5qp0")
+use_collision = true
 material = null
 
 [node name="IBOX_1x15" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 2, 17)
 material_override = SubResource("StandardMaterial3D_yxpy3")
+use_collision = true
 size = Vector3(1, 4, 2)
 material = null
 
 [node name="BOX_2x5" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 2, 10.5)
+use_collision = true
 
 [node name="IBOX_1x16" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 2, 9.5)
 material_override = SubResource("StandardMaterial3D_0aika")
+use_collision = true
 size = Vector3(1, 4, 4)
 material = null
 
 [node name="BOX_2x6" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 2, 7.5)
+use_collision = true
 size = Vector3(1, 4, 2)
 
 [node name="IBOX_1x17" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 2, 6.5)
 material_override = SubResource("StandardMaterial3D_bbehj")
+use_collision = true
 size = Vector3(1, 4, 4)
 material = null
 
 [node name="BOX_2x7" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.5, 2, 14)
+use_collision = true
 size = Vector3(4, 4, 3)
 
 [node name="BOX_2x8" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.5, 2, 9)
+use_collision = true
 size = Vector3(6, 4, 3)
 
 [node name="CSGBox3D5" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 6.5)
+use_collision = true
 
 [node name="CSGBox3D2" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 1.5)
+use_collision = true
 
 [node name="CSGBox3D3" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 3.5)
+use_collision = true
 
 [node name="CSGBox3D4" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.5, 2, 0)
+use_collision = true
 
 [node name="IBOX_1x18" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 3.5)
 material_override = SubResource("StandardMaterial3D_s55xk")
+use_collision = true
 material = null
 
 [node name="IBOX_1x19" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, -0.5)
 material_override = SubResource("StandardMaterial3D_22n76")
+use_collision = true
 material = null
 
 [node name="CSGBox3D6" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 2, 1.5)
+use_collision = true
 
 [node name="CSGBox3D7" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 3.5)
+use_collision = true
 
 [node name="CSGBox3D8" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 2, 0)
+use_collision = true
 
 [node name="IBOX_1x20" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, 3.5)
 material_override = SubResource("StandardMaterial3D_de6sx")
+use_collision = true
 material = null
 
 [node name="IBOX_1x21" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2, -0.5)
 material_override = SubResource("StandardMaterial3D_ejkfe")
+use_collision = true
 material = null
 
 [node name="IBOX_1x22" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, 2)
 material_override = SubResource("StandardMaterial3D_k7ih4")
+use_collision = true
 size = Vector3(1, 4, 2)
 material = null
 
 [node name="CSGBox3D9" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, -1.5)
+use_collision = true
 
 [node name="LBOX_2x5" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 2, 0)
+use_collision = true
 
 [node name="LBOX_2x7" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -1.5)
+use_collision = true
 
 [node name="LBOX_2x6" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7.5, 2, 3)
+use_collision = true
 
 [node name="IBOX_1x23" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2, -2.5)
 material_override = SubResource("StandardMaterial3D_f0nbt")
+use_collision = true
 size = Vector3(1, 4, 3)
 material = null
 
 [node name="CSGBox3D10" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.5, 2, 2)
+use_collision = true
 
 [node name="BOX_2x9" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2, 4)
+use_collision = true
 
 [node name="BOX_2x10" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17, 2, -0.5)
+use_collision = true
 
 [node name="LBOX_2x8" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.5, 2, 4)
+use_collision = true
 
 [node name="BOX_2x11" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 2, -4.5)
+use_collision = true
 size = Vector3(1, 4, 2)
 
 [node name="CSGBox3D11" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 16, 2, -8.5)
+use_collision = true
 
 [node name="LBOX_2x9" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.5, 2, -8)
+use_collision = true
 
 [node name="IBOX_1x24" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, -8.5)
 material_override = SubResource("StandardMaterial3D_eywt2")
+use_collision = true
 material = null
 
 [node name="BOX_2x12" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2, -9)
+use_collision = true
 
 [node name="IBOX_1x25" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -7.5)
 material_override = SubResource("StandardMaterial3D_deo8f")
+use_collision = true
 size = Vector3(1, 4, 3)
 material = null
 
 [node name="CSGBox3D12" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.5, 2, -6.5)
+use_collision = true
 
 [node name="IBOX_1x26" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 2, -6.5)
 material_override = SubResource("StandardMaterial3D_gtngv")
+use_collision = true
 material = null
 
 [node name="IBOX_1x27" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, 0.5)
 material_override = SubResource("StandardMaterial3D_3t6yt")
+use_collision = true
 size = Vector3(1, 4, 7)
 material = null
 
 [node name="IBOX_1x28" parent="." instance=ExtResource("3_cr3jj")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 2, -3.5)
 material_override = SubResource("StandardMaterial3D_6flgn")
+use_collision = true
 size = Vector3(1, 4, 14)
 material = null
 
 [node name="LBOX_2x10" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 2, -6.5)
+use_collision = true
 
 [node name="CSGBox3D13" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.5, 2, 0)
+use_collision = true
 
 [node name="CSGBox3D14" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 2, 3.5)
+use_collision = true
 
 [node name="CSGBox3D15" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.5, 2, 3)
+use_collision = true
 
 [node name="CSGBox3D16" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 2, -0.5)
+use_collision = true

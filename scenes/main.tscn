@@ -33,4 +33,4 @@ navigation_mesh = SubResource("NavigationMesh_crp7t")
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Monster" parent="Node3D" instance=ExtResource("3_46wtl")]
-transform = Transform3D(0.73756, 0, 0.675281, 0, 1, 0, -0.675281, 0, 0.73756, -26.2294, 0.539743, 5.34862)
+transform = Transform3D(-0.999939, 0, -0.0109954, 0, 1, 0, 0.0109954, 0, -0.999939, -26.2294, 0.539743, -4.361)
