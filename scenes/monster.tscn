@@ -11,9 +11,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_df3wy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spc4k"]
-size = Vector3(4.13184, 1.95435, 6.90479)
+size = Vector3(2.79785, 1.95435, 5.9884)
 
-[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("agent", "state_machine", "sprite_root", "front_sprite_calm", "front_sprite_hostile")]
+[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("agent", "state_machine", "sprite_root", "front_sprite_calm", "front_sprite_hostile", "vision_ray")]
 script = ExtResource("1_oyu8a")
 agent = NodePath("NavigationAgent3D")
 speed = 1.0
@@ -21,6 +21,7 @@ state_machine = NodePath("StateMachine")
 sprite_root = NodePath("Sprite")
 front_sprite_calm = NodePath("Sprite/FrontCalm")
 front_sprite_hostile = NodePath("Sprite/FrontHostile")
+vision_ray = NodePath("VisionRay")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -47,26 +48,35 @@ pixel_size = 0.001
 double_sided = false
 texture = ExtResource("3_jb35w")
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("2_51436")
-
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("3_n3kdf")
-
-[node name="Pursue" type="Node" parent="StateMachine"]
-script = ExtResource("5_dftpb")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_desired_distance = 0.5
-path_max_distance = 0.51
-
-[node name="Detection" type="Area3D" parent="."]
+[node name="Detection" type="Area3D" parent="Sprite"]
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1864, -3.61663)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite/Detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1864, -3.15844)
 shape = SubResource("BoxShape3D_spc4k")
 
-[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_51436")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("detection_area")]
+script = ExtResource("3_n3kdf")
+detection_area = NodePath("../../Sprite/Detection")
+
+[node name="Pursue" type="Node" parent="StateMachine" node_paths=PackedStringArray("search_timer")]
+script = ExtResource("5_dftpb")
+search_timer = NodePath("SearchTimer")
+
+[node name="SearchTimer" type="Timer" parent="StateMachine/Pursue"]
+wait_time = 3.0
+one_shot = true
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+path_max_distance = 0.51
+
+[node name="VisionRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47582, 0)
+collision_mask = 3

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cbtbjh8bs1nw1"]
+
+[node name="BOX_2x3" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, -1)
+snap = 0.25
+size = Vector3(3, 4, 2)
