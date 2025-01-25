@@ -175,7 +175,7 @@ script = ExtResource("3_d0qn1")
 animation_player = NodePath("AnimationPlayer")
 overlay = NodePath("Overlay")
 player = NodePath("../..")
-level_dimensions = Vector2(10, 10)
+map_size = Vector2(1.5, 1.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Map"]
 libraries = {
@@ -183,5 +183,5 @@ libraries = {
 }
 
 [node name="Overlay" type="Sprite3D" parent="Camera3D/Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 texture = ExtResource("3_mu425")
