@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cermmkh88t1nd" path="res://assets/Textures/floorsmall.jpg" id="1_agcbg"]
 [ext_resource type="PackedScene" uid="uid://xhxj25dmv7gm" path="res://prefabs/lbox_2x_3.tscn" id="1_p2lts"]
 [ext_resource type="PackedScene" uid="uid://cb3nv4eedtuhc" path="res://prefabs/ibox_1x_1.tscn" id="2_c2my5"]
-[ext_resource type="Texture2D" uid="uid://p1x2c7vbpsrx" path="res://assets/Bathhouse wall 1.png" id="2_f1egd"]
+[ext_resource type="Texture2D" uid="uid://p1x2c7vbpsrx" path="res://assets/Bathhouse Wall 1.png" id="2_f1egd"]
 [ext_resource type="PackedScene" uid="uid://dayqjklvpw1fb" path="res://prefabs/ibox_1x_6.tscn" id="3_cr3jj"]
 [ext_resource type="Texture2D" uid="uid://cv4vhrvkocbiu" path="res://assets/Bathhouse wall 1-1.png" id="3_mvak2"]
 [ext_resource type="PackedScene" uid="uid://cbtbjh8bs1nw1" path="res://prefabs/box_2x_3.tscn" id="4_dqdse"]
