@@ -11,14 +11,18 @@ extends CharacterBody3D
 @export var eye_socket: Node3D
 
 @onready var home_location: Vector3
+@onready var home_sprite_transform: Transform3D
 
 func _ready() -> void:
 	agent.target_position = global_position
 	agent.velocity_computed.connect(_on_velocity_computed)
 	home_location = global_position
+	home_sprite_transform = sprite_root.transform
+	EventBus.game_reset.connect(_on_game_reset)
 
 
 func _physics_process(_delta: float) -> void:
+	sprite_root.transform = home_sprite_transform
 	vision_ray.global_position = eye_socket.global_position
 	if NavigationServer3D.map_get_iteration_id(agent.get_navigation_map()) == 0:
 		return
@@ -36,3 +40,12 @@ func _on_velocity_computed(safe_velocity: Vector3) -> void:
 	velocity = safe_velocity
 	sprite_root.look_at(Vector3(agent.target_position.x, sprite_root.global_position.y, agent.target_position.z))
 	move_and_slide()
+
+
+func _on_game_reset() -> void:
+	state_machine.transition_to(&"Idle")
+	global_position = home_location
+	sprite_root.transform = home_sprite_transform
+	await get_tree().physics_frame
+	#state_machine.transition_to(&"Idle")
+	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5uy3nk4630n2"]
+[gd_scene load_steps=10 format=3 uid="uid://b5uy3nk4630n2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pp0i7"]
 [ext_resource type="Texture2D" uid="uid://bdouw03itchf1" path="res://assets/map.jpg" id="2_d4ypn"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="3_y8bsy"]
 [ext_resource type="Texture2D" uid="uid://csrhqbqdg1mpp" path="res://assets/arrow2.png" id="4_2mowp"]
+[ext_resource type="PackedScene" uid="uid://bl4rbkor0vnyk" path="res://scenes/death_screen.tscn" id="5_wceip"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ett2v"]
 radius = 0.3
@@ -155,9 +156,10 @@ _data = {
 "toggle_map": SubResource("Animation_dh8nd")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("death_screen", "head", "camera")]
 collision_layer = 2
 script = ExtResource("1_pp0i7")
+death_screen = NodePath("Head/CameraContainer/Camera3D/DeathScreen")
 head = NodePath("Head")
 camera = NodePath("Head/CameraContainer/Camera3D")
 mouse_sensitivity = 10.0
@@ -190,3 +192,7 @@ libraries = {
 [node name="Overlay" type="Sprite3D" parent="Head/CameraContainer/Camera3D/Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
 texture = ExtResource("4_2mowp")
+
+[node name="DeathScreen" parent="Head/CameraContainer/Camera3D" instance=ExtResource("5_wceip")]
+modulate = Color(1, 1, 1, 0)
+mouse_filter = 2

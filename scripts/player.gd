@@ -6,10 +6,12 @@ signal died
 
 var health := 5.0:
 	set = set_health
+var alive := true
 
 @onready var home_location: Transform3D
 @export var health_regain_per_second := 0.1
 @export var max_health := 5.0
+@export var death_screen: Control
 
 ## Head node.
 @export var head : Node3D
@@ -79,6 +81,7 @@ func _ready():
 
 
 func _unhandled_input(event)->void:
+	if not alive: return
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventKey:
 			if event.is_action_pressed("ui_cancel"):
@@ -101,6 +104,7 @@ func _unhandled_input(event)->void:
 
 
 func _physics_process(delta: float) -> void:
+	if not alive: return
 	health += health_regain_per_second * delta
 	
 	joystick_look(delta)
@@ -120,18 +124,18 @@ func _physics_process(delta: float) -> void:
 func joystick_look(delta) -> void:
 	return
 	## ATTENTION: Add the following inputs to your project or replace the following line with your own ones.
-	var motion: Vector2 = Input.get_vector("look_left", "look_right", "look_down", "look_up")
-
-	if joystick_exp != 1:
-		motion = motion.normalized() * pow(motion.length(), joystick_exp)
-
-	motion *= joystick_degrees_per_second
-	motion *= joystick_sensitivity
-	motion *= delta
-
-	add_yaw(motion.x)
-	add_pitch(-motion.y)
-	clamp_pitch()
+	#var motion: Vector2 = Input.get_vector("look_left", "look_right", "look_down", "look_up")
+#
+	#if joystick_exp != 1:
+		#motion = motion.normalized() * pow(motion.length(), joystick_exp)
+#
+	#motion *= joystick_degrees_per_second
+	#motion *= joystick_sensitivity
+	#motion *= delta
+#
+	#add_yaw(motion.x)
+	#add_pitch(-motion.y)
+	#clamp_pitch()
 
 
 ## Handles aim look with the mouse.
@@ -175,6 +179,7 @@ func clamp_pitch()->void:
 
 ## Accelerates the character using linear acceleration.
 func accelerate(accel: float, delta: float) -> void:
+	if not alive: return
 	var input_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_backwards", "move_forward")
 	var input_direction: Vector3 = transform.basis.orthonormalized() * Vector3(input_vector.x, 0, -input_vector.y)
 	velocity += input_direction * accel  * delta
@@ -206,12 +211,26 @@ func apply_friction(friction: float, delta: float) -> void:
 
 func set_health(value: float) -> void:
 	value = clamp(value, 0, max_health)
+	if value == health: return
 	if health > 0 and value == 0.0:
 		died.emit()
 		
 	health = value
+	alive = health > 0
 
 
 func _on_died() -> void:
+	alive = false
+	var tw := get_tree().create_tween()
+	tw.tween_property(death_screen, "modulate:a", 1.0, 2.0)
+	tw.tween_interval(2.0)
+	tw.play()
+	await tw.finished
 	health = max_health
 	global_transform = home_location
+	
+	death_screen.modulate.a = 0.0
+	get_tree().paused = true
+	EventBus.game_reset.emit()
+	await get_tree().physics_frame
+	get_tree().paused = false

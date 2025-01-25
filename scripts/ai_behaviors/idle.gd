@@ -25,7 +25,7 @@ func _on_detection_body_entered(body: Node3D) -> void:
 
 func _on_detection_body_exited(body: Node3D) -> void:
 	if body is not Player: return
-	tracking = body
+	tracking = null
 
 
 func fixed_update(_delta: float) -> void:
@@ -33,6 +33,5 @@ func fixed_update(_delta: float) -> void:
 	monster.vision_ray.target_position = (tracking.global_position - monster.vision_ray.global_position)
 	monster.vision_ray.force_raycast_update()
 	var collider := monster.vision_ray.get_collider()
-	print(collider)
 	if collider == tracking:
 		state_machine.transition_to(&"Pursue", { &"target": tracking })
