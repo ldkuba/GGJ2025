@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5uy3nk4630n2"]
+
+[ext_resource type="Script" path="res://scripts/aim_look.gd" id="1_pp0i7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ett2v"]
+radius = 0.3
+height = 1.8
+
+[node name="CharacterController" type="CharacterBody3D" node_paths=PackedStringArray("head")]
+collision_layer = 3
+script = ExtResource("1_pp0i7")
+head = NodePath("Head")
+mouse_sensitivity = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_ett2v")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CameraContainer" type="Node3D" parent="Head"]
+
+[node name="Camera3D" type="Camera3D" parent="Head/CameraContainer"]
