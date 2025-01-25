@@ -56,4 +56,3 @@ func _process(delta: float) -> void:
 	portal2.camera.global_transform = _get_camera_transform(portal1, portal2, player.camera)
 	portal2.viewport.size = get_viewport().get_visible_rect().size
 	# print("Player camera position: ", player.camera.global_position)
-

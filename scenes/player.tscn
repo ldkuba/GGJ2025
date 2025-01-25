@@ -156,12 +156,10 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera")]
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("1_pp0i7")
-mouse_sensitivity = 10.0
 head = NodePath("Head")
 camera = NodePath("Head/CameraContainer/Camera3D")
-
 mouse_sensitivity = 10.0
 ground_acceleration = 150.0
 

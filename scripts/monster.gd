@@ -8,6 +8,7 @@ extends CharacterBody3D
 @export var front_sprite_calm: Sprite3D
 @export var front_sprite_hostile: Sprite3D
 @export var vision_ray: RayCast3D
+@export var eye_socket: Node3D
 
 @onready var home_location: Vector3
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	vision_ray.global_position = eye_socket.global_position
 	if NavigationServer3D.map_get_iteration_id(agent.get_navigation_map()) == 0:
 		return
 	if agent.is_navigation_finished():

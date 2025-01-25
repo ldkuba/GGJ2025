@@ -20,7 +20,7 @@ radius = 2.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_nlltp"]
 radius = 1.9
 
-[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("agent", "state_machine", "sprite_root", "front_sprite_calm", "front_sprite_hostile", "vision_ray")]
+[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("agent", "state_machine", "sprite_root", "front_sprite_calm", "front_sprite_hostile", "vision_ray", "eye_socket")]
 collision_layer = 0
 script = ExtResource("1_oyu8a")
 agent = NodePath("NavigationAgent3D")
@@ -30,6 +30,7 @@ sprite_root = NodePath("Sprite")
 front_sprite_calm = NodePath("Sprite/FrontCalm")
 front_sprite_hostile = NodePath("Sprite/FrontHostile")
 vision_ray = NodePath("VisionRay")
+eye_socket = NodePath("EyeSocket")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -90,7 +91,11 @@ path_max_distance = 0.51
 
 [node name="VisionRay" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47582, 0)
+top_level = true
 collision_mask = 3
+
+[node name="EyeSocket" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49706, 0)
 
 [node name="DamageArea" type="Area3D" parent="."]
 script = ExtResource("8_p6age")
