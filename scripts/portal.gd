@@ -52,6 +52,21 @@ func _get_camera_transform(portal: PortalDoor, other_portal: PortalDoor, player_
 	var t: Transform3D = other_portal.global_transform * playerCamToPortal.rotated(Vector3(0, 1, 0), PI)
 	return t
 
+func _update_near_plane(portal):
+	var portal_a: Vector3 = portal.global_position + portal.global_transform.basis.x
+	var portal_b: Vector3 = portal.global_position - portal.global_transform.basis.x
+	var portal_a_xz: Vector2 = Vector2(portal_a.x, portal_a.z)
+	var portal_b_xz: Vector2 = Vector2(portal_b.x, portal_b.z)
+	var cam_xz: Vector2 = Vector2(portal.camera.global_position.x, portal.camera.global_position.z)
+	var cam_to_a: Vector2 = portal_a_xz - cam_xz
+	var cam_to_b: Vector2 = portal_b_xz - cam_xz
+	var cam_to_edge: Vector2 =  cam_to_a if cam_to_a.length() < cam_to_b.length() else cam_to_b
+	var camera_dir: Vector3 = portal.camera.global_transform.basis.z.normalized()
+	var camera_dir_xz: Vector2 = Vector2(camera_dir.x, camera_dir.z)
+	portal.camera.near = abs(cam_to_edge.dot(camera_dir_xz))
+	print("Cam to edge:", cam_to_edge.length())
+	print("Near:", portal.camera.near)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Set transform of portal1 camera
@@ -74,5 +89,9 @@ func _process(delta: float) -> void:
 		var playerRelativePortal2: Transform3D = portal2.global_transform.affine_inverse() * player.global_transform
 		player.global_transform = portal1.global_transform * playerRelativePortal2.rotated(Vector3(0, 1, 0), PI)
 		player.global_position += portal1.global_transform.basis.z * near_delta
+
+	# Update camera near clip plane
+	_update_near_plane(portal1)
+	_update_near_plane(portal2)
 
 	player_last_pos = player_pos
