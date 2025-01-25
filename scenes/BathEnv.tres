@@ -1,0 +1,18 @@
+[gd_resource type="Environment" format=3 uid="uid://car6mi44g6gdp"]
+
+[resource]
+tonemap_mode = 3
+tonemap_exposure = 0.7
+ssao_enabled = true
+ssao_radius = 2.35
+ssao_intensity = 5.03
+sdfgi_read_sky_light = false
+sdfgi_cascades = 2
+sdfgi_max_distance = 51.2
+fog_light_color = Color(0.780392, 0.74902, 0.835294, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1053
+volumetric_fog_emission = Color(0.492617, 0.68296, 0.730143, 1)
+adjustment_enabled = true
+adjustment_contrast = 1.17
+adjustment_saturation = 0.66

@@ -1,0 +1,21 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://nefqa2e8nwpl"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_hm53x"]
+
+[sub_resource type="Sky" id="Sky_pu51d"]
+resource_local_to_scene = true
+sky_material = SubResource("PanoramaSkyMaterial_hm53x")
+process_mode = 1
+
+[resource]
+background_energy_multiplier = 0.4
+sky = SubResource("Sky_pu51d")
+sky_custom_fov = 94.7
+ambient_light_color = Color(0.385493, 0.385492, 0.385492, 1)
+ambient_light_energy = 3.36
+tonemap_exposure = 4.7
+tonemap_white = 0.33
+ssao_intensity = 0.65
+sdfgi_bounce_feedback = 0.42
+sdfgi_cascades = 2
+sdfgi_max_distance = 51.2

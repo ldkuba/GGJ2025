@@ -1,4 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://co4dpb6bn1dlg"]
+[gd_scene load_steps=6 format=3 uid="uid://co4dpb6bn1dlg"]
+
+[ext_resource type="Environment" uid="uid://c6d12yarira68" path="res://scenes/BubbleEnv.tres" id="1_owhpb"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8cpg1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gffds"]
 albedo_color = Color(0.682353, 0.784314, 0.996078, 1)
@@ -11,6 +15,10 @@ albedo_color = Color(1, 0.682353, 0.729412, 1)
 
 [node name="Bubbledimension" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_owhpb")
+camera_attributes = SubResource("CameraAttributesPractical_8cpg1")
+
 [node name="Floor" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 material_override = SubResource("StandardMaterial3D_gffds")
@@ -19,8 +27,7 @@ height = 1.0
 sides = 64
 
 [node name="Ceiling" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 material_override = SubResource("StandardMaterial3D_gffds")
 radius = 8.0
 height = 1.0
@@ -39,3 +46,8 @@ operation = 2
 radius = 7.0
 height = 4.0
 sides = 64
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+light_energy = 1.646
+omni_range = 9.0
