@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 	pass
 
 func get_dimensions() -> AABB:
-	print(floor.get_path())
 	var aabb: AABB = floor.get_aabb()
-	return aabb
+	print("aabb: ", aabb)
+	return floor.global_transform * aabb

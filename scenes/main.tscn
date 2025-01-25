@@ -23,25 +23,27 @@ geometry_source_geometry_mode = 1
 [node name="Main" type="Node3D"]
 
 [node name="Level" parent="." groups=["navigation_mesh_source_group"] instance=ExtResource("1_53m68")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -19.1594, 0, -19.0731)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 37.8406, 0, 21.9269)
 
 [node name="Player" parent="." node_paths=PackedStringArray("bubble_dimensions") instance=ExtResource("2_dmtqd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1053, 0, 16.3064)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0066, 0, 57.1906)
 bubble_dimensions = [NodePath("../BubbleDimensions/Bubbledimension"), NodePath("../BubbleDimensions/Bubbledimension2")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ldhbu")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 41)
 navigation_mesh = SubResource("NavigationMesh_crp7t")
 
 [node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 41)
 
 [node name="Monster" parent="Node3D" instance=ExtResource("3_46wtl")]
 transform = Transform3D(-0.999939, 0, -0.0109954, 0, 1, 0, 0.0109954, 0, -0.999939, -26.2294, 0.539743, -4.361)
 
 [node name="Portal" parent="." node_paths=PackedStringArray("portal1", "portal2") instance=ExtResource("4_nnc3e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6338, 0, 2.86297)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3662, 0, 43.863)
 portal1 = NodePath("PortalDoor")
 portal2 = NodePath("PortalDoor2")
 
@@ -54,6 +56,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.4601
 border_color = Color(0.938942, 0.505342, 0.687093, 1)
 
 [node name="BubbleDimensions" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0, 42)
 
 [node name="Bubbledimension" parent="BubbleDimensions" instance=ExtResource("6_0c57a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.2661, 0, -2.69444)
