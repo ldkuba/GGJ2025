@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cglr6pl8i2238"]
+[gd_scene load_steps=11 format=3 uid="uid://cglr6pl8i2238"]
 
 [ext_resource type="PackedScene" uid="uid://bt1hlhee2lvcm" path="res://scenes/character.tscn" id="1_hiqcq"]
 [ext_resource type="PackedScene" uid="uid://tqmkeaqo0e4j" path="res://scenes/monster.tscn" id="2_5h4xw"]
@@ -30,7 +30,12 @@ size = Vector2(15, 15)
 data = PackedVector3Array(7.5, 0, 7.5, -7.5, 0, 7.5, 7.5, 0, -7.5, -7.5, 0, 7.5, -7.5, 0, -7.5, 7.5, 0, -7.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbw2j"]
-albedo_color = Color(0.421047, 0.166871, 0.160295, 1)
+transparency = 1
+albedo_color = Color(0.419608, 0.168627, 0.160784, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovdwf"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.466667)
 
 [node name="TestAILevel" type="Node3D"]
 
@@ -65,21 +70,25 @@ material = SubResource("StandardMaterial3D_dbw2j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.910645, 5.04955)
 operation = 2
 size = Vector3(12.3877, 2.82129, 2.44104)
+material = SubResource("StandardMaterial3D_ovdwf")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.31686, 0.910645, -0.348453)
 operation = 2
 size = Vector3(12.3877, 2.82129, 2.44104)
+material = SubResource("StandardMaterial3D_ovdwf")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.29693, 0.910645, -3.09937)
 operation = 2
 size = Vector3(9.40808, 2.82129, 2.44104)
+material = SubResource("StandardMaterial3D_ovdwf")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
 transform = Transform3D(0.574005, 0, 0.818852, 0, 1, 0, -0.818852, 0, 0.574005, 1.86053, 0.910645, 0.735491)
 operation = 2
 size = Vector3(9.40808, 2.82129, 2.44104)
+material = SubResource("StandardMaterial3D_ovdwf")
 
 [node name="Monster" parent="." instance=ExtResource("2_5h4xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41171, 0.5, 0.32209)
