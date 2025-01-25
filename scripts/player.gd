@@ -17,6 +17,11 @@ var alive := true
 @export var head : Node3D
 @export var camera: Camera3D
 
+## Bubble dimensions
+@export var bubble_dimensions: Array[BubbleDimension] = []
+var active_bubble: BubbleDimension = null
+
+
 @export_category("Settings")
 @export_group("Camera")
 
@@ -72,13 +77,23 @@ var alive := true
 ## Decay factor for air friction.
 @export_range(0, 50) var air_friction: float = 0
 
-
 func _ready():
 	Input.set_use_accumulated_input(false)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	home_location = global_transform
 	died.connect(_on_died)
+	
+	if bubble_dimensions.size() > 0:
+		print("Setting bubble dimension")
+		active_bubble = bubble_dimensions[0]
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.is_action_pressed("use_portal"):
+			print("E pressed")
+			if active_bubble != null:
+				print("Portal used")
+				active_bubble.toggle_bubble(global_transform)
 
 func _unhandled_input(event)->void:
 	if not alive: return
@@ -101,7 +116,6 @@ func _unhandled_input(event)->void:
 
 	if event is InputEventMouseMotion:
 		mouse_look(event)
-
 
 func _physics_process(delta: float) -> void:
 	if not alive: return

@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cj66vxt78od73"]
+[gd_scene load_steps=10 format=3 uid="uid://cj66vxt78od73"]
 
 [ext_resource type="PackedScene" uid="uid://cgedwkdtpxat4" path="res://scenes/Level.tscn" id="1_53m68"]
 [ext_resource type="PackedScene" uid="uid://b5uy3nk4630n2" path="res://scenes/player.tscn" id="2_dmtqd"]
 [ext_resource type="PackedScene" uid="uid://tqmkeaqo0e4j" path="res://scenes/monster.tscn" id="3_46wtl"]
 [ext_resource type="PackedScene" uid="uid://hkrutug6uvr2" path="res://scenes/portal.tscn" id="4_nnc3e"]
 [ext_resource type="PackedScene" uid="uid://ddh27eydja0nk" path="res://scenes/portal_door.tscn" id="5_b3o87"]
+[ext_resource type="PackedScene" uid="uid://c5anl3ddg0pjb" path="res://scenes/bubbledimension.tscn" id="6_0c57a"]
+[ext_resource type="PackedScene" uid="uid://co4dpb6bn1dlg" path="res://scenes/bubbledimension_round.tscn" id="7_d5tt1"]
 
 [sub_resource type="Environment" id="Environment_ldhbu"]
 background_mode = 1
@@ -23,8 +25,9 @@ geometry_source_geometry_mode = 1
 [node name="Level" parent="." groups=["navigation_mesh_source_group"] instance=ExtResource("1_53m68")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -19.1594, 0, -19.0731)
 
-[node name="Player" parent="." instance=ExtResource("2_dmtqd")]
+[node name="Player" parent="." node_paths=PackedStringArray("bubble_dimensions") instance=ExtResource("2_dmtqd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1053, 0, 16.3064)
+bubble_dimensions = [NodePath("../BubbleDimensions/Bubbledimension"), NodePath("../BubbleDimensions/Bubbledimension2")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ldhbu")
@@ -49,3 +52,11 @@ border_color = Color(0.557252, 0.603805, 0.224158, 1)
 [node name="PortalDoor2" parent="Portal" instance=ExtResource("5_b3o87")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.46011, 0, 0)
 border_color = Color(0.938942, 0.505342, 0.687093, 1)
+
+[node name="BubbleDimensions" type="Node3D" parent="."]
+
+[node name="Bubbledimension" parent="BubbleDimensions" instance=ExtResource("6_0c57a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.2661, 0, -2.69444)
+
+[node name="Bubbledimension2" parent="BubbleDimensions" instance=ExtResource("7_d5tt1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.605, 0, -0.63973)

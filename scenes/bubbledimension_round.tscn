@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://co4dpb6bn1dlg"]
+[gd_scene load_steps=9 format=3 uid="uid://co4dpb6bn1dlg"]
 
+[ext_resource type="Script" path="res://scripts/bubbledimension.gd" id="1_eghpo"]
 [ext_resource type="Environment" uid="uid://c6d12yarira68" path="res://scenes/BubbleEnv.tres" id="1_owhpb"]
+[ext_resource type="PackedScene" uid="uid://hkrutug6uvr2" path="res://scenes/portal.tscn" id="3_c4ysa"]
+[ext_resource type="PackedScene" uid="uid://ddh27eydja0nk" path="res://scenes/portal_door.tscn" id="4_3efsu"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8cpg1"]
 
@@ -13,7 +16,9 @@ albedo_color = Color(1, 0.682353, 0.729412, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmtur"]
 albedo_color = Color(1, 0.682353, 0.729412, 1)
 
-[node name="Bubbledimension" type="Node3D"]
+[node name="Bubbledimension" type="Node3D" node_paths=PackedStringArray("portals")]
+script = ExtResource("1_eghpo")
+portals = [NodePath("Portal1"), NodePath("Portal2")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_owhpb")
@@ -22,6 +27,7 @@ camera_attributes = SubResource("CameraAttributesPractical_8cpg1")
 [node name="Floor" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 material_override = SubResource("StandardMaterial3D_gffds")
+use_collision = true
 radius = 8.0
 height = 1.0
 sides = 64
@@ -36,6 +42,7 @@ sides = 64
 [node name="Wall" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 material_override = SubResource("StandardMaterial3D_pddiw")
+use_collision = true
 radius = 8.0
 height = 4.0
 sides = 64
@@ -51,3 +58,23 @@ sides = 64
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 light_energy = 1.646
 omni_range = 9.0
+
+[node name="Portal1" parent="." node_paths=PackedStringArray("portal1", "portal2") instance=ExtResource("3_c4ysa")]
+portal1 = NodePath("PortalDoorBubble")
+portal2 = NodePath("PortalDoorWorld")
+
+[node name="PortalDoorBubble" parent="Portal1" instance=ExtResource("4_3efsu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="PortalDoorWorld" parent="Portal1" instance=ExtResource("4_3efsu")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 6)
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("portal1", "portal2") instance=ExtResource("3_c4ysa")]
+portal1 = NodePath("PortalDoorBubble")
+portal2 = NodePath("PortalDoorWorld")
+
+[node name="PortalDoorBubble" parent="Portal2" instance=ExtResource("4_3efsu")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -6)
+
+[node name="PortalDoorWorld" parent="Portal2" instance=ExtResource("4_3efsu")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, -6)

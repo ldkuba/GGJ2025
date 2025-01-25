@@ -1,6 +1,7 @@
 extends Node3D
 class_name Portal
 
+# By convention portal1 is the portal in the bubble dimension and portal2 is the one in the real world
 @export var portal1: PortalDoor
 @export var portal2: PortalDoor
 
@@ -64,8 +65,6 @@ func _update_near_plane(portal):
 	var camera_dir: Vector3 = portal.camera.global_transform.basis.z.normalized()
 	var camera_dir_xz: Vector2 = Vector2(camera_dir.x, camera_dir.z)
 	portal.camera.near = abs(cam_to_edge.dot(camera_dir_xz))
-	print("Cam to edge:", cam_to_edge.length())
-	print("Near:", portal.camera.near)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
