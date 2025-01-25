@@ -175,6 +175,7 @@ script = ExtResource("3_d0qn1")
 animation_player = NodePath("AnimationPlayer")
 overlay = NodePath("Overlay")
 player = NodePath("../..")
+level_dimensions = Vector2(10, 10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Map"]
 libraries = {
