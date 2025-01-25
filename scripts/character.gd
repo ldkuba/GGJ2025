@@ -13,7 +13,6 @@ var mouse_input: Vector2 = Vector2.ZERO
 
 func _init() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	pass
 
 func _process(delta: float) -> void:
 	pass
