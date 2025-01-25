@@ -7,7 +7,9 @@ signal died
 var health := 5.0:
 	set = set_health
 
+@onready var home_location: Transform3D
 @export var health_regain_per_second := 0.1
+@export var max_health := 5.0
 
 ## Head node.
 @export var head : Node3D
@@ -72,6 +74,8 @@ var health := 5.0:
 func _ready():
 	Input.set_use_accumulated_input(false)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	home_location = global_transform
+	died.connect(_on_died)
 
 
 func _unhandled_input(event)->void:
@@ -201,7 +205,13 @@ func apply_friction(friction: float, delta: float) -> void:
 
 
 func set_health(value: float) -> void:
-	health = max(value, 0)
-	if health == 0.0:
+	value = clamp(value, 0, max_health)
+	if health > 0 and value == 0.0:
 		died.emit()
-		print("DIED")
+		
+	health = value
+
+
+func _on_died() -> void:
+	health = max_health
+	global_transform = home_location
