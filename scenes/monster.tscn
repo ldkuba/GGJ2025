@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://tqmkeaqo0e4j"]
+[gd_scene load_steps=13 format=3 uid="uid://tqmkeaqo0e4j"]
 
 [ext_resource type="Script" path="res://scripts/monster.gd" id="1_oyu8a"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="2_51436"]
@@ -7,13 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://dfq21ogowktlr" path="res://assets/sprites/bubble/EnemyBubbleAngry.png" id="3_kyxs4"]
 [ext_resource type="Script" path="res://scripts/ai_behaviors/idle.gd" id="3_n3kdf"]
 [ext_resource type="Script" path="res://scripts/ai_behaviors/pursue.gd" id="5_dftpb"]
+[ext_resource type="Script" path="res://scripts/damage_area.gd" id="8_p6age"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_df3wy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spc4k"]
 size = Vector3(2.79785, 1.95435, 5.9884)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_tywlx"]
+radius = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nlltp"]
+radius = 1.9
+
 [node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("agent", "state_machine", "sprite_root", "front_sprite_calm", "front_sprite_hostile", "vision_ray")]
+collision_layer = 0
 script = ExtResource("1_oyu8a")
 agent = NodePath("NavigationAgent3D")
 speed = 1.0
@@ -57,6 +65,9 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1864, -3.15844)
 shape = SubResource("BoxShape3D_spc4k")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Sprite/Detection"]
+shape = SubResource("SphereShape3D_tywlx")
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_51436")
 
@@ -80,3 +91,13 @@ path_max_distance = 0.51
 [node name="VisionRay" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47582, 0)
 collision_mask = 3
+
+[node name="DamageArea" type="Area3D" parent="."]
+script = ExtResource("8_p6age")
+damage_per_second = 10.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+shape = SubResource("SphereShape3D_nlltp")
+
+[connection signal="body_entered" from="DamageArea" to="DamageArea" method="_on_body_entered"]
+[connection signal="body_exited" from="DamageArea" to="DamageArea" method="_on_body_exited"]

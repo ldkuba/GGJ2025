@@ -162,6 +162,9 @@ mouse_sensitivity = 10.0
 head = NodePath("Head")
 camera = NodePath("Head/CameraContainer/Camera3D")
 
+mouse_sensitivity = 10.0
+ground_acceleration = 150.0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_ett2v")

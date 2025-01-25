@@ -2,6 +2,13 @@ class_name Player
 extends CharacterBody3D
 ## Resolution and FPS independent camera controller made by YoSoyFreeman.
 
+signal died
+
+var health := 5.0:
+	set = set_health
+
+@export var health_regain_per_second := 0.1
+
 ## Head node.
 @export var head : Node3D
 @export var camera: Camera3D
@@ -90,6 +97,8 @@ func _unhandled_input(event)->void:
 
 
 func _physics_process(delta: float) -> void:
+	health += health_regain_per_second * delta
+	
 	joystick_look(delta)
 	
 	if is_on_floor():	
@@ -189,3 +198,10 @@ func apply_friction(friction: float, delta: float) -> void:
 	# For friction we always decay towards zero, so we can simplify to:
 	# (a) * exp(-decay * delta)
 	# Use the original formula in order to decay towards non zero velocities (for custom moving platforms, for example)
+
+
+func set_health(value: float) -> void:
+	health = max(value, 0)
+	if health == 0.0:
+		died.emit()
+		print("DIED")
