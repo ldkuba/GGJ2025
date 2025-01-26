@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlsplmmnger12"
+path="res://.godot/imported/hit 146 duhhhh (strong).mp3-3ddf73734cfa2d1f61640da3dec80a34.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/effects/Placeholder SFX/hit 146 duhhhh (strong).mp3"
+dest_files=["res://.godot/imported/hit 146 duhhhh (strong).mp3-3ddf73734cfa2d1f61640da3dec80a34.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

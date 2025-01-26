@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpvig5j8tjd7y"
+path="res://.godot/imported/danger_detected_v1.wav-5af54ece6260368f0c3446e09c0e58bd.sample"
+
+[deps]
+
+source_file="res://assets/audio/effects/Placeholder SFX/danger_detected_v1.wav"
+dest_files=["res://.godot/imported/danger_detected_v1.wav-5af54ece6260368f0c3446e09c0e58bd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

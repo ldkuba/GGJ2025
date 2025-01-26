@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbou55ye1ljry"
+path="res://.godot/imported/PM_SDGS_17 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav-de4f60c998a34d61c9af60ce74044aa8.sample"
+
+[deps]
+
+source_file="res://assets/audio/effects/Placeholder SFX/PM_SDGS_17 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav"
+dest_files=["res://.godot/imported/PM_SDGS_17 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav-de4f60c998a34d61c9af60ce74044aa8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
