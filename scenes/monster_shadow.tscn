@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj63ecl2uaqll"]
+
+[ext_resource type="PackedScene" uid="uid://tqmkeaqo0e4j" path="res://scenes/monster.tscn" id="1_2niph"]
+[ext_resource type="Texture2D" uid="uid://5rjubm3q27al" path="res://assets/sprites/shadow/Monster2.png" id="2_stu13"]
+[ext_resource type="Texture2D" uid="uid://b6xktbn4py5eh" path="res://assets/sprites/shadow/Monster_2_AngryWalking.png" id="3_w446n"]
+[ext_resource type="Texture2D" uid="uid://cggvtcv4t46iy" path="res://assets/sprites/shadow/Monster_2_Angry._Walking.png" id="4_lukmg"]
+[ext_resource type="Texture2D" uid="uid://dhbs42vam2phr" path="res://assets/sprites/shadow/monster2back.png" id="4_vlkhu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c5nkm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w446n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lukmg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MonsterShadow" instance=ExtResource("1_2niph")]
+
+[node name="FrontCalm" parent="Sprite" index="0"]
+transform = Transform3D(-0.745, 0, 6.513e-08, 0, 0.745, 0, -6.513e-08, 0, -0.745, 0, 1.04946, 0)
+pixel_size = 0.0015
+texture = ExtResource("2_stu13")
+
+[node name="FrontHostile" parent="Sprite" index="1"]
+transform = Transform3D(-0.745, 0, 6.513e-08, 0, 0.745, 0, -6.513e-08, 0, -0.745, 0, 1.04946, 0)
+pixel_size = 0.0015
+sprite_frames = SubResource("SpriteFrames_c5nkm")
+autoplay = "default"
+frame_progress = 0.545619
+speed_scale = 0.4
+
+[node name="Back" parent="Sprite" index="2"]
+transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 0, 1.04946, 0)
+pixel_size = 0.0015
+texture = ExtResource("4_vlkhu")

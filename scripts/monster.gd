@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var state_machine: StateMachine
 @export var sprite_root: Node3D
 @export var front_sprite_calm: Sprite3D
-@export var front_sprite_hostile: Sprite3D
+@export var front_sprite_hostile: AnimatedSprite3D
 @export var vision_ray: RayCast3D
 @export var eye_socket: Node3D
 

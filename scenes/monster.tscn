@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://tqmkeaqo0e4j"]
+[gd_scene load_steps=15 format=3 uid="uid://tqmkeaqo0e4j"]
 
 [ext_resource type="Script" path="res://scripts/monster.gd" id="1_oyu8a"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="2_51436"]
@@ -11,6 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://bydiqe2svrbra" path="res://scenes/damage_area.tscn" id="9_yypot"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_df3wy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5kfw6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kyxs4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spc4k"]
 size = Vector3(7.36426, 1.95435, 10.8707)
@@ -41,16 +52,16 @@ shape = SubResource("CapsuleShape3D_df3wy")
 
 [node name="FrontCalm" type="Sprite3D" parent="Sprite"]
 transform = Transform3D(-0.745, 0, 6.513e-08, 0, 0.745, 0, -6.513e-08, 0, -0.745, 0, 1.09227, 0)
+visible = false
 pixel_size = 0.001
 double_sided = false
 texture = ExtResource("2_fd7th")
 
-[node name="FrontHostile" type="Sprite3D" parent="Sprite"]
+[node name="FrontHostile" type="AnimatedSprite3D" parent="Sprite"]
 transform = Transform3D(-0.745, 0, 6.513e-08, 0, 0.745, 0, -6.513e-08, 0, -0.745, 0, 1.09227, 0)
-visible = false
 pixel_size = 0.001
 double_sided = false
-texture = ExtResource("3_kyxs4")
+sprite_frames = SubResource("SpriteFrames_5kfw6")
 
 [node name="Back" type="Sprite3D" parent="Sprite"]
 transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 0, 1.09227, 0)
