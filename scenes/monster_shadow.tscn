@@ -21,6 +21,7 @@ animations = [{
 }]
 
 [node name="MonsterShadow" instance=ExtResource("1_2niph")]
+speed = 3.0
 
 [node name="FrontCalm" parent="Sprite" index="0"]
 transform = Transform3D(-0.745, 0, 6.513e-08, 0, 0.745, 0, -6.513e-08, 0, -0.745, 0, 1.04946, 0)

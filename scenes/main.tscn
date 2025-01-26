@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://cj66vxt78od73"]
+[gd_scene load_steps=29 format=3 uid="uid://cj66vxt78od73"]
 
 [ext_resource type="PackedScene" uid="uid://cgedwkdtpxat4" path="res://scenes/Level.tscn" id="1_53m68"]
 [ext_resource type="Texture2D" uid="uid://cygp1wy27nd83" path="res://assets/Exit door .png" id="2_83sgg"]
 [ext_resource type="PackedScene" uid="uid://b5uy3nk4630n2" path="res://scenes/player.tscn" id="2_dmtqd"]
 [ext_resource type="PackedScene" uid="uid://tqmkeaqo0e4j" path="res://scenes/monster.tscn" id="3_46wtl"]
+[ext_resource type="Texture2D" uid="uid://cds87dgtwyqgl" path="res://assets/ExitSign.png" id="3_254cs"]
 [ext_resource type="Environment" uid="uid://car6mi44g6gdp" path="res://scenes/BathEnv.tres" id="3_r8rjd"]
 [ext_resource type="PackedScene" uid="uid://c5anl3ddg0pjb" path="res://scenes/bubbledimension.tscn" id="6_0c57a"]
 [ext_resource type="PackedScene" uid="uid://co4dpb6bn1dlg" path="res://scenes/bubbledimension_round.tscn" id="7_d5tt1"]
@@ -103,6 +104,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -16.52
 texture_albedo = ExtResource("2_83sgg")
 upper_fade = 0.0
 
+[node name="Decal2" type="Decal" parent="Level"]
+transform = Transform3D(-0.615, -5.3765e-08, 2.35014e-15, 0, -2.68825e-08, -0.615, 5.3765e-08, -0.615, 2.68825e-08, 16.0956, 1.07235, -8.77372)
+texture_albedo = ExtResource("3_254cs")
+
 [node name="Player" parent="." node_paths=PackedStringArray("bubble_dimensions") instance=ExtResource("2_dmtqd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0066, 0, 57.1906)
 bubble_dimensions = [NodePath("../BubbleDimensions/Bubbledimension"), NodePath("../BubbleDimensions/Bubbledimension2")]
@@ -118,22 +123,19 @@ navigation_mesh = SubResource("NavigationMesh_crp7t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 41)
 
 [node name="Monster" parent="Monsters" instance=ExtResource("3_46wtl")]
-transform = Transform3D(-0.999939, 0, -0.0109954, 0, 1, 0, 0.0109954, 0, -0.999939, -26.2294, 0.539743, -4.361)
+transform = Transform3D(-0.139692, 0, 0.990195, 0, 1, 0, -0.990195, 0, -0.139692, -13.9465, 0.539743, -4.87407)
 
 [node name="Monster2" parent="Monsters" instance=ExtResource("3_46wtl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7706, 0.539743, 7.139)
 
 [node name="Monster7" parent="Monsters" instance=ExtResource("3_46wtl")]
-transform = Transform3D(-0.884536, -0.0272542, 0.465674, -0.10512, 0.98426, -0.142068, -0.454472, -0.174616, -0.873478, 8.7706, 0.539743, -19.361)
-
-[node name="Monster3" parent="Monsters" instance=ExtResource("3_46wtl")]
-transform = Transform3D(-0.0109954, 0, 0.999939, 0, 1, 0, -0.999939, 0, -0.0109954, 0.770599, 0.539743, -30.361)
+transform = Transform3D(-0.603928, 0.0503148, 0.795449, -0.10512, 0.98426, -0.142068, -0.790076, -0.169417, -0.589133, 14.9195, 0.539743, -26.7059)
 
 [node name="Monster5" parent="Monsters" instance=ExtResource("3_46wtl")]
 transform = Transform3D(-0.999939, 0, -0.0109954, 0, 1, 0, 0.0109954, 0, -0.999939, -34.7294, 0.539743, -16.361)
 
 [node name="Monster6" parent="Monsters" instance=ExtResource("3_46wtl")]
-transform = Transform3D(-0.490447, 0, -0.87147, 0, 1, 0, 0.87147, 0, -0.490447, -46.2294, 0.539743, 3.139)
+transform = Transform3D(-0.828421, 0, -0.560104, 0, 1, 0, 0.560104, 0, -0.828421, -49.4319, 0.539743, 8.88114)
 
 [node name="BubbleDimensions" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0, 42)
@@ -168,7 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.19, -0.0268896, 12.2124)
 item = SubResource("Resource_3rq22")
 
 [node name="MapPiece" parent="Pickups" instance=ExtResource("11_333fx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.824, -0.0268896, 2.85421)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7256, -0.0268896, 24.6532)
 item = SubResource("Resource_fv0xk")
 
 [node name="FinalPoem" parent="Pickups" instance=ExtResource("11_333fx")]
@@ -197,3 +199,6 @@ transform = Transform3D(0.57948, 0, 0.814986, 0, 1, 0, -0.814986, 0, 0.57948, 43
 
 [node name="Decal" parent="." instance=ExtResource("21_2st36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6333, -4.76837e-07, 52.7582)
+
+[node name="Monster" parent="." instance=ExtResource("3_46wtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.1883, 0, 27.624)
