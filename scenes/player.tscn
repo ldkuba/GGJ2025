@@ -180,7 +180,6 @@ stream_3/stream = ExtResource("9_hnifb")
 
 [sub_resource type="Animation" id="Animation_gmyvc"]
 resource_name = "footsteps"
-length = 1.0
 loop_mode = 1
 tracks/0/type = "audio"
 tracks/0/imported = false

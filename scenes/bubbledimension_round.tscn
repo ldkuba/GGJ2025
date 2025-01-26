@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://co4dpb6bn1dlg"]
+[gd_scene load_steps=8 format=3 uid="uid://co4dpb6bn1dlg"]
 
 [ext_resource type="Script" path="res://scripts/bubbledimension.gd" id="1_eghpo"]
 [ext_resource type="Environment" uid="uid://c6d12yarira68" path="res://scenes/BubbleEnv.tres" id="1_owhpb"]
-[ext_resource type="PackedScene" path="res://scenes/portal.tscn" id="3_c4ysa"]
+[ext_resource type="PackedScene" uid="uid://hkrutug6uvr2" path="res://scenes/portal.tscn" id="3_c4ysa"]
 [ext_resource type="PackedScene" uid="uid://ddh27eydja0nk" path="res://scenes/portal_door.tscn" id="4_3efsu"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8cpg1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gffds"]
 albedo_color = Color(0.682353, 0.784314, 0.996078, 1)
@@ -19,10 +17,7 @@ albedo_color = Color(1, 0.682353, 0.729412, 1)
 [node name="Bubbledimension" type="Node3D" node_paths=PackedStringArray("portals")]
 script = ExtResource("1_eghpo")
 portals = [NodePath("Portal1"), NodePath("Portal2")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_owhpb")
-camera_attributes = SubResource("CameraAttributesPractical_8cpg1")
+bubble_env = ExtResource("1_owhpb")
 
 [node name="Floor" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

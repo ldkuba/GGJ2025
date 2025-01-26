@@ -2,8 +2,9 @@
 
 [ext_resource type="Environment" uid="uid://c6d12yarira68" path="res://scenes/BubbleEnv.tres" id="1_2c5lq"]
 [ext_resource type="Script" path="res://scripts/bubbledimension.gd" id="1_ayy2c"]
-[ext_resource type="PackedScene" path="res://scenes/portal.tscn" id="1_m7ix4"]
+[ext_resource type="PackedScene" uid="uid://hkrutug6uvr2" path="res://scenes/portal.tscn" id="1_m7ix4"]
 [ext_resource type="PackedScene" uid="uid://ddh27eydja0nk" path="res://scenes/portal_door.tscn" id="2_thv6e"]
+[ext_resource type="CameraAttributesPractical" uid="uid://c1elqmtog451u" path="res://scenes/BubbleCameraAttribs.tres" id="3_sd3yo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxhwp"]
 albedo_color = Color(0.682955, 0.783533, 0.996614, 1)
@@ -11,11 +12,11 @@ albedo_color = Color(0.682955, 0.783533, 0.996614, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58s2b"]
 albedo_color = Color(1, 0.683362, 0.7299, 1)
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_uk0im"]
-
 [node name="Bubbledimension" type="Node3D" node_paths=PackedStringArray("portals")]
 script = ExtResource("1_ayy2c")
 portals = [NodePath("Portal1"), NodePath("Portal2")]
+bubble_env = ExtResource("1_2c5lq")
+bubble_camera_attributes = ExtResource("3_sd3yo")
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -52,10 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8.5)
 material_override = SubResource("StandardMaterial3D_58s2b")
 use_collision = true
 size = Vector3(4, 4, 1)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_2c5lq")
-camera_attributes = SubResource("CameraAttributesPractical_uk0im")
 
 [node name="Portal1" parent="." node_paths=PackedStringArray("portal1", "portal2") instance=ExtResource("1_m7ix4")]
 portal1 = NodePath("PortalDoorBubble")

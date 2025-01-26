@@ -8,6 +8,8 @@ class_name Portal
 var player: Player
 var player_last_pos: Vector3 = Vector3.ZERO
 
+signal player_crossed(into_bubble: bool)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().root.find_child("Player", true, false) as Player
@@ -84,10 +86,12 @@ func _process(_delta: float) -> void:
 		var playerRelativePortal1: Transform3D = portal1.global_transform.affine_inverse() * player.global_transform
 		player.global_transform = portal2.global_transform * playerRelativePortal1.rotated(Vector3(0, 1, 0), PI)
 		player.global_position += portal2.global_transform.basis.z * near_delta
+		player_crossed.emit(false)
 	elif _crossed_portal(portal2, player_pos, near_delta):
 		var playerRelativePortal2: Transform3D = portal2.global_transform.affine_inverse() * player.global_transform
 		player.global_transform = portal1.global_transform * playerRelativePortal2.rotated(Vector3(0, 1, 0), PI)
 		player.global_position += portal1.global_transform.basis.z * near_delta
+		player_crossed.emit(true)
 
 	# Update camera near clip plane
 	_update_near_plane(portal1)

@@ -7,6 +7,9 @@ const PORTAL_OFFSET: float = 1.0
 
 var is_open: bool = false
 
+@export var bubble_env: Environment
+@export var bubble_camera_attributes: CameraAttributes
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -24,15 +27,29 @@ func open_bubble(player_transform: Transform3D) -> void:
 			portals[i].portal2.global_transform = portals[0].portal2.global_transform * relative_to_entrance.rotated(Vector3(0, 1, 0), PI)
 			portals[i].portal2.rotate_y(PI)
 
+		portals[i].player_crossed.connect(_player_crossed)
+
+		portals[i].portal1.camera.environment = bubble_env
+
 	is_open = true
 
-func close_bubble() -> void:
+func _player_crossed(into_bubble: bool):
+	if into_bubble:
+		get_viewport().get_camera_3d().environment = bubble_env
+		# get_viewport().get_camera_3d().camera_attributes = bubble_camera_attributes
+	else:
+		get_viewport().get_camera_3d().environment = null
+		# get_viewport().get_camera_3d().camera_attributes = null
+
+func close_bubble():
 	if not is_open: return
 
 	print("Closing bubble dimension")
 
 	for i in range(portals.size()):
 		portals[i].portal2.global_transform = portals[i].portal1.global_transform.rotated(Vector3(0, 1, 0), PI)
+
+		portals[i].player_crossed.disconnect(_player_crossed)
 
 	is_open = false
 
