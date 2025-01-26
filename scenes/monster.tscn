@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scripts/ai_behaviors/idle.gd" id="3_n3kdf"]
 [ext_resource type="Script" path="res://scripts/ai_behaviors/pursue.gd" id="5_dftpb"]
 [ext_resource type="AudioStream" uid="uid://xlxwh5thxfyc" path="res://assets/audio/effects/Placeholder SFX/danger_detected_v1.wav" id="5_r5axi"]
-[ext_resource type="Script" path="res://scripts/damage_area.gd" id="8_p6age"]
+[ext_resource type="PackedScene" uid="uid://bydiqe2svrbra" path="res://scenes/damage_area.tscn" id="9_yypot"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_df3wy"]
 
@@ -18,7 +18,7 @@ size = Vector3(7.36426, 1.95435, 10.8707)
 [sub_resource type="SphereShape3D" id="SphereShape3D_tywlx"]
 radius = 3.462
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_nlltp"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_l6b84"]
 radius = 1.9
 
 [node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("agent", "state_machine", "sprite_root", "front_sprite_calm", "front_sprite_hostile", "vision_ray", "eye_socket")]
@@ -103,14 +103,7 @@ collision_mask = 3
 [node name="EyeSocket" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49706, 0)
 
-[node name="DamageArea" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("8_p6age")
-damage_per_second = 5.1
+[node name="DamageArea" parent="." instance=ExtResource("9_yypot")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
-shape = SubResource("SphereShape3D_nlltp")
-
-[connection signal="body_entered" from="DamageArea" to="DamageArea" method="_on_body_entered"]
-[connection signal="body_exited" from="DamageArea" to="DamageArea" method="_on_body_exited"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DamageArea"]
+shape = SubResource("SphereShape3D_l6b84")
