@@ -1,3 +1,4 @@
+class_name Map
 extends Sprite3D
 
 var level: Level

@@ -12,6 +12,7 @@ var alive := true
 @export var health_regain_per_second := 0.1
 @export var max_health := 5.0
 @export var death_screen: Control
+var map: Map
 @export var anim_player: AnimationPlayer
 
 ## Head node.
@@ -86,6 +87,10 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	home_location = global_transform
 	died.connect(_on_died)
+
+	map = find_child("Map", true, false) as Map
+	if not map:
+		printerr("No map found!")
 	
 	if bubble_dimensions.size() > 0:
 		print("Setting bubble dimension")
@@ -95,10 +100,15 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.is_action_pressed("use_portal"):
 			print("E pressed")
-			if active_bubble != null:
+			if not map.map_visible:
+				map.open_map()
+			elif active_bubble != null:
 				print("Portal used")
+				if active_bubble.is_open:
+					active_bubble.close_bubble()
 				$PortalOpenSound.play()
-				active_bubble.toggle_bubble(global_transform)
+				map.close_map()
+				active_bubble.open_bubble(global_transform)
 
 
 func _unhandled_input(event: InputEvent)->void:
