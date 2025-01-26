@@ -178,6 +178,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Map" type="Sprite3D" parent="Head/CameraContainer/Camera3D" node_paths=PackedStringArray("animation_player", "overlay", "player")]
 transform = Transform3D(-3.61999e-07, 0, 0.1, 0, 0.1, 0, -0.1, 0, -3.61999e-07, -0.276292, -0.418612, 0.000975103)
+sorting_offset = 1.0
 pixel_size = 0.005
 texture = ExtResource("2_k2amn")
 script = ExtResource("3_y8bsy")
@@ -191,7 +192,8 @@ libraries = {
 }
 
 [node name="Overlay" type="Sprite3D" parent="Head/CameraContainer/Camera3D/Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0.001)
+sorting_offset = 100.0
 pixel_size = 0.002
 texture = ExtResource("4_2mowp")
 
