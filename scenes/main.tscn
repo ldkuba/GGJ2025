@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cj66vxt78od73"]
+[gd_scene load_steps=26 format=3 uid="uid://cj66vxt78od73"]
 
 [ext_resource type="PackedScene" uid="uid://cgedwkdtpxat4" path="res://scenes/Level.tscn" id="1_53m68"]
 [ext_resource type="Texture2D" uid="uid://cygp1wy27nd83" path="res://assets/Exit door .png" id="2_83sgg"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dedp6in8mub07" path="res://assets/audio/bgm/bgm#1_level_ambience.wav" id="8_luasw"]
 [ext_resource type="AudioStream" uid="uid://bc7qyvkm43x4e" path="res://assets/audio/bgm/bgm#2_bubble (weird).wav" id="9_6d8b2"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="10_473bf"]
+[ext_resource type="PackedScene" uid="uid://dt0ans5jbtdcr" path="res://scenes/LevelStatic.tscn" id="11_1mwd8"]
 [ext_resource type="PackedScene" uid="uid://cvyavk6abn4qv" path="res://scenes/pickup.tscn" id="11_333fx"]
 [ext_resource type="AudioStream" uid="uid://cit20nkktekdh" path="res://assets/audio/bgm/bgm#3_chasing.wav" id="11_mrty1"]
 [ext_resource type="Resource" uid="uid://4ne5v6l3ogdr" path="res://poems/intro.tres" id="12_di2db"]
@@ -184,3 +185,7 @@ shape = SubResource("WorldBoundaryShape3D_5ap26")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64765, 4.28608, 3.42559)
+
+[node name="Level2" parent="." instance=ExtResource("11_1mwd8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 37.8406, 0, 21.9269)
+visible = false

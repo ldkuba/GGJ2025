@@ -85,14 +85,14 @@ func _physics_process(_delta: float) -> void:
 	var player_pos: Vector3 = player.global_position
 	# if player_last_pos != player_pos:
 	var near_delta: float = player.camera.near
-	if _crossed_portal(portal1, player_pos, near_delta) and teleport_lock == 0:
+	if _crossed_portal(portal1, player_pos, near_delta) and teleport_lock == 0 and portal1._portal_active:
 		var playerRelativePortal1: Transform3D = portal1.global_transform.affine_inverse() * player.global_transform
 		player.global_transform = portal2.global_transform * playerRelativePortal1.rotated(Vector3(0, 1, 0), PI)
 		player.global_position += portal2.global_transform.basis.z * near_delta
 		player_crossed.emit(false)
 		$Sound.play()
 		teleport_lock = TELEPORT_LOCK_DURATION
-	elif _crossed_portal(portal2, player_pos, near_delta) and teleport_lock == 0:
+	elif _crossed_portal(portal2, player_pos, near_delta) and teleport_lock == 0 and portal1._portal_active:
 		var playerRelativePortal2: Transform3D = portal2.global_transform.affine_inverse() * player.global_transform
 		player.global_transform = portal1.global_transform * playerRelativePortal2.rotated(Vector3(0, 1, 0), PI)
 		player.global_position += portal1.global_transform.basis.z * near_delta

@@ -103,3 +103,8 @@ use_portal={
 
 3d_physics/layer_1="Collision"
 3d_physics/layer_2="Player"
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
+jolt_3d/collisions/areas_detect_static_bodies=true
