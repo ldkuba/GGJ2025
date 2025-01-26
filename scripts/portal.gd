@@ -16,12 +16,12 @@ func _ready() -> void:
 		return
 
 	# Setup viewports
-	var mat1 = portal1.mesh.get_surface_override_material(0) as ShaderMaterial
-	var tex1 = mat1.get_shader_parameter("albedo_texture") as ViewportTexture
+	var mat1 := portal1.mesh.get_surface_override_material(0) as ShaderMaterial
+	var tex1 := mat1.get_shader_parameter("albedo_texture") as ViewportTexture
 	tex1.viewport_path = portal2.viewport.get_path()
 
-	var mat2 = portal2.mesh.get_surface_override_material(0) as ShaderMaterial
-	var tex2 = mat2.get_shader_parameter("albedo_texture") as ViewportTexture
+	var mat2 := portal2.mesh.get_surface_override_material(0) as ShaderMaterial
+	var tex2 := mat2.get_shader_parameter("albedo_texture") as ViewportTexture
 	tex2.viewport_path = portal1.viewport.get_path()
 
 	# Setup culling masks
@@ -53,7 +53,7 @@ func _get_camera_transform(portal: PortalDoor, other_portal: PortalDoor, player_
 	var t: Transform3D = other_portal.global_transform * playerCamToPortal.rotated(Vector3(0, 1, 0), PI)
 	return t
 
-func _update_near_plane(portal):
+func _update_near_plane(portal: PortalDoor):
 	var portal_a: Vector3 = portal.global_position + portal.global_transform.basis.x
 	var portal_b: Vector3 = portal.global_position - portal.global_transform.basis.x
 	var portal_a_xz: Vector2 = Vector2(portal_a.x, portal_a.z)
@@ -67,7 +67,7 @@ func _update_near_plane(portal):
 	portal.camera.near = abs(cam_to_edge.dot(camera_dir_xz))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Set transform of portal1 camera
 	portal1.camera.global_transform = _get_camera_transform(portal2, portal1, player.camera)
 	portal1.viewport.size = get_viewport().get_visible_rect().size

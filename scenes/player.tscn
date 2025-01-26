@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5uy3nk4630n2"]
+[gd_scene load_steps=17 format=3 uid="uid://b5uy3nk4630n2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pp0i7"]
 [ext_resource type="Texture2D" uid="uid://d3q01533miggt" path="res://assets/mapfromwithingodot.jpg" id="2_k2amn"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="3_y8bsy"]
 [ext_resource type="Texture2D" uid="uid://b3jqgbcvbe2m2" path="res://assets/bubble-room1_overlay.png" id="4_0xq1b"]
 [ext_resource type="PackedScene" uid="uid://bl4rbkor0vnyk" path="res://scenes/death_screen.tscn" id="5_wceip"]
+[ext_resource type="AudioStream" uid="uid://1y1pg8q7fcqs" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_1 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="6_qv6mk"]
+[ext_resource type="AudioStream" uid="uid://dewwi3jfntpta" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_17 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="7_5jlht"]
+[ext_resource type="AudioStream" uid="uid://clwmhimm3nh0t" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_39 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="8_fbnd4"]
+[ext_resource type="AudioStream" uid="uid://cw4ygbytwv3ec" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_94 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="9_hnifb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ett2v"]
 radius = 0.3
@@ -78,6 +82,17 @@ tracks/5/keys = {
 "points": PackedFloat32Array(0.000975103, -0.0005, 0, 0.0005, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_dh8nd"]
 resource_name = "toggle_map"
@@ -156,10 +171,44 @@ _data = {
 "toggle_map": SubResource("Animation_dh8nd")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("death_screen", "head", "camera")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ptmu5"]
+streams_count = 4
+stream_0/stream = ExtResource("6_qv6mk")
+stream_1/stream = ExtResource("7_5jlht")
+stream_2/stream = ExtResource("8_fbnd4")
+stream_3/stream = ExtResource("9_hnifb")
+
+[sub_resource type="Animation" id="Animation_gmyvc"]
+resource_name = "footsteps"
+length = 1.0
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Footsteps")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_ptmu5")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eb728"]
+_data = {
+"footsteps": SubResource("Animation_gmyvc")
+}
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("death_screen", "anim_player", "head", "camera")]
 collision_layer = 2
 script = ExtResource("1_pp0i7")
+health_regain_per_second = 0.2
 death_screen = NodePath("Head/CameraContainer/Camera3D/DeathScreen")
+anim_player = NodePath("AnimationPlayer")
 head = NodePath("Head")
 camera = NodePath("Head/CameraContainer/Camera3D")
 mouse_sensitivity = 10.0
@@ -199,6 +248,16 @@ offset = Vector2(-42, -14)
 pixel_size = 0.0032
 texture = ExtResource("4_0xq1b")
 
+[node name="Sound" type="AudioStreamPlayer3D" parent="Head/CameraContainer/Camera3D/Map"]
+
 [node name="DeathScreen" parent="Head/CameraContainer/Camera3D" instance=ExtResource("5_wceip")]
 modulate = Color(1, 1, 1, 0)
 mouse_filter = 2
+
+[node name="Footsteps" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.086892, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eb728")
+}

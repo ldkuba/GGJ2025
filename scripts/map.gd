@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			animation_player.play_backwards("toggle_map")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#update dimensions
 	if not aabb:
 		aabb = level.get_dimensions()

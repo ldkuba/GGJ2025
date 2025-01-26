@@ -5,6 +5,7 @@ var target: Node3D
 var eyes_on_target := false
 
 @export var search_timer: Timer
+@export var detected_sound: AudioStreamPlayer3D
 
 
 func _ready() -> void:
@@ -16,6 +17,8 @@ func enter(msg := {}) -> void:
 	monster.front_sprite_calm.hide()
 	monster.front_sprite_hostile.show()
 	monster.agent.navigation_finished.connect(_on_navigation_finished)
+	detected_sound.play()
+	EventBus.monster_chase_started.emit(monster)
 
 
 func exit() -> void:
@@ -24,6 +27,7 @@ func exit() -> void:
 	monster.front_sprite_hostile.hide()
 	monster.agent.navigation_finished.disconnect(_on_navigation_finished)
 	search_timer.stop()
+	EventBus.monster_chase_ended.emit(monster)
 
 
 func fixed_update(_delta: float) -> void:

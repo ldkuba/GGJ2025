@@ -12,6 +12,7 @@ var alive := true
 @export var health_regain_per_second := 0.1
 @export var max_health := 5.0
 @export var death_screen: Control
+@export var anim_player: AnimationPlayer
 
 ## Head node.
 @export var head : Node3D
@@ -77,7 +78,10 @@ var active_bubble: BubbleDimension = null
 ## Decay factor for air friction.
 @export_range(0, 50) var air_friction: float = 0
 
-func _ready():
+var walking := false
+
+
+func _ready() -> void:
 	Input.set_use_accumulated_input(false)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	home_location = global_transform
@@ -95,7 +99,8 @@ func _input(event: InputEvent) -> void:
 				print("Portal used")
 				active_bubble.toggle_bubble(global_transform)
 
-func _unhandled_input(event)->void:
+
+func _unhandled_input(event: InputEvent)->void:
 	if not alive: return
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventKey:
@@ -121,7 +126,7 @@ func _physics_process(delta: float) -> void:
 	if not alive: return
 	health += health_regain_per_second * delta
 	
-	joystick_look(delta)
+	#joystick_look(delta)
 	
 	if is_on_floor():	
 		accelerate(ground_acceleration, delta)
@@ -133,10 +138,18 @@ func _physics_process(delta: float) -> void:
 		apply_friction(air_friction, delta)
 	
 	move_and_slide()
+	
+	if velocity.length() > 0.1:
+		if not walking:
+			walking = true
+			anim_player.play(&"footsteps")
+	else:
+		walking = false
+		anim_player.stop()
 
 
-func joystick_look(delta) -> void:
-	return
+#func joystick_look(delta) -> void:
+	#return
 	## ATTENTION: Add the following inputs to your project or replace the following line with your own ones.
 	#var motion: Vector2 = Input.get_vector("look_left", "look_right", "look_down", "look_up")
 #

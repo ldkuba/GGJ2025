@@ -11,7 +11,7 @@ var is_open: bool = false
 func _ready() -> void:
 	pass # Replace with function body.
 
-func open_bubble(player_transform: Transform3D):
+func open_bubble(player_transform: Transform3D) -> void:
 	if is_open: return
 
 	print("Openning bubble dimension")
@@ -26,7 +26,7 @@ func open_bubble(player_transform: Transform3D):
 
 	is_open = true
 
-func close_bubble():
+func close_bubble() -> void:
 	if not is_open: return
 
 	print("Closing bubble dimension")
@@ -36,12 +36,8 @@ func close_bubble():
 
 	is_open = false
 
-func toggle_bubble(player_transform: Transform3D):
+func toggle_bubble(player_transform: Transform3D) -> void:
 	if is_open:
 		close_bubble()
 	else:
 		open_bubble(player_transform)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

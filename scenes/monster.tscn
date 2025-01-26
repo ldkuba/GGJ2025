@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://tqmkeaqo0e4j"]
+[gd_scene load_steps=14 format=3 uid="uid://tqmkeaqo0e4j"]
 
 [ext_resource type="Script" path="res://scripts/monster.gd" id="1_oyu8a"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="2_51436"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dfq21ogowktlr" path="res://assets/sprites/bubble/EnemyBubbleAngry.png" id="3_kyxs4"]
 [ext_resource type="Script" path="res://scripts/ai_behaviors/idle.gd" id="3_n3kdf"]
 [ext_resource type="Script" path="res://scripts/ai_behaviors/pursue.gd" id="5_dftpb"]
+[ext_resource type="AudioStream" uid="uid://xlxwh5thxfyc" path="res://assets/audio/effects/Placeholder SFX/danger_detected_v1.wav" id="5_r5axi"]
 [ext_resource type="Script" path="res://scripts/damage_area.gd" id="8_p6age"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_df3wy"]
@@ -24,7 +25,7 @@ radius = 1.9
 collision_layer = 0
 script = ExtResource("1_oyu8a")
 agent = NodePath("NavigationAgent3D")
-speed = 1.0
+speed = 2.0
 state_machine = NodePath("StateMachine")
 sprite_root = NodePath("Sprite")
 front_sprite_calm = NodePath("Sprite/FrontCalm")
@@ -76,13 +77,18 @@ script = ExtResource("2_51436")
 script = ExtResource("3_n3kdf")
 detection_area = NodePath("../../Sprite/Detection")
 
-[node name="Pursue" type="Node" parent="StateMachine" node_paths=PackedStringArray("search_timer")]
+[node name="Pursue" type="Node" parent="StateMachine" node_paths=PackedStringArray("search_timer", "detected_sound")]
 script = ExtResource("5_dftpb")
 search_timer = NodePath("SearchTimer")
+detected_sound = NodePath("DetectedSound")
 
 [node name="SearchTimer" type="Timer" parent="StateMachine/Pursue"]
-wait_time = 3.0
+wait_time = 1.5
 one_shot = true
+
+[node name="DetectedSound" type="AudioStreamPlayer3D" parent="StateMachine/Pursue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09552, 0)
+stream = ExtResource("5_r5axi")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
