@@ -10,9 +10,10 @@ var is_open: bool = false
 @export var bubble_env: Environment
 @export var bubble_camera_attributes: CameraAttributes
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	EventBus.game_reset.connect(close_bubble)
+
 
 func open_bubble(player_transform: Transform3D) -> void:
 	if is_open: return
