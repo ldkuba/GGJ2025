@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cgedwkdtpxat4"]
+[gd_scene load_steps=62 format=3 uid="uid://cgedwkdtpxat4"]
 
 [ext_resource type="Texture2D" uid="uid://cermmkh88t1nd" path="res://assets/Textures/floorsmall.jpg" id="1_agcbg"]
 [ext_resource type="PackedScene" uid="uid://xhxj25dmv7gm" path="res://prefabs/lbox_2x_3.tscn" id="1_p2lts"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://njvc5to8uhs8" path="res://prefabs/LBOX_2x3x_invert_fixed.tscn" id="9_xvim5"]
 [ext_resource type="Texture2D" uid="uid://dkah4v4fwnuig" path="res://assets/Bathhouse wall 2.png" id="12_1tc5d"]
 [ext_resource type="Texture2D" uid="uid://dkyg2pbjadgol" path="res://assets/Wall 1 Rework.png" id="15_2e3hr"]
+[ext_resource type="Texture2D" uid="uid://bpwy153exqk5w" path="res://assets/Blood.png" id="16_du02m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fux2u"]
 albedo_color = Color(0.518132, 0.0655929, 0, 1)
@@ -523,6 +524,10 @@ use_collision = true
 [node name="CSGBox3D2" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 1.5)
 use_collision = true
+
+[node name="Decal" type="Decal" parent="CSGBox3D2"]
+transform = Transform3D(-1.70474e-08, -0.39, 1.70474e-08, 0, -1.70474e-08, -0.39, 0.39, -1.70474e-08, 7.45167e-16, -0.897274, -1.36052, -2.00524)
+texture_albedo = ExtResource("16_du02m")
 
 [node name="CSGBox3D3" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 3.5)
