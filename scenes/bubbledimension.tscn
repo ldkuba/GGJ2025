@@ -83,9 +83,13 @@ portal2 = NodePath("PortalDoorWorld")
 
 [node name="PortalDoorBubble" parent="Portal1" instance=ExtResource("2_thv6e")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 7)
+border_color = Color(0.214452, 0.453985, 3.85046e-07, 1)
+border_size = 0.15
 
 [node name="PortalDoorWorld" parent="Portal1" instance=ExtResource("2_thv6e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+border_color = Color(0.594492, 0.162594, 1.44392e-07, 1)
+border_size = 0.15
 
 [node name="Portal2" parent="." node_paths=PackedStringArray("portal1", "portal2") instance=ExtResource("1_m7ix4")]
 portal1 = NodePath("PortalDoorBubble")
@@ -93,9 +97,13 @@ portal2 = NodePath("PortalDoorWorld")
 
 [node name="PortalDoorBubble" parent="Portal2" instance=ExtResource("2_thv6e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+border_color = Color(0.214452, 0.453985, 3.85046e-07, 1)
+border_size = 0.15
 
 [node name="PortalDoorWorld" parent="Portal2" instance=ExtResource("2_thv6e")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7)
+border_color = Color(0.594492, 0.162594, 1.44392e-07, 1)
+border_size = 0.15
 
 [node name="EnterDetection" type="Area3D" parent="."]
 collision_layer = 0
