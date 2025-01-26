@@ -7,6 +7,7 @@ signal died
 var health := 5.0:
 	set = set_health
 var alive := true
+var inside_bubble := false
 
 @onready var home_location: Transform3D
 @export var health_regain_per_second := 0.1
@@ -95,10 +96,15 @@ func _ready() -> void:
 	if bubble_dimensions.size() > 0:
 		print("Setting bubble dimension")
 		active_bubble = bubble_dimensions[0]
+		active_bubble.portals[0].player_crossed.connect(_crossed_portal)
+		active_bubble.portals[1].player_crossed.connect(_crossed_portal)
+
+func _crossed_portal(into_bubble: bool) -> void:
+	inside_bubble = into_bubble
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if event.is_action_pressed("use_portal"):
+		if event.is_action_pressed("use_portal") and not inside_bubble:
 			print("E pressed")
 			if not map.map_visible:
 				map.open_map()
