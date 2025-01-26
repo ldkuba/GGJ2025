@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3kt708tpkxy8"]
+
+[ext_resource type="Texture2D" uid="uid://meovfp2e535e" path="res://assets/sprites/waterpuddles/waterpuddle.png" id="1_7rm1n"]
+
+[node name="Decal" type="Decal"]
+texture_albedo = ExtResource("1_7rm1n")

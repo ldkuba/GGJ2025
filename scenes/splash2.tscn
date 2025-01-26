@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://5j5vu4jii1hx"]
+
+[ext_resource type="PackedScene" uid="uid://c3kt708tpkxy8" path="res://scenes/splash.tscn" id="1_kyf6p"]
+[ext_resource type="Texture2D" uid="uid://bfyo1rr2167h2" path="res://assets/sprites/waterpuddles/waterpuddle2.png" id="2_6fvks"]
+
+[node name="Decal" instance=ExtResource("1_kyf6p")]
+texture_albedo = ExtResource("2_6fvks")
