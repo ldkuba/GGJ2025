@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cgedwkdtpxat4"]
+[gd_scene load_steps=64 format=3 uid="uid://cgedwkdtpxat4"]
 
 [ext_resource type="Texture2D" uid="uid://cermmkh88t1nd" path="res://assets/Textures/floorsmall.jpg" id="1_agcbg"]
 [ext_resource type="PackedScene" uid="uid://xhxj25dmv7gm" path="res://prefabs/lbox_2x_3.tscn" id="1_p2lts"]
@@ -8,10 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://p1x2c7vbpsrx" path="res://assets/Bathhouse Wall 1.png" id="2_f1egd"]
 [ext_resource type="PackedScene" uid="uid://dayqjklvpw1fb" path="res://prefabs/ibox_1x_6.tscn" id="3_cr3jj"]
 [ext_resource type="PackedScene" uid="uid://c3kt708tpkxy8" path="res://scenes/splash.tscn" id="3_dbtwr"]
-[ext_resource type="Texture2D" uid="uid://meovfp2e535e" path="res://assets/sprites/waterpuddles/waterpuddle.png" id="3_mr7oc"]
 [ext_resource type="Texture2D" uid="uid://cv4vhrvkocbiu" path="res://assets/Bathhouse wall 1-1.png" id="3_mvak2"]
+[ext_resource type="PackedScene" uid="uid://5j5vu4jii1hx" path="res://scenes/splash2.tscn" id="4_8le0j"]
 [ext_resource type="PackedScene" uid="uid://cbtbjh8bs1nw1" path="res://prefabs/box_2x_3.tscn" id="4_dqdse"]
-[ext_resource type="Texture2D" uid="uid://bfyo1rr2167h2" path="res://assets/sprites/waterpuddles/waterpuddle2.png" id="4_rbxfp"]
 [ext_resource type="PackedScene" uid="uid://bcxnxj0n6ovjr" path="res://prefabs/csg_box_3d.tscn" id="5_75sjb"]
 [ext_resource type="PackedScene" uid="uid://8wahdvvnjfq2" path="res://prefabs/lbox_3x_4_invert.tscn" id="7_ygcrl"]
 [ext_resource type="PackedScene" uid="uid://bhk2wloa17xlt" path="res://prefabs/lbox_3x_4.tscn" id="8_evk2x"]
@@ -290,32 +289,49 @@ script = ExtResource("1_pheee")
 floor = NodePath("Room")
 
 [node name="Room" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00529861, -0.501692, 4.00956)
 material_override = SubResource("StandardMaterial3D_fux2u")
 snap = 1.0
 size = Vector3(38, 1, 30)
 
 [node name="Decal" parent="Room" instance=ExtResource("3_dbtwr")]
+transform = Transform3D(0.386491, 0, -0.648575, 0, 0.755, 0, 0.648575, 0, 0.386491, -2.84535, 0, 10.4536)
 
-[node name="Decal6" type="Decal" parent="Room"]
-transform = Transform3D(0.926264, 0, -0.350313, 0, 0.485, 0, 0.506254, 0, 0.640947, -11.9872, 0.402541, -11.8742)
-texture_albedo = ExtResource("3_mr7oc")
+[node name="Decal12" parent="Room" instance=ExtResource("3_dbtwr")]
+transform = Transform3D(-0.921895, 0, 0.308417, 0, 0.755, 0, -0.326496, 0, -0.870845, -8.86947, 0, -3.20782)
 
-[node name="Decal5" type="Decal" parent="Room"]
-transform = Transform3D(-0.268613, -2.0181e-08, 0.403821, -3.42355e-08, 0.485, 1.46514e-09, -0.403821, -2.76938e-08, -0.268613, -13.1669, 0.402541, 0.946986)
-texture_albedo = ExtResource("3_mr7oc")
-
-[node name="Decal3" type="Decal" parent="Room"]
-transform = Transform3D(-0.118597, 0, -0.470276, 0, 0.485, 0, 0.470276, 0, -0.118597, 1.03801, 0.402541, 12.1365)
-texture_albedo = ExtResource("3_mr7oc")
-
-[node name="Decal2" type="Decal" parent="Room"]
+[node name="Decal2" parent="Room" instance=ExtResource("4_8le0j")]
 transform = Transform3D(-0.434202, 0, -0.276937, 0, 0.515, 0, 0.276937, 0, -0.434202, -4.86755, 0.32394, 7.87012)
-texture_albedo = ExtResource("4_rbxfp")
 
-[node name="Decal4" type="Decal" parent="Room"]
+[node name="Decal13" parent="Room" instance=ExtResource("4_8le0j")]
+transform = Transform3D(-0.665785, 0, -0.391601, 0, 0.515, 0, 0.381345, 0, -0.683691, -6.81084, 0.32394, -9.27972)
+
+[node name="Decal11" parent="Room" instance=ExtResource("4_8le0j")]
+transform = Transform3D(-0.749803, 0, -0.33341, 0, 0.515, 0, 0.478229, 0, -0.522745, 12.6678, 0.32394, -3.04077)
+
+[node name="Decal10" parent="Room" instance=ExtResource("3_dbtwr")]
+transform = Transform3D(0.505869, 0, -0.560465, 0, 0.755, 0, 0.560465, 0, 0.505869, 3.76549, 0, -11.66)
+
+[node name="Decal9" parent="Room" instance=ExtResource("4_8le0j")]
+transform = Transform3D(-0.461558, 0, 0.546404, 0, 0.515, 0, -0.618169, 0, -0.407974, -11.8506, 0.32394, 12.126)
+
+[node name="Decal8" parent="Room" instance=ExtResource("3_dbtwr")]
+transform = Transform3D(0.63339, 0, 0.410904, 0, 0.755, 0, -0.410904, 0, 0.63339, 7.86095, 0, -2.91934)
+
+[node name="Decal4" parent="Room" instance=ExtResource("4_8le0j")]
+transform = Transform3D(-0.315897, 0, 0.661653, 0, 0.515, 0, -0.707487, 0, -0.295431, 5.93839, 0.32394, 6.98481)
+
+[node name="Decal3" parent="Room" instance=ExtResource("3_dbtwr")]
+transform = Transform3D(-0.555057, 0, -0.764812, 0, 0.945, 0, 0.764812, 0, -0.555057, -0.178949, 0, 1.28302)
+
+[node name="Decal7" parent="Room" instance=ExtResource("3_dbtwr")]
+transform = Transform3D(0.312717, 0, -0.36454, 0, 0.235225, 0, 0.364539, 0, 0.155019, -7.58901, 0.597774, -11.2009)
+
+[node name="Decal6" parent="Room" instance=ExtResource("4_8le0j")]
+transform = Transform3D(-0.268613, -2.0181e-08, 0.403821, -3.42355e-08, 0.485, 1.46514e-09, -0.403821, -2.76938e-08, -0.268613, -13.1669, 0.402541, 0.946986)
+
+[node name="Decal5" parent="Room" instance=ExtResource("3_dbtwr")]
 transform = Transform3D(0.465764, 0, -0.219748, 0, 0.515, 0, 0.219748, 0, 0.465764, -14.1928, 0.32394, 1.02876)
-texture_albedo = ExtResource("4_rbxfp")
 
 [node name="Ceiling" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 4.5)
