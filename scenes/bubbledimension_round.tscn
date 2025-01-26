@@ -9,7 +9,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gffds"]
 albedo_color = Color(0.682353, 0.784314, 0.996078, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w28pi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83ohm"]
 albedo_texture = ExtResource("3_gx88q")
 uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
@@ -17,6 +17,7 @@ uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmtur"]
 albedo_color = Color(1, 0.682353, 0.729412, 1)
+albedo_texture = ExtResource("3_gx88q")
 
 [node name="Bubbledimension" type="Node3D" node_paths=PackedStringArray("portals")]
 script = ExtResource("1_eghpo")
@@ -32,7 +33,7 @@ height = 1.0
 sides = 64
 
 [node name="Ceiling" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
 material_override = SubResource("StandardMaterial3D_gffds")
 radius = 8.0
 height = 1.0
@@ -40,7 +41,7 @@ sides = 64
 
 [node name="Wall" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-material_override = SubResource("StandardMaterial3D_w28pi")
+material_override = SubResource("StandardMaterial3D_83ohm")
 use_collision = true
 radius = 8.0
 height = 4.0

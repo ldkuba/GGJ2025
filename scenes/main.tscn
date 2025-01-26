@@ -83,11 +83,29 @@ environment = ExtResource("3_r8rjd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 41)
 navigation_mesh = SubResource("NavigationMesh_crp7t")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Monsters" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 41)
 
-[node name="Monster" parent="Node3D" instance=ExtResource("3_46wtl")]
+[node name="Monster" parent="Monsters" instance=ExtResource("3_46wtl")]
 transform = Transform3D(-0.999939, 0, -0.0109954, 0, 1, 0, 0.0109954, 0, -0.999939, -26.2294, 0.539743, -4.361)
+
+[node name="Monster2" parent="Monsters" instance=ExtResource("3_46wtl")]
+transform = Transform3D(0.454472, 0.174616, 0.873478, -0.10512, 0.984259, -0.142068, -0.884536, -0.0272542, 0.465674, 2.7706, 0.539743, 7.139)
+
+[node name="Monster7" parent="Monsters" instance=ExtResource("3_46wtl")]
+transform = Transform3D(-0.884536, -0.0272542, 0.465674, -0.10512, 0.98426, -0.142068, -0.454472, -0.174616, -0.873478, 8.7706, 0.539743, -19.361)
+
+[node name="Monster3" parent="Monsters" instance=ExtResource("3_46wtl")]
+transform = Transform3D(-0.0109954, 0, 0.999939, 0, 1, 0, -0.999939, 0, -0.0109954, 0.770599, 0.539743, -30.361)
+
+[node name="Monster4" parent="Monsters" instance=ExtResource("3_46wtl")]
+transform = Transform3D(0.0109954, 0, -0.999939, 0, 1, 0, 0.999939, 0, 0.0109954, -38.7294, 0.539743, -31.361)
+
+[node name="Monster5" parent="Monsters" instance=ExtResource("3_46wtl")]
+transform = Transform3D(-0.999939, 0, -0.0109954, 0, 1, 0, 0.0109954, 0, -0.999939, -34.7294, 0.539743, -16.361)
+
+[node name="Monster6" parent="Monsters" instance=ExtResource("3_46wtl")]
+transform = Transform3D(-0.490447, 0, -0.87147, 0, 1, 0, 0.87147, 0, -0.490447, -46.2294, 0.539743, 3.139)
 
 [node name="BubbleDimensions" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0, 42)
