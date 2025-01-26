@@ -72,11 +72,11 @@ func _update_near_plane(portal: PortalDoor):
 func _process(_delta: float) -> void:
 	# Set transform of portal1 camera
 	portal1.camera.global_transform = _get_camera_transform(portal2, portal1, player.camera)
-	portal1.viewport.size = get_viewport().get_visible_rect().size
+	portal1.viewport.size = get_viewport().get_visible_rect().size / 2.0
 
 	# Set transform of portal2 camera
 	portal2.camera.global_transform = _get_camera_transform(portal1, portal2, player.camera)
-	portal2.viewport.size = get_viewport().get_visible_rect().size
+	portal2.viewport.size = get_viewport().get_visible_rect().size / 2.0
 
 	# Handle teleporting player
 	var player_pos: Vector3 = player.global_position

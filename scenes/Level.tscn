@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cgedwkdtpxat4"]
+[gd_scene load_steps=49 format=3 uid="uid://cgedwkdtpxat4"]
 
 [ext_resource type="Texture2D" uid="uid://cermmkh88t1nd" path="res://assets/Textures/floorsmall.jpg" id="1_agcbg"]
 [ext_resource type="PackedScene" uid="uid://xhxj25dmv7gm" path="res://prefabs/lbox_2x_3.tscn" id="1_p2lts"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bhk2wloa17xlt" path="res://prefabs/lbox_3x_4.tscn" id="8_evk2x"]
 [ext_resource type="PackedScene" uid="uid://njvc5to8uhs8" path="res://prefabs/LBOX_2x3x_invert_fixed.tscn" id="9_xvim5"]
 [ext_resource type="Texture2D" uid="uid://dkah4v4fwnuig" path="res://assets/Bathhouse wall 2.png" id="12_1tc5d"]
-[ext_resource type="Environment" uid="uid://car6mi44g6gdp" path="res://scenes/BathEnv.tres" id="13_rcr10"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fux2u"]
 albedo_color = Color(0.518132, 0.0655929, 0, 1)
@@ -218,8 +217,6 @@ albedo_texture = ExtResource("12_1tc5d")
 uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 uv1_world_triplanar = true
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_iseye"]
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("floor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1594, 0, -19.0731)
@@ -617,10 +614,6 @@ use_collision = true
 [node name="CSGBox3D16" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 2, -0.5)
 use_collision = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("13_rcr10")
-camera_attributes = SubResource("CameraAttributesPractical_iseye")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 5, -5.5)
