@@ -13,10 +13,10 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_df3wy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spc4k"]
-size = Vector3(2.79785, 1.95435, 5.9884)
+size = Vector3(7.36426, 1.95435, 10.8707)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tywlx"]
-radius = 2.0
+radius = 3.462
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nlltp"]
 radius = 1.9
@@ -64,7 +64,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite/Detection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1864, -3.15844)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1864, -5.59957)
 shape = SubResource("BoxShape3D_spc4k")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Sprite/Detection"]

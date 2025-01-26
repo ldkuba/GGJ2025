@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	hide()
-	$Area3D.monitoring = false
+	$Area3D.queue_free()
 	$Sound.play()
 	if item is Poem:
 		EventBus.poem_picked_up.emit(item)

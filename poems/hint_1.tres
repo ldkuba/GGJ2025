@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Poem" load_steps=2 format=3 uid="uid://cqvv3pg8872b4"]
+
+[ext_resource type="Script" path="res://scripts/poem.gd" id="1_k0ind"]
+
+[resource]
+script = ExtResource("1_k0ind")
+text = "The one you looking for is not in this room,
+It's hard finding anyone in this never ending gloom."
