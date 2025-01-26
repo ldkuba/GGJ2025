@@ -31,8 +31,10 @@ func _input(event: InputEvent) -> void:
 			animation_player.play_backwards("toggle_map")#
 			$CloseSound.play()
 	if event.is_action_pressed("ui_accept"):
-		texture = map_100
+		unlock_map()
 
+func unlock_map() -> void:
+		texture = map_100
 
 func _process(_delta: float) -> void:
 	#update dimensions
