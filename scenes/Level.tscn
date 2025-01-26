@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cgedwkdtpxat4"]
+[gd_scene load_steps=65 format=3 uid="uid://cgedwkdtpxat4"]
 
 [ext_resource type="Texture2D" uid="uid://cermmkh88t1nd" path="res://assets/Textures/floorsmall.jpg" id="1_agcbg"]
 [ext_resource type="PackedScene" uid="uid://xhxj25dmv7gm" path="res://prefabs/lbox_2x_3.tscn" id="1_p2lts"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bssdfuh62ecce" path="res://assets/sprites/blood/blood_splatter.png" id="13_pe0dv"]
 [ext_resource type="Texture2D" uid="uid://bpwy153exqk5w" path="res://assets/Blood.png" id="16_du02m"]
 [ext_resource type="Texture2D" uid="uid://ref86cg3yh8d" path="res://assets/sprites/blood/Scratches_with_Blood.png" id="17_fjw26"]
+[ext_resource type="Texture2D" uid="uid://dhhhnqh0yam21" path="res://assets/sprites/blood/Scratches2.png" id="20_14jyi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fux2u"]
 albedo_color = Color(0.518132, 0.0655929, 0, 1)
@@ -302,24 +303,29 @@ transform = Transform3D(-0.921895, 0, 0.308417, 0, 0.755, 0, -0.326496, 0, -0.87
 
 [node name="Decal2" parent="Room" instance=ExtResource("4_8le0j")]
 transform = Transform3D(-0.434202, 0, -0.276937, 0, 0.515, 0, 0.276937, 0, -0.434202, -4.86755, 0.32394, 7.87012)
+script = null
 
 [node name="Decal13" parent="Room" instance=ExtResource("4_8le0j")]
 transform = Transform3D(-0.665785, 0, -0.391601, 0, 0.515, 0, 0.381345, 0, -0.683691, -6.81084, 0.32394, -9.27972)
+script = null
 
 [node name="Decal11" parent="Room" instance=ExtResource("4_8le0j")]
 transform = Transform3D(-0.749803, 0, -0.33341, 0, 0.515, 0, 0.478229, 0, -0.522745, 12.6678, 0.32394, -3.04077)
+script = null
 
 [node name="Decal10" parent="Room" instance=ExtResource("3_dbtwr")]
 transform = Transform3D(0.505869, 0, -0.560465, 0, 0.755, 0, 0.560465, 0, 0.505869, 3.76549, 0, -11.66)
 
 [node name="Decal9" parent="Room" instance=ExtResource("4_8le0j")]
 transform = Transform3D(-0.461558, 0, 0.546404, 0, 0.515, 0, -0.618169, 0, -0.407974, -11.8506, 0.32394, 12.126)
+script = null
 
 [node name="Decal8" parent="Room" instance=ExtResource("3_dbtwr")]
 transform = Transform3D(0.63339, 0, 0.410904, 0, 0.755, 0, -0.410904, 0, 0.63339, 7.86095, 0, -2.91934)
 
 [node name="Decal4" parent="Room" instance=ExtResource("4_8le0j")]
 transform = Transform3D(-0.315897, 0, 0.661653, 0, 0.515, 0, -0.707487, 0, -0.295431, 5.93839, 0.32394, 6.98481)
+script = null
 
 [node name="Decal3" parent="Room" instance=ExtResource("3_dbtwr")]
 transform = Transform3D(-0.555057, 0, -0.764812, 0, 0.945, 0, 0.764812, 0, -0.555057, -0.178949, 0, 1.28302)
@@ -329,6 +335,7 @@ transform = Transform3D(0.312717, 0, -0.36454, 0, 0.235225, 0, 0.364539, 0, 0.15
 
 [node name="Decal6" parent="Room" instance=ExtResource("4_8le0j")]
 transform = Transform3D(-0.268613, -2.0181e-08, 0.403821, -3.42355e-08, 0.485, 1.46514e-09, -0.403821, -2.76938e-08, -0.268613, -13.1669, 0.402541, 0.946986)
+script = null
 
 [node name="Decal5" parent="Room" instance=ExtResource("3_dbtwr")]
 transform = Transform3D(0.465764, 0, -0.219748, 0, 0.515, 0, 0.219748, 0, 0.465764, -14.1928, 0.32394, 1.02876)
@@ -542,6 +549,14 @@ texture_albedo = ExtResource("16_du02m")
 [node name="CSGBox3D5" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 6.5)
 
+[node name="Decal" type="Decal" parent="CSGBox3D5"]
+transform = Transform3D(-2.40413e-08, -0.55, 0, -2.40413e-08, 1.05088e-15, -0.55, 0.55, -2.40413e-08, -2.40413e-08, 0, -1.14118, -1.62825)
+texture_albedo = ExtResource("16_du02m")
+
+[node name="Decal2" type="Decal" parent="CSGBox3D5"]
+transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -1.26509, -1.76992)
+texture_albedo = ExtResource("13_pe0dv")
+
 [node name="CSGBox3D2" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 1.5)
 
@@ -574,6 +589,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 3.5)
 [node name="CSGBox3D8" parent="." instance=ExtResource("9_xvim5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 2, 0)
 
+[node name="Decal" type="Decal" parent="CSGBox3D8"]
+transform = Transform3D(-0.098435, 4.69822e-09, -0.530953, -0.530953, 2.75114e-08, 0.098435, 2.79069e-08, 0.54, -3.95472e-10, 0.687826, -0.784071, -0.48815)
+texture_albedo = ExtResource("17_fjw26")
+
 [node name="IBOX_1x20" parent="." instance=ExtResource("2_c2my5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, 3.5)
 material_override = SubResource("StandardMaterial3D_de6sx")
@@ -598,6 +617,14 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 2
 
 [node name="LBOX_2x7" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -1.5)
+
+[node name="Decal" type="Decal" parent="LBOX_2x7"]
+transform = Transform3D(-1.5299e-08, -0.35, 1.5299e-08, 0, -1.5299e-08, -0.35, 0.35, -1.5299e-08, 6.6874e-16, 0.802273, -1.33075, -2.02092)
+texture_albedo = ExtResource("16_du02m")
+
+[node name="Decal2" type="Decal" parent="LBOX_2x7"]
+transform = Transform3D(-2.95117e-08, -0.61, 5.06974e-08, 0.196108, -5.74937e-08, -0.577617, 0.577617, -1.16463e-08, 0.196108, 1.02467, -0.956519, -0.432724)
+texture_albedo = ExtResource("20_14jyi")
 
 [node name="LBOX_2x6" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7.5, 2, 3)
