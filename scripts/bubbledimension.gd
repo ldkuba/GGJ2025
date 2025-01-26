@@ -58,3 +58,11 @@ func toggle_bubble(player_transform: Transform3D) -> void:
 		close_bubble()
 	else:
 		open_bubble(player_transform)
+
+
+func _on_enter_detection_body_entered(body: Node3D) -> void:
+	EventBus.bubble_entered.emit()
+
+
+func _on_enter_detection_body_exited(body: Node3D) -> void:
+	EventBus.bubble_exited.emit()

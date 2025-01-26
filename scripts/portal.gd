@@ -87,12 +87,13 @@ func _process(_delta: float) -> void:
 		player.global_transform = portal2.global_transform * playerRelativePortal1.rotated(Vector3(0, 1, 0), PI)
 		player.global_position += portal2.global_transform.basis.z * near_delta
 		player_crossed.emit(false)
+		$Sound.play()
 	elif _crossed_portal(portal2, player_pos, near_delta):
 		var playerRelativePortal2: Transform3D = portal2.global_transform.affine_inverse() * player.global_transform
 		player.global_transform = portal1.global_transform * playerRelativePortal2.rotated(Vector3(0, 1, 0), PI)
 		player.global_position += portal1.global_transform.basis.z * near_delta
 		player_crossed.emit(true)
-
+		$Sound.play()
 	# Update camera near clip plane
 	_update_near_plane(portal1)
 	_update_near_plane(portal2)

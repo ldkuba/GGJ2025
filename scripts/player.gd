@@ -97,6 +97,7 @@ func _input(event: InputEvent) -> void:
 			print("E pressed")
 			if active_bubble != null:
 				print("Portal used")
+				$PortalOpenSound.play()
 				active_bubble.toggle_bubble(global_transform)
 
 

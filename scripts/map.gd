@@ -23,8 +23,10 @@ func _input(event: InputEvent) -> void:
 		print("map visible: ", map_visible)
 		if map_visible:
 			animation_player.play("toggle_map")
+			$"../../../../MapOpenSound".play()
 		else:
-			animation_player.play_backwards("toggle_map")
+			animation_player.play_backwards("toggle_map")#
+			$CloseSound.play()
 
 func _process(_delta: float) -> void:
 	#update dimensions

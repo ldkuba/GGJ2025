@@ -1,14 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://b5uy3nk4630n2"]
+[gd_scene load_steps=20 format=3 uid="uid://b5uy3nk4630n2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pp0i7"]
 [ext_resource type="Texture2D" uid="uid://d3q01533miggt" path="res://assets/mapfromwithingodot.jpg" id="2_k2amn"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="3_y8bsy"]
 [ext_resource type="Texture2D" uid="uid://b3jqgbcvbe2m2" path="res://assets/bubble-room1_overlay.png" id="4_0xq1b"]
+[ext_resource type="AudioStream" uid="uid://dmt36hhn6j52f" path="res://assets/audio/effects/map_put_away_v1_dry.wav" id="5_c4o8d"]
 [ext_resource type="PackedScene" uid="uid://bl4rbkor0vnyk" path="res://scenes/death_screen.tscn" id="5_wceip"]
 [ext_resource type="AudioStream" uid="uid://1y1pg8q7fcqs" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_1 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="6_qv6mk"]
 [ext_resource type="AudioStream" uid="uid://dewwi3jfntpta" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_17 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="7_5jlht"]
 [ext_resource type="AudioStream" uid="uid://clwmhimm3nh0t" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_39 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="8_fbnd4"]
 [ext_resource type="AudioStream" uid="uid://cw4ygbytwv3ec" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_94 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="9_hnifb"]
+[ext_resource type="AudioStream" uid="uid://bwitrpbgj6mfn" path="res://assets/audio/effects/map_open_v1_reverb.wav" id="11_m6l0q"]
+[ext_resource type="AudioStream" uid="uid://cketb33ymp7q2" path="res://assets/audio/effects/portal_spawn_v1_dry.wav" id="12_ly8j3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ett2v"]
 radius = 0.3
@@ -82,17 +85,6 @@ tracks/5/keys = {
 "points": PackedFloat32Array(0.000975103, -0.0005, 0, 0.0005, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/6/type = "audio"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sound")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"clips": [],
-"times": PackedFloat32Array()
-}
-tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_dh8nd"]
 resource_name = "toggle_map"
@@ -247,7 +239,8 @@ offset = Vector2(-42, -14)
 pixel_size = 0.0032
 texture = ExtResource("4_0xq1b")
 
-[node name="Sound" type="AudioStreamPlayer3D" parent="Head/CameraContainer/Camera3D/Map"]
+[node name="CloseSound" type="AudioStreamPlayer3D" parent="Head/CameraContainer/Camera3D/Map"]
+stream = ExtResource("5_c4o8d")
 
 [node name="DeathScreen" parent="Head/CameraContainer/Camera3D" instance=ExtResource("5_wceip")]
 modulate = Color(1, 1, 1, 0)
@@ -260,3 +253,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.086892, 0)
 libraries = {
 "": SubResource("AnimationLibrary_eb728")
 }
+
+[node name="MapOpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_m6l0q")
+
+[node name="PortalOpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ly8j3")

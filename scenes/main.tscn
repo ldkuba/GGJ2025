@@ -118,11 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.2661, 0, -2.69444)
 [node name="Bubbledimension2" parent="BubbleDimensions" instance=ExtResource("7_d5tt1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.605, 0, -0.63973)
 
-[node name="Ambience" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("chase_music")]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamInteractive_1nice")
 autoplay = true
 script = ExtResource("10_473bf")
-chase_music = NodePath("ChaseMusic")
-
-[node name="ChaseMusic" type="AudioStreamPlayer" parent="Ambience"]
-stream = ExtResource("11_mrty1")
