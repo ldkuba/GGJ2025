@@ -235,7 +235,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
 sorting_offset = 100.0
 centered = false
 offset = Vector2(-42, -14)
-pixel_size = 0.0032
+pixel_size = 0.003
 texture = ExtResource("4_0xq1b")
 
 [node name="CloseSound" type="AudioStreamPlayer3D" parent="Head/CameraContainer/Camera3D/Map"]
