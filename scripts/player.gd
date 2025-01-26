@@ -249,6 +249,7 @@ func set_health(value: float) -> void:
 
 func _on_died() -> void:
 	alive = false
+	$DeathSound.play()
 	var tw := get_tree().create_tween()
 	tw.tween_property(death_screen, "modulate:a", 1.0, 1.0)
 	tw.tween_interval(1.0)
