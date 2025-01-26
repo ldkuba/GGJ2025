@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Poem" load_steps=2 format=3 uid="uid://b7wqggra66448"]
+
+[ext_resource type="Script" path="res://scripts/poem.gd" id="1_0nibb"]
+
+[resource]
+script = ExtResource("1_0nibb")
+text = "You may have escaped this time,
+Do you wanna leave the grime?
+Your brother is still lost somewhere,
+The never ending feeling of despair.
+
+Leaving this damn bathhouse behind, for now.
+Your world crumbling. Did you hear that pow?"

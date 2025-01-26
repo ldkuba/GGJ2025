@@ -42,6 +42,7 @@ func _player_crossed(into_bubble: bool):
 		get_viewport().get_camera_3d().environment = null
 		# get_viewport().get_camera_3d().camera_attributes = null
 
+
 func close_bubble() -> void:
 	if not is_open: return
 
