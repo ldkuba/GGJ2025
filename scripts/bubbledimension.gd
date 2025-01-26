@@ -42,7 +42,7 @@ func _player_crossed(into_bubble: bool):
 		get_viewport().get_camera_3d().environment = null
 		# get_viewport().get_camera_3d().camera_attributes = null
 
-func close_bubble():
+func close_bubble() -> void:
 	if not is_open: return
 
 	print("Closing bubble dimension")
@@ -61,9 +61,9 @@ func toggle_bubble(player_transform: Transform3D) -> void:
 		open_bubble(player_transform)
 
 
-func _on_enter_detection_body_entered(body: Node3D) -> void:
+func _on_enter_detection_body_entered(_body: Node3D) -> void:
 	EventBus.bubble_entered.emit()
 
 
-func _on_enter_detection_body_exited(body: Node3D) -> void:
+func _on_enter_detection_body_exited(_body: Node3D) -> void:
 	EventBus.bubble_exited.emit()

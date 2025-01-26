@@ -2,7 +2,7 @@ extends Control
 
 var open := false
 
-@onready var label = $MarginContainer/MarginContainer/Label as Label
+@onready var label: Label = $MarginContainer/MarginContainer/Label
 
 
 func _ready() -> void:

@@ -21,6 +21,8 @@ func _ready() -> void:
 		return
 	texture = map_75
 	player.died.connect(close_map)
+	EventBus.map_piece_picked_up.connect(_on_map_piece_picked_up)
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_map"):
@@ -88,3 +90,7 @@ func from_world_to_map(x: float, max:float, min:float, size:float) -> float:
 		# print("Detected out of bounds output: ", x, " [", -size / 2.0, " ", size / 2.0, "]")
 		pass
 	return x
+
+
+func _on_map_piece_picked_up(map_piece: MapPiece) -> void:
+	texture = map_100
