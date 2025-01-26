@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cslmrs5nyq6pj"
+path="res://.godot/imported/footstep_tile_#3_v1.wav-0d5761c7ec7eb72075d14a69147978df.sample"
+
+[deps]
+
+source_file="res://assets/audio/effects/foot dry/footstep_tile_#3_v1.wav"
+dest_files=["res://.godot/imported/footstep_tile_#3_v1.wav-0d5761c7ec7eb72075d14a69147978df.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

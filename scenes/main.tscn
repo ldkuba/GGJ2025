@@ -120,7 +120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 41)
 transform = Transform3D(-0.999939, 0, -0.0109954, 0, 1, 0, 0.0109954, 0, -0.999939, -26.2294, 0.539743, -4.361)
 
 [node name="Monster2" parent="Monsters" instance=ExtResource("3_46wtl")]
-transform = Transform3D(0.454472, 0.174616, 0.873478, -0.10512, 0.984259, -0.142068, -0.884536, -0.0272542, 0.465674, 2.7706, 0.539743, 7.139)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7706, 0.539743, 7.139)
 
 [node name="Monster7" parent="Monsters" instance=ExtResource("3_46wtl")]
 transform = Transform3D(-0.884536, -0.0272542, 0.465674, -0.10512, 0.98426, -0.142068, -0.454472, -0.174616, -0.873478, 8.7706, 0.539743, -19.361)

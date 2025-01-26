@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b5uy3nk4630n2"]
+[gd_scene load_steps=19 format=3 uid="uid://b5uy3nk4630n2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pp0i7"]
 [ext_resource type="Texture2D" uid="uid://cin3vsd2nm08x" path="res://assets/Map_final.png" id="2_v5vc1"]
@@ -7,14 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://qvbuypsuucku" path="res://assets/map_75.png" id="4_riqyg"]
 [ext_resource type="AudioStream" uid="uid://dmt36hhn6j52f" path="res://assets/audio/effects/map_put_away_v1_dry.wav" id="5_c4o8d"]
 [ext_resource type="PackedScene" uid="uid://bl4rbkor0vnyk" path="res://scenes/death_screen.tscn" id="5_wceip"]
-[ext_resource type="AudioStream" uid="uid://1y1pg8q7fcqs" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_1 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="6_qv6mk"]
-[ext_resource type="AudioStream" uid="uid://dewwi3jfntpta" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_17 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="7_5jlht"]
 [ext_resource type="PackedScene" uid="uid://u5xbhvqim2fu" path="res://scenes/poem_screen.tscn" id="7_l1vlo"]
-[ext_resource type="AudioStream" uid="uid://clwmhimm3nh0t" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_39 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="8_fbnd4"]
-[ext_resource type="AudioStream" uid="uid://cw4ygbytwv3ec" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_94 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="9_hnifb"]
+[ext_resource type="AudioStream" uid="uid://cbjnx81junqfv" path="res://assets/audio/effects/foot dry/foot_dry_Random.tres" id="9_83r4v"]
 [ext_resource type="AudioStream" uid="uid://bwitrpbgj6mfn" path="res://assets/audio/effects/map_open_v1_reverb.wav" id="11_m6l0q"]
 [ext_resource type="AudioStream" uid="uid://cketb33ymp7q2" path="res://assets/audio/effects/portal_spawn_v1_dry.wav" id="12_ly8j3"]
-[ext_resource type="AudioStream" uid="uid://cap8pxufix4ml" path="res://assets/audio/effects/Placeholder SFX/hit 146 duhhhh (strong).mp3" id="13_f0rbk"]
+[ext_resource type="AudioStream" uid="uid://e0bxvxyxep40" path="res://assets/audio/effects/monster_chomp (death sound)_v1.wav" id="15_2sj5s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ett2v"]
 radius = 0.3
@@ -166,15 +163,9 @@ _data = {
 "toggle_map": SubResource("Animation_dh8nd")
 }
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ptmu5"]
-streams_count = 4
-stream_0/stream = ExtResource("6_qv6mk")
-stream_1/stream = ExtResource("7_5jlht")
-stream_2/stream = ExtResource("8_fbnd4")
-stream_3/stream = ExtResource("9_hnifb")
-
 [sub_resource type="Animation" id="Animation_gmyvc"]
 resource_name = "footsteps"
+length = 0.36
 loop_mode = 1
 tracks/0/type = "audio"
 tracks/0/imported = false
@@ -186,7 +177,7 @@ tracks/0/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": SubResource("AudioStreamRandomizer_ptmu5")
+"stream": ExtResource("9_83r4v")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -256,6 +247,7 @@ modulate = Color(1, 1, 1, 0)
 
 [node name="Footsteps" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.086892, 0)
+volume_db = 4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -269,4 +261,4 @@ stream = ExtResource("11_m6l0q")
 stream = ExtResource("12_ly8j3")
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_f0rbk")
+stream = ExtResource("15_2sj5s")

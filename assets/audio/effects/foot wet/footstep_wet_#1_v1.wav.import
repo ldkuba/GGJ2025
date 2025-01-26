@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyju85n1pfufj"
+path="res://.godot/imported/footstep_wet_#1_v1.wav-b9cf88e8ee5bdc1a6dd9d547756395eb.sample"
+
+[deps]
+
+source_file="res://assets/audio/effects/foot wet/footstep_wet_#1_v1.wav"
+dest_files=["res://.godot/imported/footstep_wet_#1_v1.wav-b9cf88e8ee5bdc1a6dd9d547756395eb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

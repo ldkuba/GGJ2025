@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvyavk6abn4qv"]
+[gd_scene load_steps=7 format=3 uid="uid://cvyavk6abn4qv"]
 
 [ext_resource type="Script" path="res://scripts/pickup.gd" id="1_orego"]
+[ext_resource type="AudioStream" uid="uid://bwxhbh16cxd37" path="res://assets/audio/effects/note_pick_up_v1.wav" id="2_gh0wx"]
+[ext_resource type="AudioStream" uid="uid://becj27jh1wu7e" path="res://assets/audio/effects/map_pick_up_v1.wav" id="3_ne8kf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lbm5"]
 cull_mode = 2
@@ -15,6 +17,8 @@ size = Vector2(0.3, 0.3)
 
 [node name="Pickup" type="Node3D"]
 script = ExtResource("1_orego")
+poem_sound = ExtResource("2_gh0wx")
+map_sound = ExtResource("3_ne8kf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.425, 0, 0, 0, 1.425, 0, 0, 0, 1.425, 0, 1.29881, 0)
@@ -35,5 +39,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856672, 0)
 shape = SubResource("CylinderShape3D_p58h8")
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
+volume_db = 2.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

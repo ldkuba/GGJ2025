@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://cbjnx81junqfv"]
+
+[ext_resource type="AudioStream" uid="uid://coqahx2x70hk3" path="res://assets/audio/effects/foot dry/footstep_tile_#1_v1.wav" id="1_3nop0"]
+[ext_resource type="AudioStream" uid="uid://ddcr75vskjvpy" path="res://assets/audio/effects/foot dry/footstep_tile_#2_v1.wav" id="2_ilnlr"]
+[ext_resource type="AudioStream" uid="uid://cslmrs5nyq6pj" path="res://assets/audio/effects/foot dry/footstep_tile_#3_v1.wav" id="3_hboib"]
+[ext_resource type="AudioStream" uid="uid://d0iwwygllvs5b" path="res://assets/audio/effects/foot dry/footstep_tile_#4_v1.wav" id="4_nlebe"]
+[ext_resource type="AudioStream" uid="uid://dmmdfp68ubr83" path="res://assets/audio/effects/foot dry/footstep_tile_#5_v1.wav" id="5_dwt25"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_3nop0")
+stream_1/stream = ExtResource("2_ilnlr")
+stream_2/stream = ExtResource("3_hboib")
+stream_3/stream = ExtResource("4_nlebe")
+stream_4/stream = ExtResource("5_dwt25")

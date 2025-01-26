@@ -100,6 +100,7 @@ one_shot = true
 [node name="DetectedSound" type="AudioStreamPlayer3D" parent="StateMachine/Pursue"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09552, 0)
 stream = ExtResource("5_r5axi")
+volume_db = 15.0
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.5
