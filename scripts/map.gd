@@ -40,7 +40,7 @@ func _process(_delta: float) -> void:
 		level_min_dimensions = Vector2(aabb.position.x, aabb.position.z)
 		print("level dimensions: ", level_max_dimensions, " ", level_min_dimensions)
 		map_size.x = get_aabb().size.x
-		map_size.y = get_aabb().size.y
+		map_size.y = map_size.x * level_max_dimensions.y / level_max_dimensions.x
 		print("map size: ", map_size)
 
 	if map_visible and player and overlay:

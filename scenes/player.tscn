@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://b5uy3nk4630n2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pp0i7"]
-[ext_resource type="Texture2D" uid="uid://d3q01533miggt" path="res://assets/mapfromwithingodot.jpg" id="2_k2amn"]
+[ext_resource type="Texture2D" uid="uid://cin3vsd2nm08x" path="res://assets/Map_final.png" id="2_v5vc1"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="3_y8bsy"]
 [ext_resource type="Texture2D" uid="uid://b3jqgbcvbe2m2" path="res://assets/bubble-room1_overlay.png" id="4_0xq1b"]
 [ext_resource type="AudioStream" uid="uid://dmt36hhn6j52f" path="res://assets/audio/effects/map_put_away_v1_dry.wav" id="5_c4o8d"]
@@ -220,8 +220,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="Map" type="Sprite3D" parent="Head/CameraContainer/Camera3D" node_paths=PackedStringArray("animation_player", "overlay", "player")]
 transform = Transform3D(-3.61999e-07, 0, 0.1, 0, 0.1, 0, -0.1, 0, -3.61999e-07, -0.276292, -0.418612, 0.000975103)
 sorting_offset = 1.0
-pixel_size = 0.005
-texture = ExtResource("2_k2amn")
+pixel_size = 0.0015
+texture = ExtResource("2_v5vc1")
 script = ExtResource("3_y8bsy")
 animation_player = NodePath("AnimationPlayer")
 overlay = NodePath("Overlay")
