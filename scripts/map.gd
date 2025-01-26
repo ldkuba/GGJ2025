@@ -23,17 +23,6 @@ func _ready() -> void:
 	player.died.connect(close_map)
 	EventBus.map_piece_picked_up.connect(_on_map_piece_picked_up)
 
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_map"):
-		print("map visible: ", map_visible)
-		if not map_visible:
-			open_map()
-		else:
-			close_map()
-	if event.is_action_pressed("ui_accept"):
-		unlock_map()
-
 func unlock_map() -> void:
 		texture = map_100
 

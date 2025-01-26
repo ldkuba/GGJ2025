@@ -101,6 +101,8 @@ func _ready() -> void:
 
 func _crossed_portal(into_bubble: bool) -> void:
 	inside_bubble = into_bubble
+	if into_bubble:
+		map.close_map()
 
 
 func _unhandled_input(event: InputEvent)->void:
@@ -130,6 +132,11 @@ func _unhandled_input(event: InputEvent)->void:
 				$PortalOpenSound.play()
 				map.close_map()
 				active_bubble.open_bubble(global_transform)
+		elif event.is_action_pressed("toggle_map") and not inside_bubble:
+			if map.map_visible:
+				map.close_map()
+			else:
+				map.open_map()
 		return
 
 	if event is InputEventMouseMotion:
