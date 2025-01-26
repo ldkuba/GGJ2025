@@ -3,7 +3,7 @@ extends Sprite3D
 var level: Level
 @export var animation_player: AnimationPlayer
 @export var overlay: Sprite3D
-@export var player: Node3D
+@export var player: Player
 @export var map_75: Texture2D
 @export var map_100: Texture2D
 var level_max_dimensions: Vector2 = Vector2(10, 10)
@@ -19,22 +19,36 @@ func _ready() -> void:
 		printerr("No level found!")
 		return
 	texture = map_75
+	player.died.connect(close_map)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_map"):
-		map_visible = not map_visible
 		print("map visible: ", map_visible)
-		if map_visible:
-			animation_player.play("toggle_map")
-			$"../../../../MapOpenSound".play()
+		if not map_visible:
+			open_map()
 		else:
-			animation_player.play_backwards("toggle_map")#
-			$CloseSound.play()
+			close_map()
 	if event.is_action_pressed("ui_accept"):
 		unlock_map()
 
 func unlock_map() -> void:
 		texture = map_100
+
+func open_map() -> void:
+	if map_visible:
+		print("map already open")
+		return
+	map_visible = true
+	animation_player.play("toggle_map")
+	$"../../../../MapOpenSound".play()
+
+func close_map() -> void:
+	if not map_visible:
+		print("map already closed")
+		return
+	map_visible = false
+	animation_player.play_backwards("toggle_map")
+	$CloseSound.play()
 
 func _process(_delta: float) -> void:
 	#update dimensions
