@@ -16,6 +16,9 @@ var inside_bubble := false
 var map: Map
 @export var anim_player: AnimationPlayer
 
+@export var dry_footsteps: AudioStream
+@export var wet_footsteps: AudioStream
+
 ## Head node.
 @export var head : Node3D
 @export var camera: Camera3D
@@ -98,6 +101,10 @@ func _ready() -> void:
 		active_bubble = bubble_dimensions[0]
 		active_bubble.portals[0].player_crossed.connect(_crossed_portal)
 		active_bubble.portals[1].player_crossed.connect(_crossed_portal)
+	
+	EventBus.puddle_entered.connect(_on_puddle_entered)
+	EventBus.puddle_exited.connect(_on_puddle_exited)
+
 
 func _crossed_portal(into_bubble: bool) -> void:
 	inside_bubble = into_bubble
@@ -286,3 +293,13 @@ func _on_died() -> void:
 	EventBus.game_reset.emit()
 	await get_tree().physics_frame
 	get_tree().paused = false
+
+
+func _on_puddle_entered() -> void:
+	var anim := anim_player.get_animation(&"footsteps")
+	anim.audio_track_set_key_stream(0, 0, wet_footsteps)
+
+
+func _on_puddle_exited() -> void:
+	var anim := anim_player.get_animation(&"footsteps")
+	anim.audio_track_set_key_stream(0, 0, dry_footsteps)

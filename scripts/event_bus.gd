@@ -10,3 +10,6 @@ signal bubble_exited
 
 signal poem_picked_up(poem: Poem)
 signal map_piece_picked_up(map_piece: MapPiece)
+
+signal puddle_entered
+signal puddle_exited

@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3kt708tpkxy8"]
+[gd_scene load_steps=4 format=3 uid="uid://c3kt708tpkxy8"]
 
 [ext_resource type="Texture2D" uid="uid://meovfp2e535e" path="res://assets/sprites/waterpuddles/waterpuddle.png" id="1_7rm1n"]
+[ext_resource type="Script" path="res://scripts/splash.gd" id="2_xnieh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qcy2j"]
+radius = 2.31094
 
 [node name="Decal" type="Decal"]
 texture_albedo = ExtResource("1_7rm1n")
+script = ExtResource("2_xnieh")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_qcy2j")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

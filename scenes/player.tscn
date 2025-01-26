@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5uy3nk4630n2"]
+[gd_scene load_steps=20 format=3 uid="uid://b5uy3nk4630n2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pp0i7"]
 [ext_resource type="Texture2D" uid="uid://cin3vsd2nm08x" path="res://assets/Map_final.png" id="2_v5vc1"]
+[ext_resource type="AudioStream" uid="uid://c01cv81njh2n7" path="res://assets/audio/effects/foot wet/foot_wet_random.tres" id="3_7rg66"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="3_y8bsy"]
 [ext_resource type="Texture2D" uid="uid://b3jqgbcvbe2m2" path="res://assets/bubble-room1_overlay.png" id="4_0xq1b"]
 [ext_resource type="Texture2D" uid="uid://qvbuypsuucku" path="res://assets/map_75.png" id="4_riqyg"]
@@ -194,6 +195,8 @@ script = ExtResource("1_pp0i7")
 health_regain_per_second = 0.2
 death_screen = NodePath("Head/CameraContainer/Camera3D/DeathScreen")
 anim_player = NodePath("AnimationPlayer")
+dry_footsteps = ExtResource("9_83r4v")
+wet_footsteps = ExtResource("3_7rg66")
 head = NodePath("Head")
 camera = NodePath("Head/CameraContainer/Camera3D")
 mouse_sensitivity = 10.0
