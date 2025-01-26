@@ -2,7 +2,7 @@
 
 [ext_resource type="Environment" uid="uid://c6d12yarira68" path="res://scenes/BubbleEnv.tres" id="1_2c5lq"]
 [ext_resource type="Script" path="res://scripts/bubbledimension.gd" id="1_ayy2c"]
-[ext_resource type="PackedScene" uid="uid://hkrutug6uvr2" path="res://scenes/portal.tscn" id="1_m7ix4"]
+[ext_resource type="PackedScene" path="res://scenes/portal.tscn" id="1_m7ix4"]
 [ext_resource type="PackedScene" uid="uid://ddh27eydja0nk" path="res://scenes/portal_door.tscn" id="2_thv6e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxhwp"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/bubbledimension.gd" id="1_eghpo"]
 [ext_resource type="Environment" uid="uid://c6d12yarira68" path="res://scenes/BubbleEnv.tres" id="1_owhpb"]
-[ext_resource type="PackedScene" uid="uid://hkrutug6uvr2" path="res://scenes/portal.tscn" id="3_c4ysa"]
+[ext_resource type="PackedScene" path="res://scenes/portal.tscn" id="3_c4ysa"]
 [ext_resource type="PackedScene" uid="uid://ddh27eydja0nk" path="res://scenes/portal_door.tscn" id="4_3efsu"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8cpg1"]
