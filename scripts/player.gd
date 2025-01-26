@@ -102,20 +102,6 @@ func _ready() -> void:
 func _crossed_portal(into_bubble: bool) -> void:
 	inside_bubble = into_bubble
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.is_action_pressed("use_portal") and not inside_bubble:
-			print("E pressed")
-			if not map.map_visible:
-				map.open_map()
-			elif active_bubble != null:
-				print("Portal used")
-				if active_bubble.is_open:
-					active_bubble.close_bubble()
-				$PortalOpenSound.play()
-				map.close_map()
-				active_bubble.open_bubble(global_transform)
-
 
 func _unhandled_input(event: InputEvent)->void:
 	if not alive: return
@@ -133,7 +119,17 @@ func _unhandled_input(event: InputEvent)->void:
 	if event is InputEventKey:
 		if event.is_action_pressed("ui_cancel"):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
+		elif event.is_action_pressed("use_portal") and not inside_bubble:
+			print("E pressed")
+			if not map.map_visible:
+				map.open_map()
+			elif active_bubble != null:
+				print("Portal used")
+				if active_bubble.is_open:
+					active_bubble.close_bubble()
+				$PortalOpenSound.play()
+				map.close_map()
+				active_bubble.open_bubble(global_transform)
 		return
 
 	if event is InputEventMouseMotion:
