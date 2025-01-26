@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cgedwkdtpxat4"]
+[gd_scene load_steps=64 format=3 uid="uid://cgedwkdtpxat4"]
 
 [ext_resource type="Texture2D" uid="uid://cermmkh88t1nd" path="res://assets/Textures/floorsmall.jpg" id="1_agcbg"]
 [ext_resource type="PackedScene" uid="uid://xhxj25dmv7gm" path="res://prefabs/lbox_2x_3.tscn" id="1_p2lts"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://bhk2wloa17xlt" path="res://prefabs/lbox_3x_4.tscn" id="8_evk2x"]
 [ext_resource type="PackedScene" uid="uid://njvc5to8uhs8" path="res://prefabs/LBOX_2x3x_invert_fixed.tscn" id="9_xvim5"]
 [ext_resource type="Texture2D" uid="uid://dkah4v4fwnuig" path="res://assets/Bathhouse wall 2.png" id="12_1tc5d"]
+[ext_resource type="Texture2D" uid="uid://bssdfuh62ecce" path="res://assets/sprites/blood/blood_splatter.png" id="13_pe0dv"]
 [ext_resource type="Texture2D" uid="uid://bpwy153exqk5w" path="res://assets/Blood.png" id="16_du02m"]
+[ext_resource type="Texture2D" uid="uid://ref86cg3yh8d" path="res://assets/sprites/blood/Scratches_with_Blood.png" id="17_fjw26"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fux2u"]
 albedo_color = Color(0.518132, 0.0655929, 0, 1)
@@ -373,6 +375,10 @@ material_override = SubResource("StandardMaterial3D_7kn58")
 size = Vector3(1, 4, 4)
 material = null
 
+[node name="Decal" type="Decal" parent="IBOX_1x10"]
+transform = Transform3D(6.83136e-08, -0.59, 7.82835e-08, -0.518448, -2.26621e-08, 0.281623, -0.281623, -1.01398e-07, -0.518448, 0.532176, -0.958344, 0.0139879)
+texture_albedo = ExtResource("13_pe0dv")
+
 [node name="LBOX_2x3" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -13, 2, 14.5)
 
@@ -397,6 +403,10 @@ snap = 0.25
 [node name="LBOX_3x7" parent="." instance=ExtResource("8_evk2x")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.5, 2, 8)
 snap = 0.25
+
+[node name="Decal" type="Decal" parent="LBOX_3x7"]
+transform = Transform3D(7.36023e-09, -0.515, -1.37145e-08, -0.0908271, -1.47976e-08, 0.506927, -0.506927, -4.82613e-09, -0.0908271, -2.07733, -1.22096, 0.0437357)
+texture_albedo = ExtResource("17_fjw26")
 
 [node name="LBOX_2x4" parent="." instance=ExtResource("1_p2lts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 17.5)
@@ -460,6 +470,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 2, 
 material_override = SubResource("StandardMaterial3D_0aika")
 size = Vector3(1, 4, 4)
 material = null
+
+[node name="Decal" type="Decal" parent="IBOX_1x16"]
+transform = Transform3D(-3.11239e-08, -0.5, -7.84616e-08, -0.498152, 3.7749e-08, -0.0429519, 0.0429519, 7.54979e-08, -0.498152, 0.395586, -1.20559, 0)
+texture_albedo = ExtResource("17_fjw26")
 
 [node name="BOX_2x6" parent="." instance=ExtResource("4_dqdse")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 2, 7.5)
