@@ -137,6 +137,10 @@ func _unhandled_input(event: InputEvent)->void:
 				map.close_map()
 			else:
 				map.open_map()
+		elif event.is_action_pressed("unstuck") and not inside_bubble:
+			if map.map_visible:
+				map.close_map()
+			global_transform = home_location
 		return
 
 	if event is InputEventMouseMotion:
