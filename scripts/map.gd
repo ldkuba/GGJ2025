@@ -43,8 +43,6 @@ func _process(delta: float) -> void:
 
 	if map_visible and player and overlay:
 		overlay.rotation.z = player.rotation.y
-		print("player position: ", player.position)
-		print("global position: ", player.global_position)
 		overlay.position.x = from_world_to_map(player.position.x, level_max_dimensions.x, level_min_dimensions.x, map_size.x)
 		overlay.position.y = -from_world_to_map(player.position.z, level_max_dimensions.y, level_min_dimensions.y, map_size.y)
 
