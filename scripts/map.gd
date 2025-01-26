@@ -56,7 +56,8 @@ func _process(_delta: float) -> void:
 
 func from_world_to_map(x: float, max:float, min:float, size:float) -> float:
 	if x < min or x > max:
-		print("Detected out of bounds input: ", x, " [", min, " ", max, "]")
+		# print("Detected out of bounds input: ", x, " [", min, " ", max, "]")
+		pass
 	var diff := max - min
 	# to 0-diff
 	x -= min
@@ -67,5 +68,6 @@ func from_world_to_map(x: float, max:float, min:float, size:float) -> float:
 	# to -size/2 - size/2
 	x -= size / 2.0
 	if x > size / 2.0 or x < -size / 2.0:
-		print("Detected out of bounds output: ", x, " [", -size / 2.0, " ", size / 2.0, "]")
+		# print("Detected out of bounds output: ", x, " [", -size / 2.0, " ", size / 2.0, "]")
+		pass
 	return x

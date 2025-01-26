@@ -8,6 +8,9 @@ class_name Portal
 var player: Player
 var player_last_pos: Vector3 = Vector3.ZERO
 
+const TELEPORT_LOCK_DURATION: int = 3
+var teleport_lock: int = 0
+
 signal player_crossed(into_bubble: bool)
 
 # Called when the node enters the scene tree for the first time.
@@ -39,8 +42,8 @@ func _ready() -> void:
 	portal2.camera.environment.tonemap_mode = Environment.TONE_MAPPER_LINEAR
 
 func _crossed_portal(portal: PortalDoor, player_pos: Vector3, near_delta: float) -> bool:
-	var portal_a: Vector3 = portal.global_position + portal.global_transform.basis.x * 0.5 + player.camera.global_transform.basis.z * near_delta
-	var portal_b: Vector3 = portal.global_position - portal.global_transform.basis.x * 0.5 + player.camera.global_transform.basis.z * near_delta
+	var portal_a: Vector3 = portal.global_position + portal.global_transform.basis.x * 0.5 + player.global_transform.basis.z * near_delta
+	var portal_b: Vector3 = portal.global_position - portal.global_transform.basis.x * 0.5 + player.global_transform.basis.z * near_delta
 	var portal_a_xz: Vector2 = Vector2(portal_a.x, portal_a.z)
 	var portal_b_xz: Vector2 = Vector2(portal_b.x, portal_b.z)
 	var player_pos_xz: Vector2 = Vector2(player_pos.x, player_pos.z)
@@ -69,7 +72,7 @@ func _update_near_plane(portal: PortalDoor):
 	portal.camera.near = abs(cam_to_edge.dot(camera_dir_xz))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Set transform of portal1 camera
 	portal1.camera.global_transform = _get_camera_transform(portal2, portal1, player.camera)
 	portal1.viewport.size = get_viewport().get_visible_rect().size / 2.0
@@ -82,18 +85,24 @@ func _process(_delta: float) -> void:
 	var player_pos: Vector3 = player.global_position
 	# if player_last_pos != player_pos:
 	var near_delta: float = player.camera.near
-	if _crossed_portal(portal1, player_pos, near_delta):
+	if _crossed_portal(portal1, player_pos, near_delta) and teleport_lock == 0:
 		var playerRelativePortal1: Transform3D = portal1.global_transform.affine_inverse() * player.global_transform
 		player.global_transform = portal2.global_transform * playerRelativePortal1.rotated(Vector3(0, 1, 0), PI)
 		player.global_position += portal2.global_transform.basis.z * near_delta
 		player_crossed.emit(false)
 		$Sound.play()
-	elif _crossed_portal(portal2, player_pos, near_delta):
+		teleport_lock = TELEPORT_LOCK_DURATION
+	elif _crossed_portal(portal2, player_pos, near_delta) and teleport_lock == 0:
 		var playerRelativePortal2: Transform3D = portal2.global_transform.affine_inverse() * player.global_transform
 		player.global_transform = portal1.global_transform * playerRelativePortal2.rotated(Vector3(0, 1, 0), PI)
 		player.global_position += portal1.global_transform.basis.z * near_delta
 		player_crossed.emit(true)
 		$Sound.play()
+		teleport_lock = TELEPORT_LOCK_DURATION
+
+	if teleport_lock > 0:
+		teleport_lock -= 1
+
 	# Update camera near clip plane
 	_update_near_plane(portal1)
 	_update_near_plane(portal2)

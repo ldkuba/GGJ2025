@@ -48,7 +48,7 @@ func close_bubble():
 	print("Closing bubble dimension")
 
 	for i in range(portals.size()):
-		portals[i].portal2.global_transform = portals[i].portal1.global_transform.rotated(Vector3(0, 1, 0), PI)
+		portals[i].portal2.global_transform = portals[i].portal1.global_transform.rotated_local(Vector3(0, 1, 0), PI)
 
 		portals[i].player_crossed.disconnect(_player_crossed)
 

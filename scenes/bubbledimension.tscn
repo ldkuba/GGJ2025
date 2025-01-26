@@ -2,9 +2,9 @@
 
 [ext_resource type="Environment" uid="uid://c6d12yarira68" path="res://scenes/BubbleEnv.tres" id="1_2c5lq"]
 [ext_resource type="Script" path="res://scripts/bubbledimension.gd" id="1_ayy2c"]
-[ext_resource type="PackedScene" path="res://scenes/portal.tscn" id="1_m7ix4"]
+[ext_resource type="PackedScene" uid="uid://hkrutug6uvr2" path="res://scenes/portal.tscn" id="1_m7ix4"]
 [ext_resource type="PackedScene" uid="uid://ddh27eydja0nk" path="res://scenes/portal_door.tscn" id="2_thv6e"]
-[ext_resource type="CameraAttributesPractical" path="res://scenes/BubbleCameraAttribs.tres" id="3_sd3yo"]
+[ext_resource type="CameraAttributesPractical" uid="uid://c1elqmtog451u" path="res://scenes/BubbleCameraAttribs.tres" id="3_sd3yo"]
 [ext_resource type="Texture2D" uid="uid://dyywygux2qo5" path="res://assets/BubbleRoom.png" id="4_bhvc2"]
 [ext_resource type="Texture2D" uid="uid://n5effibyyc1t" path="res://assets/BubbleTexture.png" id="5_8v8i7"]
 
