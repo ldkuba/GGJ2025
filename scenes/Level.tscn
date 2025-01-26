@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bygm3j7mi8g5o" path="res://assets/Textures/ceiling.png" id="2_d8ean"]
 [ext_resource type="Texture2D" uid="uid://p1x2c7vbpsrx" path="res://assets/Bathhouse Wall 1.png" id="2_f1egd"]
 [ext_resource type="PackedScene" uid="uid://dayqjklvpw1fb" path="res://prefabs/ibox_1x_6.tscn" id="3_cr3jj"]
+[ext_resource type="Texture2D" uid="uid://meovfp2e535e" path="res://assets/sprites/waterpuddles/waterpuddle.png" id="3_mr7oc"]
 [ext_resource type="Texture2D" uid="uid://cv4vhrvkocbiu" path="res://assets/Bathhouse wall 1-1.png" id="3_mvak2"]
 [ext_resource type="PackedScene" uid="uid://cbtbjh8bs1nw1" path="res://prefabs/box_2x_3.tscn" id="4_dqdse"]
+[ext_resource type="Texture2D" uid="uid://bfyo1rr2167h2" path="res://assets/sprites/waterpuddles/waterpuddle2.png" id="4_rbxfp"]
 [ext_resource type="PackedScene" uid="uid://bcxnxj0n6ovjr" path="res://prefabs/csg_box_3d.tscn" id="5_75sjb"]
 [ext_resource type="PackedScene" uid="uid://8wahdvvnjfq2" path="res://prefabs/lbox_3x_4_invert.tscn" id="7_ygcrl"]
 [ext_resource type="PackedScene" uid="uid://bhk2wloa17xlt" path="res://prefabs/lbox_3x_4.tscn" id="8_evk2x"]
@@ -289,6 +291,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 4)
 material_override = SubResource("StandardMaterial3D_fux2u")
 snap = 1.0
 size = Vector3(38, 1, 30)
+
+[node name="Decal" type="Decal" parent="Room"]
+transform = Transform3D(0.425582, 0, -0.232604, 0, 0.485, 0, 0.232604, 0, 0.425582, -1.68138, 0.402541, 10.1759)
+texture_albedo = ExtResource("3_mr7oc")
+
+[node name="Decal2" type="Decal" parent="Room"]
+transform = Transform3D(-0.434202, 0, -0.276937, 0, 0.515, 0, 0.276937, 0, -0.434202, -4.86755, 0.32394, 7.87012)
+texture_albedo = ExtResource("4_rbxfp")
 
 [node name="Ceiling" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 4.5)
