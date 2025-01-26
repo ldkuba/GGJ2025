@@ -4,6 +4,8 @@ var level: Level
 @export var animation_player: AnimationPlayer
 @export var overlay: Sprite3D
 @export var player: Node3D
+@export var map_75: Texture2D
+@export var map_100: Texture2D
 var level_max_dimensions: Vector2 = Vector2(10, 10)
 var level_min_dimensions: Vector2 = Vector2(0, 0)
 var aabb: AABB
@@ -16,6 +18,7 @@ func _ready() -> void:
 	if not level:
 		printerr("No level found!")
 		return
+	texture = map_75
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_map"):
@@ -27,6 +30,9 @@ func _input(event: InputEvent) -> void:
 		else:
 			animation_player.play_backwards("toggle_map")#
 			$CloseSound.play()
+	if event.is_action_pressed("ui_accept"):
+		texture = map_100
+
 
 func _process(_delta: float) -> void:
 	#update dimensions
