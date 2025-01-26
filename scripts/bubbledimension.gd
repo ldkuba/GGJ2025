@@ -43,6 +43,7 @@ func open_bubble(player_transform: Transform3D) -> void:
 	# Wait for physics frame after moving the portals
 	await get_tree().physics_frame
 	await get_tree().physics_frame
+	await get_tree().physics_frame
 
 	var entrance_colliding: bool = false
 

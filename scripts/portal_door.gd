@@ -9,7 +9,7 @@ class_name PortalDoor
 @export var border_color: Color = Color(0, 0, 0, 1)
 @export var border_size: float = 0.1
 
-var _portal_active: bool = true
+var _portal_active: bool = false
 
 # func _input(event: InputEvent) -> void:
 # 	if event is InputEventMouseButton:
@@ -20,8 +20,10 @@ func set_portal_active(active: bool) -> void:
 	_portal_active = active
 	if _portal_active:
 		mesh.set_instance_shader_parameter("portal_active", 0)
+		RenderingServer.viewport_set_update_mode(viewport.get_viewport_rid(), 2) # When visible
 	else:
 		mesh.set_instance_shader_parameter("portal_active", 1)
+		RenderingServer.viewport_set_update_mode(viewport.get_viewport_rid(), 0) # Disabled
 
 func _ready() -> void:
 	set_portal_active(_portal_active)
