@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bl4rbkor0vnyk" path="res://scenes/death_screen.tscn" id="5_wceip"]
 [ext_resource type="AudioStream" uid="uid://1y1pg8q7fcqs" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_1 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="6_qv6mk"]
 [ext_resource type="AudioStream" uid="uid://dewwi3jfntpta" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_17 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="7_5jlht"]
+[ext_resource type="PackedScene" uid="uid://u5xbhvqim2fu" path="res://scenes/poem_screen.tscn" id="7_l1vlo"]
 [ext_resource type="AudioStream" uid="uid://clwmhimm3nh0t" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_39 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="8_fbnd4"]
 [ext_resource type="AudioStream" uid="uid://cw4ygbytwv3ec" path="res://assets/audio/effects/Placeholder SFX/PM_SDGS_94 Footstep Step Dry Grass Shrubs Pine Needles Meadow .wav" id="9_hnifb"]
 [ext_resource type="AudioStream" uid="uid://bwitrpbgj6mfn" path="res://assets/audio/effects/map_open_v1_reverb.wav" id="11_m6l0q"]
@@ -249,6 +250,9 @@ stream = ExtResource("5_c4o8d")
 [node name="DeathScreen" parent="Head/CameraContainer/Camera3D" instance=ExtResource("5_wceip")]
 modulate = Color(1, 1, 1, 0)
 mouse_filter = 2
+
+[node name="PoemScreen" parent="Head/CameraContainer/Camera3D" instance=ExtResource("7_l1vlo")]
+modulate = Color(1, 1, 1, 0)
 
 [node name="Footsteps" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.086892, 0)

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://u5xbhvqim2fu"]
+
+[ext_resource type="Script" path="res://scripts/poem_screen.gd" id="1_rm6re"]
+[ext_resource type="Shader" path="res://scenes/poem_screen.gdshader" id="2_kkrx4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0n4gd"]
+shader = ExtResource("2_kkrx4")
+shader_parameter/color = Color(0.16, 0.16, 0.16, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sup3c"]
+font_size = 31
+
+[node name="PoemScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_rm6re")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_0n4gd")
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.144063, 0.144063, 0.144063, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/line_spacing = 30
+text = "Test"
+label_settings = SubResource("LabelSettings_sup3c")

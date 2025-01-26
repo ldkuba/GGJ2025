@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Poem" load_steps=2 format=3 uid="uid://4ne5v6l3ogdr"]
+
+[ext_resource type="Script" path="res://scripts/poem.gd" id="1_235ar"]
+
+[resource]
+script = ExtResource("1_235ar")
+text = "The Whispers of the Saints Bathhouse
+
+Through old hallways and shadows so deep,
+A bathhouse stands where the silence weeps.
+My brother's steps were last ever heard, 
+Now lost like a whistle in the wind, everything is blurred.
+
+The tiled halls where the water sings,
+Do I already see scary things?
+Each echo calls, each shadow bends,
+As if to warn how my story ends."
