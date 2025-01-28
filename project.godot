@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="GGJ2025"
+config/name="Whispers of Saints: Bathhouse"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/logo.png"
 
 [autoload]
 
@@ -112,5 +112,4 @@ unstuck={
 
 [physics]
 
-3d/physics_engine="JoltPhysics3D"
 jolt_3d/collisions/areas_detect_static_bodies=true
