@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cj66vxt78od73"]
+[gd_scene load_steps=31 format=3 uid="uid://cj66vxt78od73"]
 
 [ext_resource type="PackedScene" uid="uid://cgedwkdtpxat4" path="res://scenes/Level.tscn" id="1_53m68"]
 [ext_resource type="Texture2D" uid="uid://cygp1wy27nd83" path="res://assets/Exit door .png" id="2_83sgg"]
@@ -93,6 +93,13 @@ You wish you had gun powder? Emotions are flood to the shore."
 script = ExtResource("15_kmwrv")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5ap26"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdnhx"]
+transparency = 1
+albedo_texture = ExtResource("2_83sgg")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4e3y5"]
+material = SubResource("StandardMaterial3D_hdnhx")
 
 [node name="Main" type="Node3D"]
 
@@ -202,3 +209,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6333, -4.76837e-07, 52.758
 
 [node name="Monster" parent="." instance=ExtResource("3_46wtl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.1883, 0, 27.624)
+
+[node name="Exit" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.446, 0, 0, 0, 2.446, 0, 0, 0, 2.446, 4.78898, 1.1937, 1.93074)
+mesh = SubResource("QuadMesh_4e3y5")

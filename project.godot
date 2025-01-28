@@ -113,3 +113,8 @@ unstuck={
 [physics]
 
 jolt_3d/collisions/areas_detect_static_bodies=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

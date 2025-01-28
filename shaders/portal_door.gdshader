@@ -2,9 +2,9 @@ shader_type spatial;
 render_mode unshaded;
 uniform sampler2D albedo_texture : source_color;
 uniform sampler2D closed_texture : source_color;
-instance uniform vec4 border_color: source_color;
-instance uniform float border_size: hint_range(0.0, 1.0);
-instance uniform int portal_active; // 0 - active
+uniform vec4 border_color: source_color;
+uniform float border_size: hint_range(0.0, 1.0);
+uniform int portal_active; // 0 - active
 
 // 0 - border, 1 - inside, 2 - outside
 vec2 ellipse(vec2 uv) {
