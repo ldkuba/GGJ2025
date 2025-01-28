@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dweohh788hds"
+path="res://.godot/imported/bgm#2_bubble (weird).ogg-f17d438e5bbfa0562d25ea4f8097b187.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/bgm/bgm#2_bubble (weird).ogg"
+dest_files=["res://.godot/imported/bgm#2_bubble (weird).ogg-f17d438e5bbfa0562d25ea4f8097b187.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

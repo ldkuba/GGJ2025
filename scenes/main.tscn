@@ -8,12 +8,12 @@
 [ext_resource type="Environment" uid="uid://car6mi44g6gdp" path="res://scenes/BathEnv.tres" id="3_r8rjd"]
 [ext_resource type="PackedScene" uid="uid://c5anl3ddg0pjb" path="res://scenes/bubbledimension.tscn" id="6_0c57a"]
 [ext_resource type="PackedScene" uid="uid://co4dpb6bn1dlg" path="res://scenes/bubbledimension_round.tscn" id="7_d5tt1"]
-[ext_resource type="AudioStream" uid="uid://dedp6in8mub07" path="res://assets/audio/bgm/bgm#1_level_ambience.wav" id="8_luasw"]
-[ext_resource type="AudioStream" uid="uid://bc7qyvkm43x4e" path="res://assets/audio/bgm/bgm#2_bubble (weird).wav" id="9_6d8b2"]
+[ext_resource type="AudioStream" uid="uid://dywy0qdbl3xv6" path="res://assets/audio/bgm/bgm#1_level_ambience.ogg" id="9_voutt"]
+[ext_resource type="AudioStream" uid="uid://dweohh788hds" path="res://assets/audio/bgm/bgm#2_bubble (weird).ogg" id="10_1u7td"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="10_473bf"]
 [ext_resource type="PackedScene" uid="uid://dt0ans5jbtdcr" path="res://scenes/LevelStatic.tscn" id="11_1mwd8"]
 [ext_resource type="PackedScene" uid="uid://cvyavk6abn4qv" path="res://scenes/pickup.tscn" id="11_333fx"]
-[ext_resource type="AudioStream" uid="uid://cit20nkktekdh" path="res://assets/audio/bgm/bgm#3_chasing.wav" id="11_mrty1"]
+[ext_resource type="AudioStream" uid="uid://b21m6rdc1b66c" path="res://assets/audio/bgm/bgm#3_chasing.ogg" id="11_m0hsy"]
 [ext_resource type="Resource" uid="uid://4ne5v6l3ogdr" path="res://poems/intro.tres" id="12_di2db"]
 [ext_resource type="Resource" uid="uid://cqvv3pg8872b4" path="res://poems/hint_1.tres" id="13_ay3ow"]
 [ext_resource type="Script" path="res://scripts/poem.gd" id="14_gullh"]
@@ -32,13 +32,13 @@ geometry_source_geometry_mode = 1
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_1nice"]
 clip_count = 3
 clip_0/name = &"maze_ambience"
-clip_0/stream = ExtResource("8_luasw")
+clip_0/stream = ExtResource("9_voutt")
 clip_0/auto_advance = 0
 clip_1/name = &"bubble_ambience"
-clip_1/stream = ExtResource("9_6d8b2")
+clip_1/stream = ExtResource("10_1u7td")
 clip_1/auto_advance = 0
 clip_2/name = &"chase_music"
-clip_2/stream = ExtResource("11_mrty1")
+clip_2/stream = ExtResource("11_m0hsy")
 clip_2/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {
