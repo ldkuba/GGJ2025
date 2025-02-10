@@ -49,6 +49,10 @@ func _crossed_portal(portal: PortalDoor, player_pos: Vector3, near_delta: float)
 	var player_pos_xz: Vector2 = Vector2(player_pos.x, player_pos.z)
 	var player_last_pos_xz: Vector2 = Vector2(player_last_pos.x, player_last_pos.z)
 
+	# Prevent acctidental teleportation when player is moved large distances (eg. unstuck)
+	if (player_pos - player_last_pos).length() > 2.0:
+		return false
+
 	var direction: int = sign((player_pos - player_last_pos).cross(portal_b - portal_a).y)
 
 	return Geometry2D.segment_intersects_segment(player_pos_xz, player_last_pos_xz, portal_a_xz, portal_b_xz) != null && direction == 1

@@ -6,6 +6,9 @@ class_name BubbleDimension
 const PORTAL_OFFSET: float = 1.0
 
 var is_open: bool = false
+# 0 - no change, 1 - request open, 2 - request close
+var request_state: int = 0
+var request_transform: Transform3D
 
 @export var bubble_env: Environment
 @export var bubble_camera_attributes: CameraAttributes
@@ -23,47 +26,52 @@ func _close_portal(portal: Portal):
 func open_bubble(player_transform: Transform3D) -> void:
 	if is_open: return
 
-	print("Openning bubble dimension")
+	request_transform = player_transform
+	request_state = 1
 
-	for i in range(portals.size()):
-		if i == 0:
-			portals[i].portal2.global_transform = player_transform.translated_local(Vector3(0, 0, -PORTAL_OFFSET))
+func _physics_process(delta: float) -> void:
+	if request_state == 1:
+		print("Openning bubble dimension")
 
-		else:
-			var relative_to_entrance: Transform3D = portals[0].portal1.global_transform.affine_inverse() * portals[i].portal1.global_transform
-			portals[i].portal2.global_transform = portals[0].portal2.global_transform * relative_to_entrance.rotated(Vector3(0, 1, 0), PI)
-			portals[i].portal2.rotate_y(PI)
+		for i in range(portals.size()):
+			# Move portal to new location
+			if i == 0:
+				portals[i].portal2.global_transform = request_transform.translated_local(Vector3(0, 0, -PORTAL_OFFSET))
 
-		portals[i].player_crossed.connect(_player_crossed)
-		portals[i].portal1.camera.environment = bubble_env
+			else:
+				var relative_to_entrance: Transform3D = portals[0].portal1.global_transform.affine_inverse() * portals[i].portal1.global_transform
+				portals[i].portal2.global_transform = portals[0].portal2.global_transform * relative_to_entrance.rotated(Vector3(0, 1, 0), PI)
+				portals[i].portal2.rotate_y(PI)
 
-		# Hide until ready
-		portals[i].visible = false
+			# Check for collision
+			if portals[i].portal2.is_colliding():
+				_close_portal(portals[i])
 
-	# Wait for physics frame after moving the portals
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	await get_tree().physics_frame
+				if i == 0:
+					request_state = 0
+					print("Entrance colliding, not openning bubble")
+					return
+			else:
+				# # Hide until ready
+				# portals[i].visible = false
+				portals[i].portal1.set_portal_active(true)
+				portals[i].portal2.set_portal_active(true)
 
-	var entrance_colliding: bool = false
+				portals[i].player_crossed.connect(_player_crossed)
+				portals[i].portal1.camera.environment = bubble_env
 
-	for i in range(portals.size()):
-		portals[i].visible = true
-		var is_colliding: bool = portals[i].portal2.is_colliding()
-		if is_colliding or entrance_colliding:
+		is_open = true
+		request_state = 0
+
+	elif request_state == 2:
+		print("Closing bubble dimension")
+
+		for i in range(portals.size()):
 			_close_portal(portals[i])
 
-			if i == 0:
-				entrance_colliding = true
-		else:
-			portals[i].portal1.set_portal_active(true)
-			portals[i].portal2.set_portal_active(true)
-
-	if entrance_colliding:
-		print("Entrance colliding, not openning bubble")
-		return
-
-	is_open = true
+		is_open = false
+		request_state = 0
+		
 
 func _player_crossed(into_bubble: bool):
 	if into_bubble:
@@ -77,12 +85,7 @@ func _player_crossed(into_bubble: bool):
 func close_bubble() -> void:
 	if not is_open: return
 
-	print("Closing bubble dimension")
-
-	for i in range(portals.size()):
-		_close_portal(portals[i])
-
-	is_open = false
+	request_state = 2
 
 func toggle_bubble(player_transform: Transform3D) -> void:
 	if is_open:

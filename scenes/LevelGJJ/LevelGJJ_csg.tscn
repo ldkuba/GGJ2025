@@ -1,0 +1,851 @@
+[gd_scene load_steps=67 format=3 uid="uid://b4d2muahgi1fy"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_vbdrb"]
+[ext_resource type="Texture2D" uid="uid://cermmkh88t1nd" path="res://assets/Textures/floorsmall.jpg" id="2_wg7nx"]
+[ext_resource type="PackedScene" path="res://scenes/splash.tscn" id="3_tiw7b"]
+[ext_resource type="PackedScene" path="res://scenes/splash2.tscn" id="4_28arj"]
+[ext_resource type="Texture2D" uid="uid://bygm3j7mi8g5o" path="res://assets/Textures/ceiling.png" id="5_4dte1"]
+[ext_resource type="Texture2D" uid="uid://p1x2c7vbpsrx" path="res://assets/Bathhouse Wall 1.png" id="6_whxb0"]
+[ext_resource type="Texture2D" uid="uid://cv4vhrvkocbiu" path="res://assets/Bathhouse wall 1-1.png" id="7_s44dd"]
+[ext_resource type="PackedScene" uid="uid://cb3nv4eedtuhc" path="res://prefabs/ibox_1x_1.tscn" id="8_wghfb"]
+[ext_resource type="PackedScene" uid="uid://dayqjklvpw1fb" path="res://prefabs/ibox_1x_6.tscn" id="9_f8k1b"]
+[ext_resource type="Texture2D" uid="uid://ref86cg3yh8d" path="res://assets/sprites/blood/Scratches_with_Blood.png" id="10_ybhed"]
+[ext_resource type="Texture2D" uid="uid://bssdfuh62ecce" path="res://assets/sprites/blood/blood_splatter.png" id="11_ywl6c"]
+[ext_resource type="PackedScene" uid="uid://cbtbjh8bs1nw1" path="res://prefabs/box_2x_3.tscn" id="12_cut48"]
+[ext_resource type="PackedScene" uid="uid://bcxnxj0n6ovjr" path="res://prefabs/csg_box_3d.tscn" id="13_nebcp"]
+[ext_resource type="PackedScene" uid="uid://njvc5to8uhs8" path="res://prefabs/LBOX_2x3x_invert_fixed.tscn" id="14_inbjx"]
+[ext_resource type="PackedScene" uid="uid://xhxj25dmv7gm" path="res://prefabs/lbox_2x_3.tscn" id="15_wxcts"]
+[ext_resource type="PackedScene" uid="uid://8wahdvvnjfq2" path="res://prefabs/lbox_3x_4_invert.tscn" id="16_tm2aq"]
+[ext_resource type="PackedScene" uid="uid://bhk2wloa17xlt" path="res://prefabs/lbox_3x_4.tscn" id="17_ikrms"]
+[ext_resource type="Texture2D" uid="uid://dkah4v4fwnuig" path="res://assets/Bathhouse wall 2.png" id="18_gru87"]
+[ext_resource type="Texture2D" uid="uid://bpwy153exqk5w" path="res://assets/Blood.png" id="19_up4uq"]
+[ext_resource type="Texture2D" uid="uid://dhhhnqh0yam21" path="res://assets/sprites/blood/Scratches2.png" id="20_j6wib"]
+[ext_resource type="Texture2D" uid="uid://cygp1wy27nd83" path="res://assets/Exit door .png" id="21_dbatu"]
+[ext_resource type="Texture2D" uid="uid://cds87dgtwyqgl" path="res://assets/ExitSign.png" id="22_ugma6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fux2u"]
+albedo_color = Color(0.518132, 0.0655929, 0, 1)
+albedo_texture = ExtResource("2_wg7nx")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihxg2"]
+albedo_texture = ExtResource("5_4dte1")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dv7h3"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynj0v"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwo84"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvn8c"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wx8nm"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ani17"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gms15"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmj7i"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qphev"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qasiw"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kn58"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_togg8"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grvgo"]
+albedo_texture = ExtResource("18_gru87")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa6w5"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0mhrx"]
+albedo_texture = ExtResource("18_gru87")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ki0gg"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7pu1"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6s07"]
+albedo_texture = ExtResource("18_gru87")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vqh6"]
+albedo_texture = ExtResource("18_gru87")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5qp0"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxpy3"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdstl"]
+albedo_texture = ExtResource("18_gru87")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0aika"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h71li"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbehj"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rexy"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqpv8"]
+albedo_texture = ExtResource("18_gru87")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s55xk"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22n76"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_de6sx"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejkfe"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7ih4"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0nbt"]
+albedo_texture = ExtResource("18_gru87")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqqqk"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i60m3"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bb0w"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eywt2"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qup60"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_deo8f"]
+albedo_texture = ExtResource("6_whxb0")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gtngv"]
+albedo_texture = ExtResource("7_s44dd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3t6yt"]
+albedo_texture = ExtResource("18_gru87")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6flgn"]
+albedo_texture = ExtResource("18_gru87")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="Level" type="Node3D" node_paths=PackedStringArray("floor") groups=["navigation_mesh_source_group"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 37.8406, 0, 21.9269)
+script = ExtResource("1_vbdrb")
+floor = NodePath("Room")
+
+[node name="Room" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00529861, -0.501692, 4.00956)
+material_override = SubResource("StandardMaterial3D_fux2u")
+snap = 1.0
+use_collision = true
+size = Vector3(38, 1, 30)
+
+[node name="Decal" parent="Room" instance=ExtResource("3_tiw7b")]
+transform = Transform3D(0.386491, 0, -0.648575, 0, 0.755, 0, 0.648575, 0, 0.386491, -2.84535, 0, 10.4536)
+
+[node name="Decal12" parent="Room" instance=ExtResource("3_tiw7b")]
+transform = Transform3D(-0.921895, 0, 0.308417, 0, 0.755, 0, -0.326496, 0, -0.870845, -8.86947, 0, -3.20782)
+
+[node name="Decal2" parent="Room" instance=ExtResource("4_28arj")]
+transform = Transform3D(-0.434202, 0, -0.276937, 0, 0.515, 0, 0.276937, 0, -0.434202, -4.86755, 0.32394, 7.87012)
+script = null
+
+[node name="Decal13" parent="Room" instance=ExtResource("4_28arj")]
+transform = Transform3D(-0.665785, 0, -0.391601, 0, 0.515, 0, 0.381345, 0, -0.683691, -6.81084, 0.32394, -9.27972)
+script = null
+
+[node name="Decal11" parent="Room" instance=ExtResource("4_28arj")]
+transform = Transform3D(-0.749803, 0, -0.33341, 0, 0.515, 0, 0.478229, 0, -0.522745, 12.6678, 0.32394, -3.04077)
+script = null
+
+[node name="Decal10" parent="Room" instance=ExtResource("3_tiw7b")]
+transform = Transform3D(0.505869, 0, -0.560465, 0, 0.755, 0, 0.560465, 0, 0.505869, 3.76549, 0, -11.66)
+
+[node name="Decal9" parent="Room" instance=ExtResource("4_28arj")]
+transform = Transform3D(-0.461558, 0, 0.546404, 0, 0.515, 0, -0.618169, 0, -0.407974, -11.8506, 0.32394, 12.126)
+script = null
+
+[node name="Decal8" parent="Room" instance=ExtResource("3_tiw7b")]
+transform = Transform3D(0.63339, 0, 0.410904, 0, 0.755, 0, -0.410904, 0, 0.63339, 7.86095, 0, -2.91934)
+
+[node name="Decal4" parent="Room" instance=ExtResource("4_28arj")]
+transform = Transform3D(-0.315897, 0, 0.661653, 0, 0.515, 0, -0.707487, 0, -0.295431, 5.93839, 0.32394, 6.98481)
+script = null
+
+[node name="Decal3" parent="Room" instance=ExtResource("3_tiw7b")]
+transform = Transform3D(-0.555057, 0, -0.764812, 0, 0.945, 0, 0.764812, 0, -0.555057, -0.178949, 0, 1.28302)
+
+[node name="Decal7" parent="Room" instance=ExtResource("3_tiw7b")]
+transform = Transform3D(0.312717, 0, -0.36454, 0, 0.235225, 0, 0.364539, 0, 0.155019, -7.58901, 0.597774, -11.2009)
+
+[node name="Decal6" parent="Room" instance=ExtResource("4_28arj")]
+transform = Transform3D(-0.268613, -2.0181e-08, 0.403821, -3.42355e-08, 0.485, 1.46514e-09, -0.403821, -2.76938e-08, -0.268613, -13.1669, 0.402541, 0.946986)
+script = null
+
+[node name="Decal5" parent="Room" instance=ExtResource("3_tiw7b")]
+transform = Transform3D(0.465764, 0, -0.219748, 0, 0.515, 0, 0.219748, 0, 0.465764, -14.1928, 0.32394, 1.02876)
+
+[node name="Ceiling" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 4.5)
+visible = false
+material_override = SubResource("StandardMaterial3D_ihxg2")
+snap = 1.0
+use_collision = true
+size = Vector3(38, 1, 29)
+
+[node name="BorderLeft" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 2, 4)
+material_override = SubResource("StandardMaterial3D_dv7h3")
+use_collision = true
+size = Vector3(1, 4, 30)
+
+[node name="BorderRight" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 2, 4)
+material_override = SubResource("StandardMaterial3D_ynj0v")
+use_collision = true
+size = Vector3(1, 4, 30)
+
+[node name="BorderTop" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10.5)
+material_override = SubResource("StandardMaterial3D_pwo84")
+use_collision = true
+size = Vector3(36.5, 4, 1)
+
+[node name="BorderBottom" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 18.5)
+material_override = SubResource("StandardMaterial3D_xvn8c")
+use_collision = true
+size = Vector3(36, 4, 1)
+
+[node name="IBOX_1x1" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, 3)
+material_override = SubResource("StandardMaterial3D_wx8nm")
+use_collision = true
+size = Vector3(2, 4, 4)
+material = null
+
+[node name="IBOX_1x6" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.5, 2, -2.5)
+material_override = SubResource("StandardMaterial3D_ani17")
+use_collision = true
+size = Vector3(1, 4, 9)
+material = null
+
+[node name="Decal" type="Decal" parent="IBOX_1x6"]
+transform = Transform3D(-3.52757e-08, -0.39, -2.7021e-08, -0.178952, -7.82224e-09, 0.34652, -0.34652, 4.37415e-08, -0.178952, -0.376053, -1.04758, 3.45094)
+texture_albedo = ExtResource("10_ybhed")
+
+[node name="Decal2" type="Decal" parent="IBOX_1x6"]
+transform = Transform3D(-5.26404e-08, -0.465, 5.99488e-09, 0.133125, -9.32651e-09, 0.445536, -0.445536, 5.21533e-08, 0.133125, -0.376053, -1.2978, 3.52205)
+texture_albedo = ExtResource("11_ywl6c")
+
+[node name="IBOX_1x7" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.5, 2, -3.5)
+material_override = SubResource("StandardMaterial3D_gms15")
+use_collision = true
+size = Vector3(1, 4, 5)
+material = null
+
+[node name="IBOX_1x8" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, 2, -5.5)
+material_override = SubResource("StandardMaterial3D_lmj7i")
+use_collision = true
+size = Vector3(1, 4, 4)
+material = null
+
+[node name="IBOX_1x9" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.5, 2, -8)
+material_override = SubResource("StandardMaterial3D_qphev")
+use_collision = true
+size = Vector3(1, 4, 4)
+material = null
+
+[node name="BOX_2x3" parent="." instance=ExtResource("12_cut48")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17, 2, 11.5)
+material_override = SubResource("StandardMaterial3D_qasiw")
+use_collision = true
+
+[node name="CSGBox3D" parent="." instance=ExtResource("13_nebcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 2, 17)
+use_collision = true
+
+[node name="CSGBox3D17" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.5, 2, 6)
+use_collision = true
+
+[node name="IBOX_1x10" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 2, 14.5)
+material_override = SubResource("StandardMaterial3D_7kn58")
+use_collision = true
+size = Vector3(1, 4, 4)
+material = null
+
+[node name="Decal" type="Decal" parent="IBOX_1x10"]
+transform = Transform3D(6.83136e-08, -0.59, 7.82835e-08, -0.518448, -2.26621e-08, 0.281623, -0.281623, -1.01398e-07, -0.518448, 0.532176, -0.958344, 0.0139879)
+texture_albedo = ExtResource("11_ywl6c")
+
+[node name="LBOX_2x3" parent="." instance=ExtResource("15_wxcts")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -13, 2, 14.5)
+use_collision = true
+
+[node name="CSGBox3D18" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 13.5)
+use_collision = true
+
+[node name="CSGBox3D19" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 17.5)
+use_collision = true
+
+[node name="IBOX_1x2" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, 14.5)
+material_override = SubResource("StandardMaterial3D_togg8")
+use_collision = true
+material = null
+
+[node name="LBOX_3x5_invert" parent="." instance=ExtResource("16_tm2aq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 2, 10)
+use_collision = true
+
+[node name="LBOX_3x6" parent="." instance=ExtResource("17_ikrms")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.5, 2, 10)
+snap = 0.25
+use_collision = true
+
+[node name="LBOX_3x7" parent="." instance=ExtResource("17_ikrms")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.5, 2, 8)
+snap = 0.25
+use_collision = true
+
+[node name="Decal" type="Decal" parent="LBOX_3x7"]
+transform = Transform3D(7.36023e-09, -0.515, -1.37145e-08, -0.0908271, -1.47976e-08, 0.506927, -0.506927, -4.82613e-09, -0.0908271, -2.07733, -1.22096, 0.0437357)
+texture_albedo = ExtResource("10_ybhed")
+
+[node name="LBOX_2x4" parent="." instance=ExtResource("15_wxcts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 17.5)
+use_collision = true
+
+[node name="IBOX_1x3" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2, 9.5)
+material_override = SubResource("StandardMaterial3D_grvgo")
+use_collision = true
+material = null
+
+[node name="IBOX_1x4" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, 9.5)
+material_override = SubResource("StandardMaterial3D_xa6w5")
+use_collision = true
+material = null
+
+[node name="IBOX_1x11" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 2, 6.5)
+material_override = SubResource("StandardMaterial3D_0mhrx")
+snap = 0.125
+use_collision = true
+size = Vector3(1, 4, 8)
+material = null
+
+[node name="IBOX_1x12" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, -4.37114e-08, 8.74228e-08, -4.37114e-08, -1, -0.5, 2, 14)
+material_override = SubResource("StandardMaterial3D_ki0gg")
+snap = 0.125
+use_collision = true
+size = Vector3(1, 4, 8)
+material = null
+
+[node name="BOX_2x4" parent="." instance=ExtResource("12_cut48")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 17.5)
+material_override = SubResource("StandardMaterial3D_e7pu1")
+use_collision = true
+size = Vector3(5, 4, 1)
+
+[node name="IBOX_1x5" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, 14.5)
+material_override = SubResource("StandardMaterial3D_g6s07")
+use_collision = true
+material = null
+
+[node name="IBOX_1x13" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2, 16.5)
+material_override = SubResource("StandardMaterial3D_3vqh6")
+use_collision = true
+material = null
+
+[node name="IBOX_1x14" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 2, 13.5)
+material_override = SubResource("StandardMaterial3D_c5qp0")
+use_collision = true
+material = null
+
+[node name="IBOX_1x15" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 2, 17)
+material_override = SubResource("StandardMaterial3D_yxpy3")
+use_collision = true
+size = Vector3(1, 4, 2)
+material = null
+
+[node name="BOX_2x5" parent="." instance=ExtResource("12_cut48")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 2, 10.5)
+material_override = SubResource("StandardMaterial3D_pdstl")
+use_collision = true
+
+[node name="IBOX_1x16" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 2, 9.5)
+material_override = SubResource("StandardMaterial3D_0aika")
+use_collision = true
+size = Vector3(1, 4, 4)
+material = null
+
+[node name="Decal" type="Decal" parent="IBOX_1x16"]
+transform = Transform3D(-3.11239e-08, -0.5, -7.84616e-08, -0.498152, 3.7749e-08, -0.0429519, 0.0429519, 7.54979e-08, -0.498152, 0.395586, -1.20559, 0)
+texture_albedo = ExtResource("10_ybhed")
+
+[node name="BOX_2x6" parent="." instance=ExtResource("12_cut48")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 2, 7.5)
+material_override = SubResource("StandardMaterial3D_h71li")
+use_collision = true
+size = Vector3(1, 4, 2)
+
+[node name="IBOX_1x17" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 2, 6.5)
+material_override = SubResource("StandardMaterial3D_bbehj")
+use_collision = true
+size = Vector3(1, 4, 4)
+material = null
+
+[node name="BOX_2x7" parent="." instance=ExtResource("12_cut48")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.5, 2, 14)
+material_override = SubResource("StandardMaterial3D_3rexy")
+use_collision = true
+size = Vector3(4, 4, 3)
+
+[node name="BOX_2x8" parent="." instance=ExtResource("12_cut48")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.5, 2, 9)
+material_override = SubResource("StandardMaterial3D_mqpv8")
+use_collision = true
+size = Vector3(6, 4, 3)
+
+[node name="Decal" type="Decal" parent="BOX_2x8"]
+transform = Transform3D(0.41, 0, 0, 0, -1.79217e-08, -0.41, 0, 0.41, -1.79217e-08, 2.51289, -1.23272, -1.38487)
+texture_albedo = ExtResource("19_up4uq")
+
+[node name="CSGBox3D5" parent="." instance=ExtResource("15_wxcts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 6.5)
+use_collision = true
+
+[node name="Decal" type="Decal" parent="CSGBox3D5"]
+transform = Transform3D(-2.40413e-08, -0.55, 0, -2.40413e-08, 1.05088e-15, -0.55, 0.55, -2.40413e-08, -2.40413e-08, 0, -1.14118, -1.62825)
+texture_albedo = ExtResource("19_up4uq")
+
+[node name="Decal2" type="Decal" parent="CSGBox3D5"]
+transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, -1.26509, -1.76992)
+texture_albedo = ExtResource("11_ywl6c")
+
+[node name="CSGBox3D2" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 1.5)
+use_collision = true
+
+[node name="Decal" type="Decal" parent="CSGBox3D2"]
+transform = Transform3D(-1.70474e-08, -0.39, 1.70474e-08, 0, -1.70474e-08, -0.39, 0.39, -1.70474e-08, 7.45167e-16, -0.897274, -1.36052, -2.00524)
+texture_albedo = ExtResource("19_up4uq")
+
+[node name="CSGBox3D3" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 3.5)
+use_collision = true
+
+[node name="CSGBox3D4" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.5, 2, 0)
+use_collision = true
+
+[node name="IBOX_1x18" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 3.5)
+material_override = SubResource("StandardMaterial3D_s55xk")
+use_collision = true
+material = null
+
+[node name="IBOX_1x19" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, -0.5)
+material_override = SubResource("StandardMaterial3D_22n76")
+use_collision = true
+material = null
+
+[node name="CSGBox3D6" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 2, 1.5)
+use_collision = true
+
+[node name="CSGBox3D7" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 3.5)
+use_collision = true
+
+[node name="CSGBox3D8" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 2, 0)
+use_collision = true
+
+[node name="Decal" type="Decal" parent="CSGBox3D8"]
+transform = Transform3D(-0.098435, 4.69822e-09, -0.530953, -0.530953, 2.75114e-08, 0.098435, 2.79069e-08, 0.54, -3.95472e-10, 0.687826, -0.784071, -0.48815)
+texture_albedo = ExtResource("10_ybhed")
+
+[node name="IBOX_1x20" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, 3.5)
+material_override = SubResource("StandardMaterial3D_de6sx")
+use_collision = true
+material = null
+
+[node name="IBOX_1x21" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2, -0.5)
+material_override = SubResource("StandardMaterial3D_ejkfe")
+use_collision = true
+material = null
+
+[node name="IBOX_1x22" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, 2)
+material_override = SubResource("StandardMaterial3D_k7ih4")
+use_collision = true
+size = Vector3(1, 4, 2)
+material = null
+
+[node name="CSGBox3D9" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, -1.5)
+use_collision = true
+
+[node name="LBOX_2x5" parent="." instance=ExtResource("15_wxcts")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 2, 0)
+use_collision = true
+
+[node name="LBOX_2x7" parent="." instance=ExtResource("15_wxcts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -1.5)
+use_collision = true
+
+[node name="Decal" type="Decal" parent="LBOX_2x7"]
+transform = Transform3D(-1.5299e-08, -0.35, 1.5299e-08, 0, -1.5299e-08, -0.35, 0.35, -1.5299e-08, 6.6874e-16, 0.802273, -1.33075, -2.02092)
+texture_albedo = ExtResource("19_up4uq")
+
+[node name="Decal2" type="Decal" parent="LBOX_2x7"]
+transform = Transform3D(-2.95117e-08, -0.61, 5.06974e-08, 0.196108, -5.74937e-08, -0.577617, 0.577617, -1.16463e-08, 0.196108, 1.02467, -0.956519, -0.432724)
+texture_albedo = ExtResource("20_j6wib")
+
+[node name="LBOX_2x6" parent="." instance=ExtResource("15_wxcts")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7.5, 2, 3)
+use_collision = true
+
+[node name="IBOX_1x23" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2, -2.5)
+material_override = SubResource("StandardMaterial3D_f0nbt")
+use_collision = true
+size = Vector3(1, 4, 3)
+material = null
+
+[node name="CSGBox3D10" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.5, 2, 2)
+use_collision = true
+
+[node name="BOX_2x9" parent="." instance=ExtResource("12_cut48")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2, 4)
+material_override = SubResource("StandardMaterial3D_cqqqk")
+use_collision = true
+
+[node name="BOX_2x10" parent="." instance=ExtResource("12_cut48")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17, 2, -0.5)
+material_override = SubResource("StandardMaterial3D_i60m3")
+use_collision = true
+
+[node name="LBOX_2x8" parent="." instance=ExtResource("15_wxcts")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.5, 2, 4)
+use_collision = true
+
+[node name="BOX_2x11" parent="." instance=ExtResource("12_cut48")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 2, -4.5)
+material_override = SubResource("StandardMaterial3D_8bb0w")
+use_collision = true
+size = Vector3(1, 4, 2)
+
+[node name="CSGBox3D11" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 16, 2, -8.5)
+use_collision = true
+
+[node name="LBOX_2x9" parent="." instance=ExtResource("15_wxcts")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.5, 2, -8)
+use_collision = true
+
+[node name="IBOX_1x24" parent="." instance=ExtResource("8_wghfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, -8.5)
+material_override = SubResource("StandardMaterial3D_eywt2")
+use_collision = true
+material = null
+
+[node name="BOX_2x12" parent="." instance=ExtResource("12_cut48")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2, -9)
+material_override = SubResource("StandardMaterial3D_qup60")
+use_collision = true
+
+[node name="IBOX_1x25" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -7.5)
+material_override = SubResource("StandardMaterial3D_deo8f")
+use_collision = true
+size = Vector3(1, 4, 3)
+material = null
+
+[node name="CSGBox3D12" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.5, 2, -6.5)
+use_collision = true
+
+[node name="IBOX_1x26" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 2, -6.5)
+material_override = SubResource("StandardMaterial3D_gtngv")
+use_collision = true
+material = null
+
+[node name="IBOX_1x27" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, 0.5)
+material_override = SubResource("StandardMaterial3D_3t6yt")
+use_collision = true
+size = Vector3(1, 4, 7)
+material = null
+
+[node name="IBOX_1x28" parent="." instance=ExtResource("9_f8k1b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 2, -3.5)
+material_override = SubResource("StandardMaterial3D_6flgn")
+use_collision = true
+size = Vector3(1, 4, 14)
+material = null
+
+[node name="LBOX_2x10" parent="." instance=ExtResource("15_wxcts")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 2, -6.5)
+use_collision = true
+
+[node name="CSGBox3D13" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.5, 2, 0)
+use_collision = true
+
+[node name="CSGBox3D14" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 2, 3.5)
+use_collision = true
+
+[node name="CSGBox3D15" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.5, 2, 3)
+use_collision = true
+
+[node name="CSGBox3D16" parent="." instance=ExtResource("14_inbjx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 2, -0.5)
+use_collision = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 5, -5.5)
+light_energy = 2.293
+omni_range = 7.5
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 5, 2)
+light_energy = 2.293
+omni_range = 7.5
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16, 5, -7.5)
+light_energy = 2.293
+omni_range = 7.5
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 5, -4.5)
+light_energy = 2.293
+omni_range = 7.5
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.5, 4.5, 3)
+light_energy = 2.293
+omni_range = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 5, 4.5)
+light_energy = 2.293
+omni_range = 7.5
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.5, 4.5, 12.5)
+light_energy = 3.586
+omni_range = 7.5
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12, 5, 7.5)
+light_energy = 2.293
+omni_range = 7.5
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 5, 14.5)
+light_energy = 2.293
+omni_range = 7.5
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.5, 5, 10.5)
+light_energy = 2.293
+omni_range = 8.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10, 5, -5)
+light_energy = 2.293
+omni_range = 7.5
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(0.655, 0, 0, 0, -2.8631e-08, -0.655, 0, 0.655, -2.8631e-08, -16.5267, 0.663869, -10.1895)
+texture_albedo = ExtResource("21_dbatu")
+upper_fade = 0.0
+
+[node name="Decal2" type="Decal" parent="."]
+transform = Transform3D(-0.615, -5.3765e-08, 2.35014e-15, 0, -2.68825e-08, -0.615, 5.3765e-08, -0.615, 2.68825e-08, 16.0956, 1.07235, -8.77372)
+texture_albedo = ExtResource("22_ugma6")

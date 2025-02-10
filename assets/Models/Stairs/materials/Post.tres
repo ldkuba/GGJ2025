@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dkegwfke5slm7"]
+
+[ext_resource type="Texture2D" uid="uid://bqvsmao2rwtn2" path="res://assets/Models/Stairs/textures/Stairs_Post_BaseColor.PNG" id="1_v6bhc"]
+[ext_resource type="Texture2D" uid="uid://ctw2gcqh47jif" path="res://assets/Models/Stairs/textures/Stairs_Post_Height.PNG" id="2_dm0vr"]
+[ext_resource type="Texture2D" uid="uid://g2a4t65mppx3" path="res://assets/Models/Stairs/textures/Stairs_Post_AORoughnessMetal.PNG" id="3_ec6gd"]
+[ext_resource type="Texture2D" uid="uid://ibkpglddhqp2" path="res://assets/Models/Stairs/textures/Stairs_Post_Normal.PNG" id="4_e4b3k"]
+
+[resource]
+resource_name = "Post"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_texture = ExtResource("1_v6bhc")
+metallic = 1.0
+metallic_texture = ExtResource("3_ec6gd")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_ec6gd")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_e4b3k")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_dm0vr")
+heightmap_flip_texture = true
+texture_filter = 1

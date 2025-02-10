@@ -4,7 +4,7 @@ class_name PortalDoor
 @export var mesh: MeshInstance3D
 @export var camera: Camera3D
 @export var viewport: SubViewport
-@export var spawn_collider: Area3D
+@export var spawn_collider: ShapeCast3D
 @export var light: OmniLight3D
 
 @export var border_color: Color = Color(0, 0, 0, 1)
@@ -33,7 +33,8 @@ func _ready() -> void:
 	set_portal_active(_portal_active)
 
 func is_colliding() -> bool:
-	return spawn_collider.get_overlapping_bodies().size() > 0
+	spawn_collider.force_shapecast_update()
+	return spawn_collider.is_colliding()
 
 func _process(_delta: float) -> void:
 	mesh.set_instance_shader_parameter("border_color", border_color)

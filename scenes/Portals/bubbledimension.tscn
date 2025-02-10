@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=3 uid="uid://c5anl3ddg0pjb"]
+
+[ext_resource type="Environment" uid="uid://c6d12yarira68" path="res://scenes/Portals/BubbleEnv.tres" id="1_2c5lq"]
+[ext_resource type="Script" path="res://scripts/bubbledimension.gd" id="1_ayy2c"]
+[ext_resource type="PackedScene" uid="uid://hkrutug6uvr2" path="res://scenes/Portals/portal.tscn" id="1_m7ix4"]
+[ext_resource type="PackedScene" uid="uid://ddh27eydja0nk" path="res://scenes/Portals/portal_door.tscn" id="2_thv6e"]
+[ext_resource type="CameraAttributesPractical" uid="uid://c1elqmtog451u" path="res://scenes/Portals/BubbleCameraAttribs.tres" id="3_sd3yo"]
+[ext_resource type="Texture2D" uid="uid://dyywygux2qo5" path="res://assets/BubbleRoom.png" id="4_bhvc2"]
+[ext_resource type="Texture2D" uid="uid://n5effibyyc1t" path="res://assets/BubbleTexture.png" id="5_8v8i7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxhwp"]
+albedo_color = Color(0.682955, 0.783533, 0.996614, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6aqh"]
+albedo_texture = ExtResource("4_bhvc2")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bhyq"]
+albedo_texture = ExtResource("4_bhvc2")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y221s"]
+albedo_texture = ExtResource("5_8v8i7")
+uv1_scale = Vector3(0.215, 0.215, 0.215)
+uv1_offset = Vector3(0.48, 0.17, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_of5ry"]
+albedo_texture = ExtResource("5_8v8i7")
+uv1_scale = Vector3(0.515, 0.515, 0.515)
+uv1_offset = Vector3(0.25, 0.215, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gduub"]
+size = Vector3(8.45508, 8.89795, 19.1372)
+
+[node name="Bubbledimension" type="Node3D" node_paths=PackedStringArray("portals")]
+script = ExtResource("1_ayy2c")
+portals = [NodePath("Portal1"), NodePath("Portal2")]
+bubble_env = ExtResource("1_2c5lq")
+bubble_camera_attributes = ExtResource("3_sd3yo")
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_lxhwp")
+use_collision = true
+size = Vector3(6, 1, 18)
+
+[node name="Ceiling" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+material_override = SubResource("StandardMaterial3D_lxhwp")
+size = Vector3(6, 1, 18)
+
+[node name="WallLeft" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, 0)
+material_override = SubResource("StandardMaterial3D_g6aqh")
+use_collision = true
+size = Vector3(1, 4, 18)
+
+[node name="WallRight" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 0)
+material_override = SubResource("StandardMaterial3D_8bhyq")
+use_collision = true
+size = Vector3(1, 4, 18)
+
+[node name="WallTop" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8.5)
+material_override = SubResource("StandardMaterial3D_y221s")
+use_collision = true
+size = Vector3(4, 4, 1)
+
+[node name="WallBottom" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8.5)
+material_override = SubResource("StandardMaterial3D_of5ry")
+use_collision = true
+size = Vector3(4, 4, 1)
+
+[node name="Portal1" parent="." node_paths=PackedStringArray("portal1", "portal2") instance=ExtResource("1_m7ix4")]
+portal1 = NodePath("PortalDoorBubble")
+portal2 = NodePath("PortalDoorWorld")
+
+[node name="PortalDoorBubble" parent="Portal1" instance=ExtResource("2_thv6e")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 7)
+border_color = Color(0.214452, 0.453985, 3.85046e-07, 1)
+border_size = 0.15
+
+[node name="PortalDoorWorld" parent="Portal1" instance=ExtResource("2_thv6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+border_color = Color(0.594492, 0.162594, 1.44392e-07, 1)
+border_size = 0.15
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("portal1", "portal2") instance=ExtResource("1_m7ix4")]
+portal1 = NodePath("PortalDoorBubble")
+portal2 = NodePath("PortalDoorWorld")
+
+[node name="PortalDoorBubble" parent="Portal2" instance=ExtResource("2_thv6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+border_color = Color(0.214452, 0.453985, 3.85046e-07, 1)
+border_size = 0.15
+
+[node name="PortalDoorWorld" parent="Portal2" instance=ExtResource("2_thv6e")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7)
+border_color = Color(0.594492, 0.162594, 1.44392e-07, 1)
+border_size = 0.15
+
+[node name="EnterDetection" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnterDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83667, -0.140015)
+shape = SubResource("BoxShape3D_gduub")
+
+[connection signal="body_entered" from="EnterDetection" to="." method="_on_enter_detection_body_entered"]
+[connection signal="body_exited" from="EnterDetection" to="." method="_on_enter_detection_body_exited"]

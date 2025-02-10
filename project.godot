@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Whispers of Saints: Bathhouse"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/LevelGJJ/LevelGJJ.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/logo.png"
 

@@ -90,6 +90,7 @@ func _ready() -> void:
 	Input.set_use_accumulated_input(false)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	home_location = global_transform
+	print("Home location is: ", home_location)
 	died.connect(_on_died)
 
 	map = find_child("Map", true, false) as Map
@@ -148,6 +149,7 @@ func _unhandled_input(event: InputEvent)->void:
 			if map.map_visible:
 				map.close_map()
 			global_transform = home_location
+			print("Returning to home location(unstuck): ", home_location)
 		return
 
 	if event is InputEventMouseMotion:
@@ -287,6 +289,7 @@ func _on_died() -> void:
 	await tw.finished
 	health = max_health
 	global_transform = home_location
+	print("Returning to home location(death): ", home_location)
 	
 	death_screen.modulate.a = 0.0
 	get_tree().paused = true
